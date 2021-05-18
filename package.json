@@ -1,0 +1,25 @@
+{
+  "name": "last-icon",
+  "version": "1.0.0",
+  "description": "One custom icon element to rule them all",
+  "main": "last-icon.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lekoala/last-icon"
+  },
+  "keywords": [
+    "DOM",
+    "icons",
+    "icon",
+    "custom",
+    "element",
+    "component",
+    "es6"
+  ],
+  "author": "LeKoala",
+  "license": "MIT"
+}
