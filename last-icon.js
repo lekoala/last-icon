@@ -1,4 +1,5 @@
 const CACHE = {};
+const FIX_FILL = ['material', 'boxicons', 'fontawesome'];
 const ALIASES = Object.assign(
   {
     bs: "bootstrap",
@@ -139,6 +140,9 @@ class LastIcon extends HTMLElement {
         .then((iconData) => {
           if (this.stroke) {
             iconData = iconData.replace(/stroke-width="([0-9]*)"/, 'stroke-width="' + this.stroke + '"');
+          }
+          if(FIX_FILL.indexOf(this.set) !== -1) {
+            iconData = iconData.replace(/(<svg.*?)>/,'$1 fill="currentColor">');
           }
           this.innerHTML = iconData;
         })
