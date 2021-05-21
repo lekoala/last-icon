@@ -135,6 +135,68 @@ window.LastIconPreload["material-account_box-twotone"] = LastIconPreloader("http
 
 Thanks to the debug flag, it's easy to find the cache key and the matching url.
 
+## Using fonts
+
+If you find yourself preloading a lot of stuff... it might actually be easier to use the icon font instead. Indeed, it
+is fully cached by the browser and will not have any display glitch. Obviously, the downside is that you have
+to load the whole font, but it's cached after the first load. The advantage of using LastIcon over regular icons
+is that is allows you to switch easily between one way or the other.
+
+First of all, load your fonts
+
+```html
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet">
+```
+
+And after that, use the font config to tell Last Icon to use the font over the svg icons
+
+```js
+window.LastIcon = {
+    debug: true,
+    types: {
+        material: "twotone",
+    },
+    fonts: ["material"]
+};
+```
+
+And then, update your styles:
+
+```css
+l-i {
+    --size: 1em;
+    display: inline-flex;
+    width: var(--size);
+    height: var(--size);
+    vertical-align: middle;
+
+    svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    i {
+        font-size: var(--size) !important;
+        color: currentColor;
+    }
+}
+p,
+button,
+a,
+span {
+    l-i {
+        vertical-align: -0.125em;
+    }
+}
+
+.material-icons-two-tone {
+    background-color: currentColor;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+```
+
 ## Demo
 
 See demo.html or the following pen https://codepen.io/lekoalabe/pen/eYvdjqY
