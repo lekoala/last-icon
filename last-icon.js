@@ -12,6 +12,7 @@ const ALIASES = Object.assign(
     mi: "material",
     em: "emojicc",
     fl: "flags",
+    in: "iconoir",
   },
   (window.LastIcon && window.LastIcon.aliases) || {}
 );
@@ -52,6 +53,7 @@ const PATHS = Object.assign(
     // type : 4x3 or 1x1
     flags: "https://cdn.jsdelivr.net/npm/flag-svg-collection@1.1.0/flags/{type}/{icon}.svg",
     emojicc: "https://cdn.jsdelivr.net/npm/emoji-cc@1.0.1/svg/{icon}.svg",
+    iconoir: "https://cdn.jsdelivr.net/gh/lucaburgio/iconoir/icons/{icon}.svg"
   },
   (window.LastIcon && window.LastIcon.paths) || {}
 );

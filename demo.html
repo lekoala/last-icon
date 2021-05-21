@@ -1,142 +1,203 @@
-<script type="module" src="https://cdn.jsdelivr.net/npm/last-icon@1.0.0/last-icon.js"></script>
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Last Icon Demo</title>
+    <script>
+      // You can tweak settings by changing global variable
+      window.LastIcon = {
+        // paths: {
+        //   bootstrap: "./vendor/bootstrap",
+        // },
+        types: {
+          boxicons: "regular",
+        },
+        defaultSet: "tabler",
+        // defaultStroke: 1,
+      };
+    </script>
+    <script type="module" src="./last-icon.js"></script>
+    <style type="text/css">
+      /* Recommended default styles */
+      l-i {
+        --size: 1em;
+        display: inline-flex;
+        width: var(--size);
+        height: var(--size);
+        vertical-align: middle;
+      }
+      l-i svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      p l-i,
+      button l-i,
+      a l-i,
+      span l-i {
+        vertical-align: -0.125em;
+      }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Last Icon</h1>
+      <p><em>One custom icon element to rule them all</em></p>
+    </header>
+    <main>
+      <h2>Basic usage</h2>
+      <p>Simply use <code>&lt;l-i&gt;&lt;/l-i&gt;</code></p>
+      <h2>Default icons</h2>
+      <p>Set the name with <code>name="your-icon"</code></p>
+      <l-i name="star"></l-i>
+      <button><l-i name="star"></l-i> My button</button>
+      <p>Icons are using <code>vertical-align:middle</code> by default and a <code>vertical-align:0.125em</code> offset when contained in a <code>p</code>, <code>button</code>, <code>a</code> or <code>span</code></p>
+      <h2>
+        Bootstrap Icons
+        <a href="https://icons.getbootstrap.com/" target="_blank">
+          <l-i name="external-link"></l-i>
+        </a>
+      </h2>
+      <p>Use <code>set="bootstrap"</code> or <code>set="bs"</code></p>
+      <l-i name="star" set="bootstrap"></l-i>
+      <l-i name="github" set="bs" style="--size: 24px"></l-i>
+      <l-i name="alarm-fill" set="bs" style="--size: 36px; color: red"></l-i>
+      <button><l-i name="github" set="bs"></l-i> Github</button>
+      <h2>
+        Box Icons
+        <a href="https://boxicons.com/" target="_blank">
+          <l-i name="external-link"></l-i>
+        </a>
+      </h2>
+      <p>Use <code>set="boxicons"</code> or <code>set="bx"</code></p>
+      <l-i name="star" set="bx"></l-i>
+      <p>You can specify the following types: <code>solid</code>, <code>regular</code>, <code>logos</code></p>
+      <l-i name="star" set="bx" type="solid"></l-i>
+      <l-i name="star" set="bx" type="regular"></l-i>
+      <l-i name="github" set="bx" type="logos"></l-i>
+      <button><l-i name="github" set="bx" type="logos"></l-i> Github</button>
+      <h2>
+        Tabler Icons
+        <a href="https://tablericons.com/" target="_blank">
+          <l-i name="external-link"></l-i>
+        </a>
+      </h2>
+      <p>Use <code>set="tabler"</code> or <code>set="tb"</code></p>
+      <p><strong>This is the default set!</strong></p>
+      <l-i name="star" set="tb"></l-i>
+      <l-i name="rotate" set="tb"></l-i>
+      <l-i name="zodiac-pisces" set="tb"></l-i>
+      <button><l-i name="star" set="tb"></l-i> Github</button>
+      <p>You can also set various widths using <code>stroke</code> attribute ! It can also be set globally with <code>defaultStroke</code>.</p>
+      <l-i name="star" set="tb" stroke="1"></l-i>
+      <l-i name="star" set="tb" stroke="2"></l-i>
+      <l-i name="star" set="tb" stroke="3"></l-i>
+      <h2>
+        Materials Icons
+        <a href="https://fonts.google.com/icons?selected=Material+Icons" target="_blank">
+          <l-i name="external-link"></l-i>
+        </a>
+      </h2>
+      <p>Use <code>set="material"</code> or <code>set="mi"</code></p>
+      <l-i name="star" set="mi"></l-i>
+      <l-i name="home" set="mi"></l-i>
+      <button><l-i name="star" set="mi"></l-i> Github</button>
+      <button><l-i name="star" set="mi" type="twotone"></l-i> Github</button>
+      <p>You can specify the following types: <code>baseline</code>, <code>outline</code>, <code>round</code>, <code>sharp</code>, <code>twotone</code></p>
+      <l-i name="home" set="mi" type="baseline"></l-i>
+      <l-i name="home" set="mi" type="outline"></l-i>
+      <l-i name="home" set="mi" type="round"></l-i>
+      <l-i name="home" set="mi" type="sharp"></l-i>
+      <l-i name="home" set="mi" type="twotone"></l-i>
+      <h2>
+        Css.gg Icons
+        <a href="https://css.gg/" target="_blank">
+          <l-i name="external-link"></l-i>
+        </a>
+      </h2>
+      <p>Use <code>set="cssgg"</code> or <code>set="cs"</code>or <code>set="gg"</code></p>
+      <l-i name="add" set="gg"></l-i>
+      <l-i name="alarm" set="gg"></l-i>
+      <button><l-i name="alarm" set="gg"></l-i> Github</button>
+      <h2>
+        Font Awesome Icons
+        <a href="https://fontawesome.com/cheatsheet" target="_blank">
+          <l-i name="external-link"></l-i>
+        </a>
+      </h2>
+      <p>Use <code>set="fontawesome"</code> or <code>set="fa"</code></p>
+      <l-i name="star" set="fa"></l-i>
+      <button><l-i name="star" set="fa"></l-i> Github</button>
+      <h2>
+        Super Tiny Icons
+        <a href="https://github.com/edent/SuperTinyIcons" target="_blank">
+          <l-i name="external-link"></l-i>
+        </a>
+      </h2>
+      <p>Use <code>set="supertiny"</code> or <code>set="st"</code></p>
+      <p>Super useful if you need the social icons with proper colors 👌</p>
+      <l-i name="youtube" set="st"></l-i>
+      <l-i name="twitter" set="st"></l-i>
+      <h2>
+        Flags Icons
+        <a href="https://github.com/ducin/flag-svg-collection/" target="_blank">
+          <l-i name="external-link"></l-i>
+        </a>
+      </h2>
+      <p>Use <code>set="flags"</code> or <code>set="fl"</code></p>
+      <l-i name="be" set="fl"></l-i>
+      <l-i name="fr" set="fl"></l-i>
 
-<header>
-  <h1>Last Icon</h1>
-  <p><em>One custom icon element to rule them all</em></p>
-</header>
-<main>
-  <h2>Basic usage</h2>
-  <p>Simply use <code>&lt;l-i&gt;&lt;/l-i&gt;</code></p>
-  <h2>Default icons</h2>
-  <p>Set the name with <code>name="your-icon"</code></p>
-  <l-i name="star"></l-i>
-  <button>
-    <l-i name="star"></l-i> My button
-  </button>
-  <p>Icons are using <code>vertical-align:middle</code> by default and a <code>vertical-align:0.125em</code> offset when contained in a <code>p</code>, <code>button</code>, <code>a</code> or <code>span</code></p>
-  <h2>
-    Bootstrap Icons <a href="https://icons.getbootstrap.com/" target="_blank">
-      <l-i name="external-link"></l-i>
-    </a>
-  </h2>
-  <p>Use <code>set="bootstrap"</code> or <code>set="bs"</code></p>
-  <l-i name="star" set="bootstrap"></l-i>
-  <l-i name="github" set="bs" style="--size: 24px"></l-i>
-  <l-i name="alarm-fill" set="bs" style="--size: 36px; color: red"></l-i>
-  <button>
-    <l-i name="github" set="bs"></l-i> Github
-  </button>
-  <h2>
-    Box Icons <a href="https://boxicons.com/" target="_blank">
-      <l-i name="external-link"></l-i>
-    </a>
-  </h2>
-  <p>Use <code>set="boxicons"</code> or <code>set="bx"</code></p>
-  <l-i name="star" set="bx"></l-i>
-  <p>You can specify the following types: <code>solid</code>, <code>regular</code>, <code>logos</code></p>
-  <l-i name="star" set="bx" type="solid"></l-i>
-  <l-i name="star" set="bx" type="regular"></l-i>
-  <l-i name="github" set="bx" type="logos"></l-i>
-  <button><l-i name="github" set="bx" type="logos"></l-i> Github</button>
-  <h2>
-    Tabler Icons <a href="https://tablericons.com/" target="_blank">
-      <l-i name="external-link"></l-i>
-    </a>
-  </h2>
-  <p>Use <code>set="tabler"</code> or <code>set="tb"</code></p>
-  <p><strong>This is the default set!</strong></p>
-  <l-i name="star" set="tb"></l-i>
-  <l-i name="rotate" set="tb"></l-i>
-  <l-i name="zodiac-pisces" set="tb"></l-i>
-  <button><l-i name="star" set="tb"></l-i> Github</button>
-  <p>You can also set various widths using <code>stroke</code> attribute ! It can also be set globally with <code>defaultStroke</code>.</p>
-  <l-i name="star" set="tb" stroke="1"></l-i>
-  <l-i name="star" set="tb" stroke="2"></l-i>
-  <l-i name="star" set="tb" stroke="3"></l-i>
-  <h2>
-    Materials Icons <a href="https://fonts.google.com/icons?selected=Material+Icons" target="_blank">
-      <l-i name="external-link"></l-i>
-    </a>
-  </h2>
-  <p>Use <code>set="material"</code> or <code>set="mi"</code></p>
-  <l-i name="star" set="mi"></l-i>
-  <l-i name="home" set="mi"></l-i>
-  <button><l-i name="star" set="mi"></l-i> Github</button>
-  <button><l-i name="star" set="mi" type="twotone"></l-i> Github</button>
-  <p>You can specify the following types: <code>baseline</code>, <code>outline</code>, <code>round</code>, <code>sharp</code>, <code>twotone</code></p>
-  <l-i name="home" set="mi" type="baseline"></l-i>
-  <l-i name="home" set="mi" type="outline"></l-i>
-  <l-i name="home" set="mi" type="round"></l-i>
-  <l-i name="home" set="mi" type="sharp"></l-i>
-  <l-i name="home" set="mi" type="twotone"></l-i>
-  <h2>
-    Css.gg Icons <a href="https://css.gg/" target="_blank">
-      <l-i name="external-link"></l-i>
-    </a>
-  </h2>
-  <p>Use <code>set="cssgg"</code> or <code>set="cs"</code>or <code>set="gg"</code></p>
-  <l-i name="add" set="gg"></l-i>
-  <l-i name="alarm" set="gg"></l-i>
-  <button><l-i name="alarm" set="gg"></l-i> Github</button>
-  <h2>
-    Font Awesome Icons <a href="https://fontawesome.com/cheatsheet" target="_blank">
-      <l-i name="external-link"></l-i>
-    </a>
-  </h2>
-  <p>Use <code>set="fontawesome"</code> or <code>set="fa"</code></p>
-  <l-i name="star" set="fa"></l-i>
-  <button><l-i name="star" set="fa"></l-i> Github</button>
-  <h2>
-    Super Tiny Icons <a href="https://github.com/edent/SuperTinyIcons" target="_blank">
-      <l-i name="external-link"></l-i>
-    </a>
-  </h2>
-  <p>Use <code>set="supertiny"</code> or <code>set="st"</code></p>
-  <p>Super useful if you need the social icons with proper colors 👌</p>
-  <l-i name="youtube" set="st"></l-i>
-  <l-i name="twitter" set="st"></l-i>
-  <h2>
-    Flags Icons <a href="https://github.com/ducin/flag-svg-collection/" target="_blank">
-      <l-i name="external-link"></l-i>
-    </a>
-  </h2>
-  <p>Use <code>set="flags"</code> or <code>set="fl"</code></p>
-  <l-i name="be" set="fl"></l-i>
-  <l-i name="fr" set="fl"></l-i>
-  <h2>
-    Emoji Icons <a href="https://github.com/buildbreakdo/emoji-cc/" target="_blank">
-      <l-i name="external-link"></l-i>
-    </a>
-  </h2>
-  <p>Use <code>set="emojicc"</code> or <code>set="em"</code></p>
-  <l-i name="smile" set="em"></l-i>
+      <h2>
+        Emoji Icons
+        <a href="https://github.com/buildbreakdo/emoji-cc/" target="_blank">
+          <l-i name="external-link"></l-i>
+        </a>
+      </h2>
+      <p>Use <code>set="emojicc"</code> or <code>set="em"</code></p>
+      <l-i name="smile" set="em"></l-i>
 
-  <h2>Invalid icons</h2>
-  <p>Invalid icons are logged to the console and display a warning emoji</p>
-  <l-i name="does-not-exist" set="em"></l-i>
+      <h2>
+        Iconoir
+        <a href="https://iconoir.com/" target="_blank">
+          <l-i name="external-link"></l-i>
+        </a>
+      </h2>
+      <p>Use <code>set="iconoir"</code> or <code>set="in"</code></p>
+      <l-i name="creative-commons" set="in"></l-i>
+      <l-i name="server" set="in"></l-i>
+      <button><l-i name="doc-star" set="in"></l-i> Star this document</button>
+      <h2>Invalid icons</h2>
+      <p>Invalid icons are logged to the console and display a warning emoji</p>
+      <l-i name="does-not-exist" set="em"></l-i>
 
-  <h2>Advanced usage</h2>
-  <h3>Host your own icons</h3>
-  <p>You can point any library to a local path or to another cdn using <code>paths</code>.</p>
-  <pre>
-        window.LastIcon = {
-          paths: {
-            bootstrap: "./vendor/bootstrap",
-          },
-        };
-      </pre>
-  <h3>Change other settings</h3>
-  <p>You can also configure the following settings: <code>aliases</code>, <code>types</code>, <code>prefixes</code>, <code>defaultSet</code></p>
-  <pre>
-        window.LastIcon = {
-          types: {
-            boxicons: "regular",
-          },
-          defaultSet: "boxicons",
-        };
-      </pre>
-</main>
-<footer>
-  <hr />
-  Made with <l-i name="heart" set="em"></l-i> in <l-i name="be" set="fl"></l-i> by <a href="https://www.lekoala.be">LeKoala</a>
-</footer>
+      <h2>Advanced usage</h2>
+      <h3>Host your own icons</h3>
+      <p>You can point any library to a local path or to another cdn using <code>paths</code>.</p>
+      <pre>
+            window.LastIcon = {
+              paths: {
+                bootstrap: "./vendor/bootstrap",
+              },
+            };
+          </pre
+      >
+      <h3>Change other settings</h3>
+      <p>You can also configure the following settings: <code>aliases</code>, <code>types</code>, <code>prefixes</code>, <code>defaultSet</code></p>
+      <pre>
+            window.LastIcon = {
+              types: {
+                boxicons: "regular",
+              },
+              defaultSet: "boxicons",
+            };
+          </pre
+      >
+    </main>
+    <footer>
+      <hr />
+      Made with <l-i name="heart" set="em"></l-i> in <l-i name="be" set="fl"></l-i> by <a href="https://www.lekoala.be">LeKoala</a>
+    </footer>
+  </body>
+</html>
