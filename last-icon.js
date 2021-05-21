@@ -1,5 +1,7 @@
 const CACHE = {};
-const FIX_FILL = ['material', 'boxicons', 'fontawesome'];
+const DEBUG = (window.LastIcon && window.LastIcon.debug) || false;
+const PRELOAD = window.LastIconPreload || {};
+const FIX_FILL = ["material", "boxicons", "fontawesome"];
 const ALIASES = Object.assign(
   {
     bs: "bootstrap",
@@ -64,6 +66,13 @@ class LastIcon extends HTMLElement {
     super();
   }
 
+  static log(message) {
+    if (!DEBUG) {
+      return;
+    }
+    console.log("[l-i] " + message);
+  }
+
   /**
    * @param {string} iconName
    * @param {string} iconSet
@@ -73,6 +82,14 @@ class LastIcon extends HTMLElement {
   static getIconSvg(iconName, iconSet, iconType) {
     let iconPrefix = (PREFIXES[iconSet] && PREFIXES[iconSet][iconType]) || null;
     let iconUrl = PATHS[iconSet];
+    let cacheKey = iconSet + "-" + iconName;
+    if (iconType) {
+      cacheKey += "-" + iconType;
+    }
+    if (PRELOAD[cacheKey]) {
+      LastIcon.log("Fetching " + cacheKey + " from preloaded cache");
+      return PRELOAD[cacheKey];
+    }
     if (!iconUrl) {
       return new Promise(() => {
         console.error(`Icon set ${iconSet} does not exists`);
@@ -89,19 +106,44 @@ class LastIcon extends HTMLElement {
     }
 
     // If we have it in cache
-    if (iconUrl && CACHE[iconUrl]) {
-      return CACHE[iconUrl];
+    if (iconUrl && CACHE[cacheKey]) {
+      LastIcon.log("Fetching " + cacheKey + " from cache");
+      return CACHE[cacheKey];
     }
 
     // Or resolve
-    CACHE[iconUrl] = fetch(iconUrl).then(function (response) {
+    LastIcon.log("Fetching " + cacheKey + " from url " + iconUrl);
+    CACHE[cacheKey] = fetch(iconUrl).then(function (response) {
       if (response.status === 200) {
         return response.text();
       } else {
         throw Error(response.status);
       }
     });
-    return CACHE[iconUrl];
+    return CACHE[cacheKey];
+  }
+
+  /**
+   * @param {object} inst
+   * @param {string} iconName
+   * @param {string} iconSet
+   * @param {string} iconType
+   */
+  static refreshIcon(inst, iconName, iconSet, iconType) {
+    LastIcon.getIconSvg(iconName, iconSet, iconType)
+      .then((iconData) => {
+        if (inst.stroke) {
+          iconData = iconData.replace(/stroke-width="([0-9]*)"/, 'stroke-width="' + inst.stroke + '"');
+        }
+        if (FIX_FILL.indexOf(inst.set) !== -1) {
+          iconData = iconData.replace(/(<svg.*?)>/, '$1 fill="currentColor">');
+        }
+        inst.innerHTML = iconData;
+      })
+      .catch((error) => {
+        inst.innerHTML = "⚠️";
+        console.error(`Failed to load icon ${iconName} (error ${error})`);
+      });
   }
 
   get type() {
@@ -135,29 +177,14 @@ class LastIcon extends HTMLElement {
 
     let set = this.set;
     let type = this.type;
-
     if (newVal) {
-      this.constructor
-        .getIconSvg(newVal, set, type)
-        .then((iconData) => {
-          if (this.stroke) {
-            iconData = iconData.replace(/stroke-width="([0-9]*)"/, 'stroke-width="' + this.stroke + '"');
-          }
-          if(FIX_FILL.indexOf(this.set) !== -1) {
-            iconData = iconData.replace(/(<svg.*?)>/,'$1 fill="currentColor">');
-          }
-          this.innerHTML = iconData;
-        })
-        .catch((error) => {
-          this.innerHTML = "⚠️";
-          console.error(`Failed to load icon ${newVal} (error ${error})`);
-        });
+      LastIcon.refreshIcon(this, newVal, set, type);
     }
   }
 
-  connectedCallback() {}
+  connectedCallback() {
+    // This is actually called AFTER attributeChangedCallback
+  }
 }
 
 customElements.define("l-i", LastIcon);
-
-export default LastIcon;

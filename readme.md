@@ -8,6 +8,16 @@
 Simply include the library
 
 ```html
+<script src="last-icon.js"></script>
+```
+
+NOTE: it is recommended to define this as early as possible so that all icons are resolved as soon
+as possible. Otherwise, you might see a delay before your icons are being displayed.
+Even when doing this, you might still see a very small delay as opposed as a font icon or an embedded svg.
+
+If you are fine with a little more delay, you can use this instead
+
+```html
 <script type="module" src="./last-icon.js"></script>
 ```
 
@@ -45,7 +55,8 @@ span l-i {
 }
 ```
 
-You can set a custom base path:
+You can set a custom base path and other options
+using window.LastIcon before including the library
 
 ```html
 <script>
@@ -54,6 +65,7 @@ You can set a custom base path:
     // paths: {
     //   bootstrap: "./vendor/bootstrap",
     // },
+    debug: true,
     types: {
       boxicons: "regular",
     },
@@ -94,6 +106,34 @@ A custom element css is not loaded until the component itself is loaded, which
 can lead to FOUC and things moving around as the icon appear.
 The solution I've found so far is to apply some global css rules than are known
 before the component is loaded.
+
+## Preloading icons
+
+Since icons are not fetched until the browser encounter the element, you might see
+a slight delay before the icon is displayed. The prevent that, you can
+preload your most commons icons using a script like this:
+
+```js
+window.LastIcon = {
+    debug: true,
+    types: {
+        material: "twotone",
+    },
+};
+function LastIconPreloader(iconUrl) {
+    return fetch(iconUrl).then(function (response) {
+        if (response.status === 200) {
+            return response.text();
+        } else {
+            throw Error(response.status);
+        }
+    });
+}
+window.LastIconPreload = {};
+window.LastIconPreload["material-account_box-twotone"] = LastIconPreloader("https://cdn.jsdelivr.net/npm/@material-icons/svg@1.0.10/svg/account_box/twotone.svg");
+```
+
+Thanks to the debug flag, it's easy to find the cache key and the matching url.
 
 ## Demo
 
