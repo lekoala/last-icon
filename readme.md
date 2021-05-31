@@ -90,6 +90,21 @@ using window.LastIcon before including the library
 - [eos](https://eos-icons.com/)
 - [feather](https://feathericons.com/)
 
+If you feel that any icon set should be added to the already expansive list,
+feel free to submit a PR. Otherwise, it's easy enough to add your own libraries:
+
+```js
+window.LastIcon = {
+  aliases: {
+    my: "myicons",
+  },
+  paths: {
+    myicons: "/path/to/the/{icon}.svg",
+  },
+  defaultSet: "myicons",
+};
+```
+
 ## Fill
 
 Some icon sets include a default fill="currentColor" and some don't. In order
@@ -117,19 +132,19 @@ preload your most commons icons using a script like this:
 
 ```js
 window.LastIcon = {
-    debug: true,
-    types: {
-        material: "twotone",
-    },
+  debug: true,
+  types: {
+    material: "twotone",
+  },
 };
 function LastIconPreloader(iconUrl) {
-    return fetch(iconUrl).then(function (response) {
-        if (response.status === 200) {
-            return response.text();
-        } else {
-            throw Error(response.status);
-        }
-    });
+  return fetch(iconUrl).then(function (response) {
+    if (response.status === 200) {
+      return response.text();
+    } else {
+      throw Error(response.status);
+    }
+  });
 }
 window.LastIconPreload = {};
 window.LastIconPreload["material-account_box-twotone"] = LastIconPreloader("https://cdn.jsdelivr.net/npm/@material-icons/svg@1.0.10/svg/account_box/twotone.svg");
@@ -147,19 +162,18 @@ is that is allows you to switch easily between one way or the other.
 First of all, load your fonts
 
 ```html
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet" />
 ```
 
 And after that, use the font config to tell Last Icon to use the font over the svg icons
 
 ```js
 window.LastIcon = {
-    debug: true,
-    types: {
-        material: "twotone",
-    },
-    fonts: ["material"]
+  debug: true,
+  types: {
+    material: "twotone",
+  },
+  fonts: ["material"],
 };
 ```
 
@@ -167,35 +181,35 @@ And then, update your styles:
 
 ```css
 l-i {
-    --size: 1em;
-    display: inline-flex;
-    width: var(--size);
-    height: var(--size);
-    vertical-align: middle;
+  --size: 1em;
+  display: inline-flex;
+  width: var(--size);
+  height: var(--size);
+  vertical-align: middle;
 
-    svg {
-        display: block;
-        width: 100%;
-        height: 100%;
-    }
-    i {
-        font-size: var(--size) !important;
-        color: currentColor;
-    }
+  svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  i {
+    font-size: var(--size) !important;
+    color: currentColor;
+  }
 }
 p,
 button,
 a,
 span {
-    l-i {
-        vertical-align: -0.125em;
-    }
+  l-i {
+    vertical-align: -0.125em;
+  }
 }
 
 .material-icons-two-tone {
-    background-color: currentColor;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background-color: currentColor;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 ```
 
