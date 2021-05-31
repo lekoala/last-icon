@@ -246,6 +246,10 @@ class LastIcon extends HTMLElement {
   attributeChangedCallback(attr, oldVal, newVal) {
     this.innerHTML = "";
 
+    if (this.getAttribute("size")) {
+      this.setAttribute("style", "--size: " + this.getAttribute("size") + "px");
+    }
+
     let set = this.set;
     let type = this.type;
     if (newVal) {

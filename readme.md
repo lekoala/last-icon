@@ -26,6 +26,7 @@ And call your icons!
 ```html
 <l-i name="star"></l-i>
 <l-i name="star" set="tb"></l-i>
+<l-i name="star" size="32" set="tb"></l-i>
 
 <l-i name="star" set="bx" type="solid"></l-i>
 <l-i name="star" set="bx" type="regular"></l-i>
@@ -77,18 +78,20 @@ using window.LastIcon before including the library
 
 ## Supported icon sets
 
-- [bootstrap](https://icons.getbootstrap.com/)
-- [boxicons](https://boxicons.com/)
-- [tabler](https://tablericons.com/)
-- [material](https://fonts.google.com/icons?selected=Material+Icons)
-- [cssgg](https://css.gg/)
-- [fontawesome](https://fontawesome.com/cheatsheet)
-- [supertiny](https://github.com/edent/SuperTinyIcons)
-- [flags](https://github.com/ducin/flag-svg-collection/)
-- [emojicc](https://github.com/buildbreakdo/emoji-cc/)
-- [iconoir](https://iconoir.com/)
-- [eos](https://eos-icons.com/)
-- [feather](https://feathericons.com/)
+|Icon Set          |Name       | Alias | Types |Stroke |Count |Website |
+|---               |---        |---    | ---   |---    |---   |---     |
+|Bootstrap Icons   |bootstrap  |bs     | 1     | x     |1300+ |[bootstrap](https://icons.getbootstrap.com/)
+|Boxicons          |boxicons   |bx     | 3     | x     |1500  |[boxicons](https://boxicons.com/)
+|Tabler Icons      |tabler     |tb     | 1     | v     |1280  |[tabler](https://tablericons.com/)
+|Materials Icons   |material   |mi     | 5     | x     |1100+ |[material](https://fonts.google.com/icons?selected=Material+Icons)
+|Css.gg            |cssgg      |gg     | 1     | x     |700+  |[cssgg](https://css.gg/)
+|Fontawesome       |fontawesome|fa     | 5     | x     |1609  |[fontawesome](https://fontawesome.com/cheatsheet)
+|Super Tiny Icons  |supertiny  |st     | 1     | x     |?     |[supertiny](https://github.com/edent/SuperTinyIcons)
+|Flags             |flags      |fl     | 1     | x     |?     |[flags](https://github.com/ducin/flag-svg-collection/)
+|Emoji             |emojicc    |em     | 1     | x     |?     |[emojicc](https://github.com/buildbreakdo/emoji-cc/)
+|Iconoir           |iconoir    |in     | 1     | x     |914   |[iconoir](https://iconoir.com/)
+|Eos Icons         |eos        |eo     | 3     | x     |1000+ |[eos](https://eos-icons.com/)
+|Feather Icons     |feather    |ft     | 3     | v     |286   |[feather](https://feathericons.com/)
 
 If you feel that any icon set should be added to the already expansive list,
 feel free to submit a PR. Otherwise, it's easy enough to add your own libraries:
