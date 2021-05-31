@@ -77,16 +77,18 @@ using window.LastIcon before including the library
 
 ## Supported icon sets
 
-- bootstrap
-- boxicons
-- cssgg
-- tabler
-- fontawesome
-- supertiny
-- material
-- emojicc
-- flags
-- iconoir
+- [bootstrap](https://icons.getbootstrap.com/)
+- [boxicons](https://boxicons.com/)
+- [tabler](https://tablericons.com/)
+- [material](https://fonts.google.com/icons?selected=Material+Icons)
+- [cssgg](https://css.gg/)
+- [fontawesome](https://fontawesome.com/cheatsheet)
+- [supertiny](https://github.com/edent/SuperTinyIcons)
+- [flags](https://github.com/ducin/flag-svg-collection/)
+- [emojicc](https://github.com/buildbreakdo/emoji-cc/)
+- [iconoir](https://iconoir.com/)
+- [eos](https://eos-icons.com/)
+- [feather](https://feathericons.com/)
 
 ## Fill
 
