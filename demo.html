@@ -17,27 +17,7 @@
       };
     </script>
     <script src="last-icon.js"></script>
-    <style type="text/css">
-      /* Recommended default styles */
-      l-i {
-        --size: 1em;
-        display: inline-flex;
-        width: var(--size);
-        height: var(--size);
-        vertical-align: middle;
-      }
-      l-i svg {
-        display: block;
-        width: 100%;
-        height: 100%;
-      }
-      p l-i,
-      button l-i,
-      a l-i,
-      span l-i {
-        vertical-align: -0.125em;
-      }
-    </style>
+    <link rel="stylesheet" href="last-icon.css"></link>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mvp.css@1.7.4/mvp.css" />
   </head>
   <body>
@@ -168,6 +148,22 @@
       <l-i name="creative-commons" set="in"></l-i>
       <l-i name="server" set="in"></l-i>
       <button><l-i name="doc-star" set="in"></l-i> Star this document</button>
+
+      <h2>
+        EOS
+        <a href="https://eos-icons.com/" target="_blank">
+          <l-i name="external-link"></l-i>
+        </a>
+      </h2>
+      <p>Use <code>set="eos"</code> or <code>set="eo"</code></p>
+      <p>You can specify the following types: <code>solid</code>, <code>outlined</code>, <code>animated</code></p>
+      <p><em>Note: we use an alternative provider as the original repository structure is not very consistent</em></p>
+      <l-i name="abstract" set="eo"></l-i>
+      <l-i name="abstract" set="eo" type="outlined"></l-i>
+      <l-i name="three_dots_loading" set="eo" type="animated"></l-i>
+      <l-i name="typing" set="eo" type="animated"></l-i>
+      <button><l-i name="add_task" set="eo"></l-i> Add task</button>
+
       <h2>Invalid icons</h2>
       <p>Invalid icons are logged to the console and display a warning emoji</p>
       <l-i name="does-not-exist" set="em"></l-i>

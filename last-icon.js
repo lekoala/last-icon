@@ -1,7 +1,7 @@
 const CACHE = {};
 const DEBUG = (window.LastIcon && window.LastIcon.debug) || false;
 const PRELOAD = window.LastIconPreload || {};
-const FIX_FILL = ["material", "boxicons", "fontawesome"];
+const FIX_FILL = ["material", "boxicons", "fontawesome", "eos"];
 const ALIASES = Object.assign(
   {
     bs: "bootstrap",
@@ -15,6 +15,7 @@ const ALIASES = Object.assign(
     em: "emojicc",
     fl: "flags",
     in: "iconoir",
+    eo: "eos",
   },
   (window.LastIcon && window.LastIcon.aliases) || {}
 );
@@ -39,6 +40,12 @@ const FONT_ICONS = {
   iconoir: {
     class: "iconoir-{icon}",
   },
+  eos: {
+    class: "eos-icons-{type}",
+    types: {
+      svg: "",
+    },
+  },
 };
 const TYPES = Object.assign(
   {
@@ -46,6 +53,7 @@ const TYPES = Object.assign(
     fontawesome: "solid",
     material: "baseline",
     flags: "4x3",
+    eos: "solid",
   },
   (window.LastIcon && window.LastIcon.types) || {}
 );
@@ -70,21 +78,23 @@ const DEFAULT_SET = (window.LastIcon && window.LastIcon.defaultSet) || "tabler";
 const DEFAULT_STROKE = (window.LastIcon && window.LastIcon.defaultStroke) || 2;
 const PATHS = Object.assign(
   {
-    bootstrap: "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/icons/{icon}.svg",
+    bootstrap: "https://cdn.jsdelivr.net/npm/bootstrap-icons@1/icons/{icon}.svg",
     // type: solid, regular, logos
-    boxicons: "https://cdn.jsdelivr.net/npm/boxicons@2.0.7/svg/{type}/{prefix}-{icon}.svg",
-    cssgg: "https://cdn.jsdelivr.net/npm/css.gg@2.0.0/icons/svg/{icon}.svg",
-    tabler: "https://cdn.jsdelivr.net/npm/@tabler/icons@1.41.2/icons/{icon}.svg",
+    boxicons: "https://cdn.jsdelivr.net/npm/boxicons@2/svg/{type}/{prefix}-{icon}.svg",
+    cssgg: "https://cdn.jsdelivr.net/npm/css.gg@2/icons/svg/{icon}.svg",
+    tabler: "https://cdn.jsdelivr.net/npm/@tabler/icons@1/icons/{icon}.svg",
     // type: solid, regular, brands, light, duotone
-    fontawesome: "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/svgs/{type}/{icon}.svg",
-    bytesize: "https://cdn.jsdelivr.net/npm/bytesize-icons@1.4.0/dist/icons/{icon}.svg",
+    fontawesome: "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/svgs/{type}/{icon}.svg",
+    bytesize: "https://cdn.jsdelivr.net/npm/bytesize-icons@1/dist/icons/{icon}.svg",
     supertiny: "https://cdn.jsdelivr.net/npm/super-tiny-icons@0.4.0/images/svg/{icon}.svg",
     // type: baseline, outline, round, sharp, twotone
-    material: "https://cdn.jsdelivr.net/npm/@material-icons/svg@1.0.10/svg/{icon}/{type}.svg",
+    material: "https://cdn.jsdelivr.net/npm/@material-icons/svg@1/svg/{icon}/{type}.svg",
     // type : 4x3 or 1x1
-    flags: "https://cdn.jsdelivr.net/npm/flag-svg-collection@1.1.0/flags/{type}/{icon}.svg",
-    emojicc: "https://cdn.jsdelivr.net/npm/emoji-cc@1.0.1/svg/{icon}.svg",
-    iconoir: "https://cdn.jsdelivr.net/gh/lucaburgio/iconoir/icons/{icon}.svg"
+    flags: "https://cdn.jsdelivr.net/npm/flag-svg-collection@1/flags/{type}/{icon}.svg",
+    emojicc: "https://cdn.jsdelivr.net/npm/emoji-cc@1/svg/{icon}.svg",
+    iconoir: "https://cdn.jsdelivr.net/gh/lucaburgio/iconoir/icons/{icon}.svg",
+    // type: solid, outlined, animated
+    eos: "https://cdn.jsdelivr.net/gh/lekoala/eos-icons-mirror/{type}/{icon}.svg",
   },
   (window.LastIcon && window.LastIcon.paths) || {}
 );
