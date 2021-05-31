@@ -17,19 +17,64 @@ l-i i {
   color: currentColor;
 }
 
-p l-i,
-button l-i,
-a l-i,
-span l-i {
+p l-i:not([size]),
+button l-i:not([size]),
+a l-i:not([size]),
+span l-i:not([size]) {
   vertical-align: -0.125em;
 }
 
+/* Material icon two tones for icon fonts */
 .material-icons-two-tone {
   background-color: currentColor;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* Icon park theming */
+l-i[theme=multi-color] path[fill="#2F88FF"] {
+  fill: var(--color);
+}
+l-i[theme=multi-color] path[fill="#43CCF8"] {
+  fill: var(--color-secondary);
+  stroke: var(--color-bg);
+}
+l-i[theme=multi-color] path[stroke=white] {
+  stroke: white;
+}
+l-i[theme=multi-color] path[stroke=black] {
+  stroke: #333;
+}
+
+l-i[theme=two-tone] path[fill="#2F88FF"] {
+  fill: var(--color);
+}
+l-i[theme=two-tone] path[fill="#43CCF8"] {
+  fill: var(--color);
+}
+l-i[theme=two-tone] path[stroke=white],
+l-i[theme=two-tone] path[stroke=black] {
+  stroke: #333;
+}
+
+l-i[theme=filled] path[fill] {
+  fill: currentColor;
+}
+l-i[theme=filled] path[stroke=black] {
+  stroke: white;
+}
+
+l-i[theme=outline] path[fill] {
+  fill: none;
+}
+l-i[theme=outline] path[stroke=black] {
+  stroke: currentColor;
+}
+l-i[theme=outline] path[fill="#43CCF8"] {
+  fill: currentColor;
+}
+
+/* Optional features */
 @-webkit-keyframes spin {
   0% {
     -webkit-transform: rotate(0);

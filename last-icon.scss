@@ -19,16 +19,68 @@ p,
 button,
 a,
 span {
-  l-i {
+  l-i:not([size]) {
     vertical-align: -0.125em;
   }
 }
 
+/* Material icon two tones for icon fonts */
 .material-icons-two-tone {
   background-color: currentColor;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+/* Icon park theming */
+l-i[theme="multi-color"] {
+  // outer fill color
+  path[fill="#2F88FF"] {
+    fill: var(--color);
+  }
+  // inner fill color
+  path[fill="#43CCF8"] {
+    fill: var(--color-secondary);
+    stroke: var(--color-bg);
+  }
+  path[stroke="white"] {
+    stroke: white;
+  }
+  path[stroke="black"] {
+    stroke: #333;
+  }
+}
+l-i[theme="two-tone"] {
+  path[fill="#2F88FF"] {
+    fill: var(--color);
+  }
+  path[fill="#43CCF8"] {
+    fill: var(--color);
+  }
+  path[stroke="white"],
+  path[stroke="black"] {
+    stroke: #333;
+  }
+}
+l-i[theme="filled"] {
+  path[fill] {
+    fill: currentColor;
+  }
+  path[stroke="black"] {
+    stroke: white;
+  }
+}
+l-i[theme="outline"] {
+  path[fill] {
+    fill: none;
+  }
+  path[stroke="black"] {
+    stroke: currentColor;
+  }
+  path[fill="#43CCF8"] {
+    fill: currentColor;
+  }
+}
+
+/* Optional features */
 @import "animations";
 @import "transformations";

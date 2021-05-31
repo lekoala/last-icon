@@ -22,7 +22,11 @@
   </head>
   <body>
     <header>
-      <h1>Last Icon</h1>
+      <h1>
+        <img
+          width="16" height="16"
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAA0ElEQVRYR2MU7H73n2EAAeOoA0ZDYDQEBm0IsDMzMOyK5kUpId59/88QuPoL3lJjRRAPgxQPI4oav1VfGD78wF7c4CwHOFkYGJ4WCKIY9PLrPwbN6R/xOuBcCh+DggAzihrVqR8Y3n4fdcBoCIyGwGgIjIYAFULg99//DOdf/MVaFDcf/s5w9MkfBpoWxfgqgbiNXxi23P49jBzAwcLAcCSej+gGe+nebwz7H/xh2BjGwyDNy4Siz3XpZ4b3pFbHRNtMocLRfsFoCIyGwICHAAAS/RdQB1xBlQAAAABJRU5ErkJggg==" alt="Last Icon" />
+      Last Icon</h1>
       <p><em>One custom icon element to rule them all</em></p>
     </header>
     <main>
@@ -34,6 +38,7 @@
       <l-i name="star" size="32"></l-i>
       <button><l-i name="star"></l-i> My button</button>
       <p>Icons are using <code>vertical-align:middle</code> by default and a <code>vertical-align:0.125em</code> offset when contained in a <code>p</code>, <code>button</code>, <code>a</code> or <code>span</code></p>
+      
       <h2>
         Bootstrap Icons
         <a href="https://icons.getbootstrap.com/" target="_blank">
@@ -45,6 +50,7 @@
       <l-i name="github" set="bs" style="--size: 24px"></l-i>
       <l-i name="alarm-fill" set="bs" style="--size: 36px; color: red"></l-i>
       <button><l-i name="github" set="bs"></l-i> Github</button>
+
       <h2>
         Box Icons
         <a href="https://boxicons.com/" target="_blank">
@@ -58,6 +64,7 @@
       <l-i name="star" set="bx" type="regular"></l-i>
       <l-i name="github" set="bx" type="logos"></l-i>
       <button><l-i name="github" set="bx" type="logos"></l-i> Github</button>
+
       <h2>
         Tabler Icons
         <a href="https://tablericons.com/" target="_blank">
@@ -74,6 +81,7 @@
       <l-i name="star" set="tb" stroke="1"></l-i>
       <l-i name="star" set="tb" stroke="2"></l-i>
       <l-i name="star" set="tb" stroke="3"></l-i>
+
       <h2>
         Materials Icons
         <a href="https://fonts.google.com/icons?selected=Material+Icons" target="_blank">
@@ -91,6 +99,7 @@
       <l-i name="home" set="mi" type="round"></l-i>
       <l-i name="home" set="mi" type="sharp"></l-i>
       <l-i name="home" set="mi" type="twotone"></l-i>
+
       <h2>
         Css.gg Icons
         <a href="https://css.gg/" target="_blank">
@@ -101,6 +110,7 @@
       <l-i name="add" set="gg"></l-i>
       <l-i name="alarm" set="gg"></l-i>
       <button><l-i name="alarm" set="gg"></l-i> Github</button>
+      
       <h2>
         Font Awesome Icons
         <a href="https://fontawesome.com/cheatsheet" target="_blank">
@@ -110,6 +120,7 @@
       <p>Use <code>set="fontawesome"</code> or <code>set="fa"</code></p>
       <l-i name="star" set="fa"></l-i>
       <button><l-i name="star" set="fa"></l-i> Github</button>
+      
       <h2>
         Super Tiny Icons
         <a href="https://github.com/edent/SuperTinyIcons" target="_blank">
@@ -120,6 +131,7 @@
       <p>Super useful if you need the social icons with proper colors 👌</p>
       <l-i name="youtube" set="st"></l-i>
       <l-i name="twitter" set="st"></l-i>
+      
       <h2>
         Flags Icons
         <a href="https://github.com/ducin/flag-svg-collection/" target="_blank">
@@ -177,6 +189,27 @@
       <l-i name="activity" set="ft" stroke="3"></l-i>
       <l-i name="activity" set="ft" stroke="1"></l-i>
       <button><l-i name="activity" set="ft"></l-i> Add activity</button>
+
+      <h2>
+        IconPark
+        <a href="https://iconpark.oceanengine.com/official" target="_blank">
+          <l-i name="external-link"></l-i>
+        </a>
+      </h2>
+      <p>Use <code>set="iconpark"</code> or <code>set="ip"</code></p>
+      <p>You can also set various widths using <code>stroke</code> attribute !</p>
+      <p>You can set 4 themes (outline, filled, two-tone, multi-color): these need to be set in CSS.</p>
+      <p><em>TODO: consider merging all the icons in one folder to avoid setting the type like what I did for eos icons</em></p>
+      <l-i name="bookmark" set="ip" size="32" type="Base" stroke="4" theme="multi-color"></l-i>
+      <l-i name="bookmark" set="ip" size="32" type="Base" theme="multi-color"></l-i>
+      <l-i name="email-security" set="ip" size="32" type="Base" theme="multi-color"></l-i>
+      <l-i name="camera" set="ip" size="32" type="Base" theme="multi-color"></l-i>
+      <l-i name="bookmark" set="ip" size="32" type="Base" stroke="4" theme="two-tone"></l-i>
+      <l-i name="bookmark" set="ip" size="32" type="Base" theme="two-tone"></l-i>
+      <l-i name="email-security" set="ip" size="32" type="Base" theme="two-tone"></l-i>
+      <l-i name="camera" set="ip" size="32" type="Base" theme="two-tone"></l-i>
+      <button style="background:none;color:var(--color-text);"><l-i name="bookmark" set="ip" size="32" type="Base" theme="filled"></l-i> Add bookmark</button>
+      <button><l-i name="bookmark" set="ip" size="32" type="Base" theme="outline"></l-i> Add bookmark</button>
 
       <h2>Invalid icons</h2>
       <p>Invalid icons are logged to the console and display a warning emoji</p>

@@ -79,7 +79,7 @@ using window.LastIcon before including the library
 ## Supported icon sets
 
 |Icon Set          |Name       | Alias | Types |Stroke |Count |Website |
-|---               |---        |---    | ---   |---    |---   |---     |
+|---               |---        |---    | :-:   |:-:    |:--   |---     |
 |Bootstrap Icons   |bootstrap  |bs     | 1     | x     |1300+ |[bootstrap](https://icons.getbootstrap.com/)
 |Boxicons          |boxicons   |bx     | 3     | x     |1500  |[boxicons](https://boxicons.com/)
 |Tabler Icons      |tabler     |tb     | 1     | v     |1280  |[tabler](https://tablericons.com/)
@@ -92,6 +92,9 @@ using window.LastIcon before including the library
 |Iconoir           |iconoir    |in     | 1     | x     |914   |[iconoir](https://iconoir.com/)
 |Eos Icons         |eos        |eo     | 3     | x     |1000+ |[eos](https://eos-icons.com/)
 |Feather Icons     |feather    |ft     | 3     | v     |286   |[feather](https://feathericons.com/)
+|IconPark          |iconpark   |ip     | 4     | v     |2435  |[iconpark](https://iconpark.oceanengine.com/official)
+
+___ 
 
 If you feel that any icon set should be added to the already expansive list,
 feel free to submit a PR. Otherwise, it's easy enough to add your own libraries:

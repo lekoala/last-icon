@@ -2,6 +2,7 @@ const CACHE = {};
 const DEBUG = (window.LastIcon && window.LastIcon.debug) || false;
 const PRELOAD = window.LastIconPreload || {};
 const FIX_FILL = ["material", "boxicons", "fontawesome", "eos"];
+const FIX_STROKE = ["iconpark"];
 const ALIASES = Object.assign(
   {
     bs: "bootstrap",
@@ -17,6 +18,7 @@ const ALIASES = Object.assign(
     in: "iconoir",
     eo: "eos",
     ft: "feather",
+    ip: "iconpark",
   },
   (window.LastIcon && window.LastIcon.aliases) || {}
 );
@@ -97,6 +99,7 @@ const PATHS = Object.assign(
     // type: solid, outlined, animated
     eos: "https://cdn.jsdelivr.net/gh/lekoala/eos-icons-mirror/{type}/{icon}.svg",
     feather: "https://cdn.jsdelivr.net/npm/feather-icons@4/dist/icons/{icon}.svg",
+    // types: 33 types ! see website
     iconpark: "https://cdn.jsdelivr.net/gh/bytedance/IconPark/source/{type}/{icon}.svg"
   },
   (window.LastIcon && window.LastIcon.paths) || {}
@@ -204,8 +207,8 @@ class LastIcon extends HTMLElement {
     }
     LastIcon.getIconSvg(iconName, iconSet, iconType)
       .then((iconData) => {
-        if (inst.stroke) {
-          iconData = iconData.replace(/stroke-width="([0-9]*)"/, 'stroke-width="' + inst.stroke + '"');
+        if (inst.stroke || FIX_STROKE.includes(inst.set)) {
+          iconData = iconData.replace(/stroke-width="([0-9]*)"/g, 'stroke-width="' + inst.stroke + '"');
         }
         if (FIX_FILL.includes(inst.set)) {
           iconData = iconData.replace(/(<svg.*?)>/, '$1 fill="currentColor">');
