@@ -97,6 +97,7 @@ const PATHS = Object.assign(
     // type: solid, outlined, animated
     eos: "https://cdn.jsdelivr.net/gh/lekoala/eos-icons-mirror/{type}/{icon}.svg",
     feather: "https://cdn.jsdelivr.net/npm/feather-icons@4/dist/icons/{icon}.svg",
+    iconpark: "https://cdn.jsdelivr.net/gh/bytedance/IconPark/source/{type}/{icon}.svg"
   },
   (window.LastIcon && window.LastIcon.paths) || {}
 );
