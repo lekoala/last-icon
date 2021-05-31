@@ -164,9 +164,52 @@
       <l-i name="typing" set="eo" type="animated"></l-i>
       <button><l-i name="add_task" set="eo"></l-i> Add task</button>
 
+      <h2>
+        Feather
+        <a href="https://feathericons.com/" target="_blank">
+          <l-i name="external-link"></l-i>
+        </a>
+      </h2>
+      <p>Use <code>set="feather"</code> or <code>set="ft"</code></p>
+      <p>You can also set various widths using <code>stroke</code> attribute !</p>
+      <l-i name="activity" set="ft"></l-i>
+      <l-i name="activity" set="ft" stroke="3"></l-i>
+      <l-i name="activity" set="ft" stroke="1"></l-i>
+      <button><l-i name="activity" set="ft"></l-i> Add activity</button>
+
       <h2>Invalid icons</h2>
       <p>Invalid icons are logged to the console and display a warning emoji</p>
       <l-i name="does-not-exist" set="em"></l-i>
+
+      <h2>Animations and transformations</h2>
+
+      <p>Use the same icon and rotate</p>
+
+      <l-i name="chevron-left"></l-i>
+      <l-i name="chevron-left" class="rotate-90"></l-i>
+      <l-i name="chevron-left" class="rotate-180"></l-i>
+      <l-i name="chevron-left" class="rotate-270"></l-i>
+      <l-i name="chevron-left" class="flip-horizontal"></l-i>
+      <l-i name="chevron-left" class="flip-vertical"></l-i>
+
+      <p>Use the animation classes or they -hover variant</p>
+
+      <l-i name="tank" class="spin"></l-i>
+      <l-i name="tank" class="spin-hover"></l-i>
+      <l-i name="tank" class="tada"></l-i>
+      <l-i name="tank" class="tada-hover"></l-i>
+      <l-i name="tank" class="flashing"></l-i>
+      <l-i name="tank" class="flashing-hover"></l-i>
+      <l-i name="tank" class="burst"></l-i>
+      <l-i name="tank" class="burst-hover"></l-i>
+      <l-i name="tank" class="fade-up"></l-i>
+      <l-i name="tank" class="fade-up-hover"></l-i>
+      <l-i name="tank" class="fade-down"></l-i>
+      <l-i name="tank" class="fade-down-hover"></l-i>
+      <l-i name="tank" class="fade-left"></l-i>
+      <l-i name="tank" class="fade-left-hover"></l-i>
+      <l-i name="tank" class="fade-right"></l-i>
+      <l-i name="tank" class="fade-right-hover"></l-i>
 
       <h2>Advanced usage</h2>
       <h3>Host your own icons</h3>
@@ -177,8 +220,7 @@
                 bootstrap: "./vendor/bootstrap",
               },
             };
-          </pre
-      >
+      </pre>
       <h3>Change other settings</h3>
       <p>You can also configure the following settings: <code>aliases</code>, <code>types</code>, <code>prefixes</code>, <code>defaultSet</code></p>
       <pre>
@@ -188,8 +230,7 @@
               },
               defaultSet: "boxicons",
             };
-          </pre
-      >
+      </pre>
     </main>
     <footer>
       <hr />

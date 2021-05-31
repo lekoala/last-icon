@@ -16,6 +16,7 @@ const ALIASES = Object.assign(
     fl: "flags",
     in: "iconoir",
     eo: "eos",
+    ft: "feather",
   },
   (window.LastIcon && window.LastIcon.aliases) || {}
 );
@@ -95,6 +96,7 @@ const PATHS = Object.assign(
     iconoir: "https://cdn.jsdelivr.net/gh/lucaburgio/iconoir/icons/{icon}.svg",
     // type: solid, outlined, animated
     eos: "https://cdn.jsdelivr.net/gh/lekoala/eos-icons-mirror/{type}/{icon}.svg",
+    feather: "https://cdn.jsdelivr.net/npm/feather-icons@4/dist/icons/{icon}.svg",
   },
   (window.LastIcon && window.LastIcon.paths) || {}
 );

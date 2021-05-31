@@ -1,0 +1,240 @@
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes burst {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  90% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+@keyframes burst {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  90% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes flashing {
+  0% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+  }
+}
+@keyframes flashing {
+  0% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fade-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+}
+@keyframes fade-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fade-right {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+}
+@keyframes fade-right {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  75% {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fade-up {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}
+@keyframes fade-up {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fade-down {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+@keyframes fade-down {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes tada {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    transform: scale3d(0.95, 0.95, 0.95) rotate3d(0, 0, 1, -10deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 10deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, -10deg);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+@keyframes tada {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    transform: scale3d(0.95, 0.95, 0.95) rotate3d(0, 0, 1, -10deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: scale3d(1, 1, 1) rotate3d(0, 0, 1, 10deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+.spin {
+  animation: spin 2s linear infinite;
+}
+.spin-hover:hover {
+  animation: spin 2s linear infinite;
+}
+.tada {
+  animation: tada 1.5s ease infinite;
+}
+.tada-hover:hover {
+  animation: tada 1.5s ease infinite;
+}
+.flashing {
+  animation: flashing 1.5s infinite linear;
+}
+.flashing-hover:hover {
+  animation: flashing 1.5s infinite linear;
+}
+.burst {
+  animation: burst 1.5s infinite linear;
+}
+.burst-hover:hover {
+  animation: burst 1.5s infinite linear;
+}
+.fade-up {
+  animation: fade-up 1.5s infinite linear;
+}
+.fade-up-hover:hover {
+  animation: fade-up 1.5s infinite linear;
+}
+.fade-down {
+  animation: fade-down 1.5s infinite linear;
+}
+.fade-down-hover:hover {
+  animation: fade-down 1.5s infinite linear;
+}
+.fade-left {
+  animation: fade-left 1.5s infinite linear;
+}
+.fade-left-hover:hover {
+  animation: fade-left 1.5s infinite linear;
+}
+.fade-right {
+  animation: fade-right 1.5s infinite linear;
+}
+.fade-right-hover:hover {
+  animation: fade-right 1.5s infinite linear;
+}
