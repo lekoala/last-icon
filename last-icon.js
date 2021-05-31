@@ -44,7 +44,7 @@ const FONT_ICONS = {
   eos: {
     class: "eos-icons-{type}",
     types: {
-      svg: "",
+      solid: "",
     },
   },
 };
