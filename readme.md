@@ -20,6 +20,8 @@ Even when doing this, you might still see a very small delay as opposed as a fon
 If you are fine with a little more delay, you can use this instead
 
 ```html
+<!-- preload helps displaying things as early as possible -->
+<link rel="modulepreload" href="last-icon.js">
 <script type="module" src="./last-icon.js"></script>
 ```
 
