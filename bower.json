@@ -1,0 +1,8 @@
+{
+  "name": "last-icon",
+  "version": "1.2.4",
+  "description": "One custom icon element to rule them all",
+  "authors": ["LeKoala"],
+  "keywords": ["DOM", "icons", "icon", "custom", "element", "component", "es6"],
+  "main": "last-icon.js"
+}
