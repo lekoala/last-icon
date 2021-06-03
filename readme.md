@@ -17,7 +17,8 @@ NOTE: it is recommended to define this as early as possible so that all icons ar
 as possible. Otherwise, you might see a delay before your icons are being displayed.
 Even when doing this, you might still see a very small delay as opposed as a font icon or an embedded svg.
 
-If you are fine with a little more delay, you can use this instead
+If you are fine with a little more delay, you can use this instead which will be ignore on browsers
+not supporting modules
 
 ```html
 <!-- preload helps displaying things as early as possible -->
