@@ -217,7 +217,7 @@
           inst.innerHTML = iconData;
         })
         .catch((error) => {
-          inst.innerHTML = "⚠️";
+          inst.innerHTML = "<span>⚠️</span>";
           console.error(`Failed to load icon ${iconName} (error ${error})`);
         });
     }

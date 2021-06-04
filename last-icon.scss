@@ -4,6 +4,15 @@ l-i {
   width: var(--size);
   height: var(--size);
   vertical-align: middle;
+  contain: strict;
+  justify-content: center;
+  align-items: center;
+
+  // This is needed for ⚠️ icon as it goes outside of the limits of the div
+  // And it would be cut due to contain: strict usage
+  span {
+    font-size: 0.8em;
+  }
 
   svg {
     display: block;
