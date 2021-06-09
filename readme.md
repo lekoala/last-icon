@@ -1,7 +1,5 @@
 # last-icon
 
-
-
 [![NPM](https://nodei.co/npm/last-icon.png?mini=true)](https://nodei.co/npm/last-icon/)
 [![Downloads](https://img.shields.io/npm/dt/last-icon.svg)](https://www.npmjs.com/package/last-icon)
 
@@ -21,7 +19,7 @@ If you are fine with a little more delay, you can use this instead which will be
 not supporting modules
 
 ```html
-<!-- preload helps displaying things as early as possible -->
+<!-- preload helps displaying things as early as possible, doesn't work in firefox and safari -->
 <link rel="modulepreload" href="last-icon.js">
 <script type="module" src="./last-icon.js"></script>
 ```
