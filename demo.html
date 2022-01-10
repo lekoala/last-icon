@@ -16,7 +16,7 @@
         // defaultStroke: 1,
       };
     </script>
-    <script src="last-icon.js"></script>
+    <script src="last-icon.min.js"></script>
     <link rel="stylesheet" href="last-icon.css"></link>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mvp.css@1.7.4/mvp.css" />
   </head>
@@ -249,21 +249,21 @@
       <h3>Host your own icons</h3>
       <p>You can point any library to a local path or to another cdn using <code>paths</code>.</p>
       <pre>
-            window.LastIcon = {
-              paths: {
-                bootstrap: "./vendor/bootstrap",
-              },
-            };
+window.LastIcon = {
+  paths: {
+    bootstrap: "./vendor/bootstrap",
+  },
+};
       </pre>
       <h3>Change other settings</h3>
       <p>You can also configure the following settings: <code>aliases</code>, <code>types</code>, <code>prefixes</code>, <code>defaultSet</code></p>
       <pre>
-            window.LastIcon = {
-              types: {
-                boxicons: "regular",
-              },
-              defaultSet: "boxicons",
-            };
+window.LastIcon = {
+  types: {
+    boxicons: "regular",
+  },
+  defaultSet: "boxicons",
+};
       </pre>
     </main>
     <footer>
