@@ -189,7 +189,7 @@ class LastIcon extends HTMLElement {
    * @param {string} iconType
    */
   static refreshIcon(inst, iconName, iconSet, iconType) {
-    if (REPLACE_NAME.includes(iconName)) {
+    if (REPLACE_NAME[iconName]) {
       iconName = REPLACE_NAME[iconName];
     }
     if (ENABLE_ICONS.includes(iconSet)) {
