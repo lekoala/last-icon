@@ -3,6 +3,7 @@ const DEBUG = (window.LastIcon && window.LastIcon.debug) || false;
 const PRELOAD = window.LastIconPreload || {};
 const FIX_FILL = ["material", "boxicons", "fontawesome", "eos"];
 const FIX_STROKE = ["iconpark"];
+const REPLACE_NAME = (window.LastIcon && window.LastIcon.replaceName) || {};
 const ALIASES = Object.assign(
   {
     bs: "bootstrap",
@@ -188,6 +189,9 @@ class LastIcon extends HTMLElement {
    * @param {string} iconType
    */
   static refreshIcon(inst, iconName, iconSet, iconType) {
+    if (REPLACE_NAME.includes(iconName)) {
+      iconName = REPLACE_NAME[iconName];
+    }
     if (ENABLE_ICONS.includes(iconSet)) {
       LastIcon.log("Using font for " + iconName);
       let iconClass = FONT_ICONS[iconSet]["class"];

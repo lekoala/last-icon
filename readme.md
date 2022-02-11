@@ -107,6 +107,9 @@ window.LastIcon = {
   aliases: {
     my: "myicons",
   },
+  replaceName: {
+    trash: "delete",
+  }
   paths: {
     myicons: "/path/to/the/{icon}.svg",
   },
