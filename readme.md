@@ -15,7 +15,7 @@ NOTE: it is recommended to define this as early as possible so that all icons ar
 as possible. Otherwise, you might see a delay before your icons are being displayed.
 Even when doing this, you might still see a very small delay as opposed as a font icon or an embedded svg.
 
-If you are fine with a little more delay, you can use this instead which will be ignore on browsers
+If you are fine with a little more delay, you can use this instead which will be ignored on browsers
 not supporting modules
 
 ```html
@@ -174,7 +174,8 @@ is that is allows you to switch easily between one way or the other.
 First of all, load your fonts
 
 ```html
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /> <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet" />
 ```
 
 And after that, use the font config to tell Last Icon to use the font over the svg icons
@@ -228,3 +229,7 @@ span {
 ## Demo
 
 See demo.html or the following pen https://codepen.io/lekoalabe/pen/eYvdjqY
+
+## Worth looking at
+
+You might also be interested in https://icon-sets.iconify.design/

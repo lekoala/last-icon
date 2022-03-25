@@ -3,6 +3,7 @@ const DEBUG = (window.LastIcon && window.LastIcon.debug) || false;
 const PRELOAD = window.LastIconPreload || {};
 const FIX_FILL = ["material", "boxicons", "fontawesome", "eos"];
 const FIX_STROKE = ["iconpark"];
+const FIX_VIEWBOX = ["boxicons"];
 const REPLACE_NAME = (window.LastIcon && window.LastIcon.replaceName) || {};
 const ALIASES = Object.assign(
   {
@@ -34,6 +35,7 @@ const FONT_ICONS = {
   },
   boxicons: {
     class: "bx {prefix}-{icon}",
+    baseSize: 24,
   },
   bootstrap: {
     class: "bi-{icon}",
@@ -215,6 +217,10 @@ class LastIcon extends HTMLElement {
         }
         if (FIX_FILL.includes(inst.set)) {
           iconData = iconData.replace(/(<svg.*?)>/, '$1 fill="currentColor">');
+        }
+        if (FIX_VIEWBOX.includes(inst.set) && !iconData.includes("viewBox")) {
+          const size = FONT_ICONS[iconSet]["baseSize"] || 24;
+          iconData = iconData.replace(/(<svg.*?)>/, '$1 viewBox="0 0 ' + size + " " + size + '">');
         }
         inst.innerHTML = iconData;
       })
