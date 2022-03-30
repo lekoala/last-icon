@@ -16,14 +16,21 @@
       types: {
         boxicons: "regular",
       },
+      // fonts: ["material"],
+      // fonts: ["phosphor"],
       defaultSet: "tabler",
       // defaultStroke: 1,
     };
   </script>
   <script src="last-icon.min.js"></script>
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/css/icons.css"> -->
   <link rel="stylesheet" href="last-icon.css">
   </link>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mvp.css@1.7.4/mvp.css" />
+  <style type="text/css">
+  /* does not affect our icon because we strip the class attribute from svg */ 
+  .icon {color:red}
+  </style>
 </head>
 <body>
   <header>
@@ -247,6 +254,23 @@
       <l-i name="bookmark" set="ip" size="32" type="Base" theme="outline"></l-i> Add bookmark
     </button>
 
+    <h2>
+      Phosphor
+      <a href="https://phosphoricons.com/" target="_blank">
+        <l-i name="external-link"></l-i>
+      </a>
+    </h2>
+    <p>Use <code>set="phosphor"</code> or <code>set="ph"</code></p>
+    <p>You can set 6 types (bold, duotone, fill, light, regular, thin)</p>
+    <l-i name="calendar-x" set="ph" size="32" type="duotone"></l-i>
+    <l-i name="calendar-x" set="ph" size="32" type="light"></l-i>
+    <button style="background:none;color:var(--color-text);">
+      <l-i name="star" set="ph" size="32" type="duotone"></l-i> Add bookmark
+    </button>
+    <button>
+      <l-i name="star" set="ph" size="32" type="fill"></l-i> Add bookmark
+    </button>
+
     <h2>Invalid icons</h2>
     <p>Invalid icons are logged to the console and display a warning emoji</p>
     <l-i name="does-not-exist" set="em"></l-i>
@@ -280,6 +304,31 @@
     <l-i name="tank" size="32" class="fade-left-hover"></l-i>
     <l-i name="tank" size="32" class="fade-right"></l-i>
     <l-i name="tank" size="32" class="fade-right-hover"></l-i>
+
+    <p>Or use <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/attributeName">svg animation</a></p>
+
+    <l-i name="tank" size="32">
+      <animateTransform attributeName="transform"
+          type="rotate"
+          from="0 0 0"
+          to="360 0 0"
+          begin="0s"
+          dur="2s"
+          repeatCount="indefinite" 
+      />
+    </l-i>
+    <l-i name="tank" size="32">
+      <animateTransform attributeName="transform"
+        attributeType="XML"
+        type="rotate"
+        values="0 0 0;10 0 0;-10 0 0;10 0 0;-10 0 0;10 0 0;-10 0 0;0 0 0;0 0 0;0 0 0;0 0 0;"
+        dur="2s"
+        repeatCount="indefinite"
+      />
+    </l-i>
+    <l-i name="tank" size="32">
+      <animate attributeName="opacity" values="1;0;1;1" dur="1s" repeatCount="indefinite" />
+    </l-i>
 
     <h2>Advanced usage</h2>
     <h3>Host your own icons</h3>

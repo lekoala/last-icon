@@ -83,9 +83,9 @@ using window.LastIcon before including the library
 
 | Icon Set         | Name        | Alias | Types | Stroke | Count | Website                                                            |
 | ---------------- | ----------- | ----- | :---: | :----: | :---- | ------------------------------------------------------------------ |
-| Bootstrap Icons  | bootstrap   | bs    |   1   |   x    | 1500+ | [bootstrap](https://icons.getbootstrap.com/)                       |
-| Boxicons         | boxicons    | bx    |   3   |   x    | 1500  | [boxicons](https://boxicons.com/)                                  |
-| Tabler Icons     | tabler      | tb    |   1   |   v    | 1280  | [tabler](https://tablericons.com/)                                 |
+| Bootstrap Icons  | bootstrap   | bs    |   1   |   x    | 1600+ | [bootstrap](https://icons.getbootstrap.com/)                       |
+| Boxicons         | boxicons    | bx    |   3   |   x    | 1500+ | [boxicons](https://boxicons.com/)                                  |
+| Tabler Icons     | tabler      | tb    |   1   |   v    | 1424  | [tabler](https://tablericons.com/)                                 |
 | Materials Icons  | material    | mi    |   5   |   x    | 1100+ | [material](https://fonts.google.com/icons?selected=Material+Icons) |
 | Css.gg           | cssgg       | gg    |   1   |   x    | 700+  | [cssgg](https://css.gg/)                                           |
 | Fontawesome      | fontawesome | fa    |   5   |   x    | 1609  | [fontawesome](https://fontawesome.com/cheatsheet)                  |
@@ -95,7 +95,8 @@ using window.LastIcon before including the library
 | Iconoir          | iconoir     | in    |   1   |   x    | 914   | [iconoir](https://iconoir.com/)                                    |
 | Eos Icons        | eos         | eo    |   3   |   x    | 1000+ | [eos](https://eos-icons.com/)                                      |
 | Feather Icons    | feather     | ft    |   3   |   v    | 286   | [feather](https://feathericons.com/)                               |
-| IconPark         | iconpark    | ip    |   4   |   v    | 2435  | [iconpark](https://iconpark.oceanengine.com/official)              |
+| IconPark         | iconpark    | ip    |   4   |   v    | 2400+ | [iconpark](https://iconpark.oceanengine.com/official)              |
+| Phosphor         | phosphor    | ph    |   6   |   x    | 6282  | [phosphor](https://phosphoricons.com/)                             |
 
 ---
 
@@ -159,7 +160,9 @@ function LastIconPreloader(iconUrl) {
   });
 }
 window.LastIconPreload = {};
-window.LastIconPreload["material-account_box-twotone"] = LastIconPreloader("https://cdn.jsdelivr.net/npm/@material-icons/svg@1.0.10/svg/account_box/twotone.svg");
+window.LastIconPreload["material-account_box-twotone"] = LastIconPreloader(
+  "https://cdn.jsdelivr.net/npm/@material-icons/svg@1.0.10/svg/account_box/twotone.svg"
+);
 ```
 
 Thanks to the debug flag, it's easy to find the cache key and the matching url.

@@ -1,7 +1,7 @@
 const CACHE = {};
 const DEBUG = (window.LastIcon && window.LastIcon.debug) || false;
 const PRELOAD = window.LastIconPreload || {};
-const FIX_FILL = ["material", "boxicons", "fontawesome", "eos"];
+const FIX_FILL = ["material", "boxicons", "fontawesome", "eos", "phosphor"];
 const FIX_STROKE = ["iconpark"];
 const FIX_VIEWBOX = ["boxicons"];
 const REPLACE_NAME = (window.LastIcon && window.LastIcon.replaceName) || {};
@@ -21,6 +21,7 @@ const ALIASES = Object.assign(
     eo: "eos",
     ft: "feather",
     ip: "iconpark",
+    ph: "phosphor",
   },
   (window.LastIcon && window.LastIcon.aliases) || {}
 );
@@ -35,7 +36,6 @@ const FONT_ICONS = {
   },
   boxicons: {
     class: "bx {prefix}-{icon}",
-    baseSize: 24,
   },
   bootstrap: {
     class: "bi-{icon}",
@@ -52,7 +52,20 @@ const FONT_ICONS = {
       solid: "",
     },
   },
+  // Note: duotone not supported yet
+  phosphor: {
+    class: "ph-{icon}-{type}",
+    types: {
+      solid: "",
+    },
+  },
 };
+const VIEWBOXES = Object.assign(
+  {
+    boxicons: 24,
+  },
+  (window.LastIcon && window.LastIcon.viewboxes) || {}
+);
 const TYPES = Object.assign(
   {
     boxicons: "solid",
@@ -60,6 +73,7 @@ const TYPES = Object.assign(
     material: "baseline",
     flags: "4x3",
     eos: "solid",
+    phosphor: "regular",
   },
   (window.LastIcon && window.LastIcon.types) || {}
 );
@@ -92,7 +106,7 @@ const PATHS = Object.assign(
     // type: solid, regular, brands, light, duotone
     fontawesome: "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/svgs/{type}/{icon}.svg",
     bytesize: "https://cdn.jsdelivr.net/npm/bytesize-icons@1/dist/icons/{icon}.svg",
-    supertiny: "https://cdn.jsdelivr.net/npm/super-tiny-icons@0.4.0/images/svg/{icon}.svg",
+    supertiny: "https://cdn.jsdelivr.net/npm/super-tiny-icons@0.4/images/svg/{icon}.svg",
     // type: baseline, outline, round, sharp, twotone
     material: "https://cdn.jsdelivr.net/npm/@material-icons/svg@1/svg/{icon}/{type}.svg",
     // type : 4x3 or 1x1
@@ -102,18 +116,15 @@ const PATHS = Object.assign(
     // type: solid, outlined, animated
     eos: "https://cdn.jsdelivr.net/gh/lekoala/eos-icons-mirror/{type}/{icon}.svg",
     feather: "https://cdn.jsdelivr.net/npm/feather-icons@4/dist/icons/{icon}.svg",
-    // types: 33 types ! see website
+    // type: 33 types ! see website
     iconpark: "https://cdn.jsdelivr.net/gh/bytedance/IconPark/source/{type}/{icon}.svg",
+    // type: bold, duotone, fill, light, regular, thin
+    phosphor: "https://cdn.jsdelivr.net/gh/phosphor-icons/phosphor-icons@1/assets/{type}/{icon}-{type}.svg",
   },
   (window.LastIcon && window.LastIcon.paths) || {}
 );
 
 class LastIcon extends HTMLElement {
-  constructor() {
-    // Always call super first in constructor
-    super();
-  }
-
   static log(message) {
     if (!DEBUG) {
       return;
@@ -173,7 +184,7 @@ class LastIcon extends HTMLElement {
     let iconPrefix = (PREFIXES[iconSet] && PREFIXES[iconSet][iconType]) || null;
     value = value.replace("{icon}", iconName);
     if (iconType) {
-      value = value.replace("{type}", iconType);
+      value = value.replaceAll("{type}", iconType);
     } else {
       // Maybe we want to remove the type like in material icons
       value = value.replace("-{type}", "");
@@ -212,6 +223,10 @@ class LastIcon extends HTMLElement {
     }
     LastIcon.getIconSvg(iconName, iconSet, iconType)
       .then((iconData) => {
+        // Strip class attribute as it may be affected by css
+        if (iconData.includes("class=")) {
+          iconData = iconData.replace(/ class="([a-z- ]*)"/g, "");
+        }
         if (inst.stroke || FIX_STROKE.includes(inst.set)) {
           iconData = iconData.replace(/stroke-width="([0-9]*)"/g, 'stroke-width="' + inst.stroke + '"');
         }
@@ -219,8 +234,11 @@ class LastIcon extends HTMLElement {
           iconData = iconData.replace(/(<svg.*?)>/, '$1 fill="currentColor">');
         }
         if (FIX_VIEWBOX.includes(inst.set) && !iconData.includes("viewBox")) {
-          const size = FONT_ICONS[iconSet]["baseSize"] || 24;
+          const size = VIEWBOXES[iconSet] || 24;
           iconData = iconData.replace(/(<svg.*?)>/, '$1 viewBox="0 0 ' + size + " " + size + '">');
+        }
+        if (inst.defaultHTML) {
+          iconData = iconData.replace("</svg>", inst.defaultHTML + "</svg>");
         }
         inst.innerHTML = iconData;
       })
@@ -254,7 +272,18 @@ class LastIcon extends HTMLElement {
     return ["name"];
   }
 
+  connectedCallback() {
+    // innerHTML is not available because not parsed yet
+    setTimeout(() => {
+      this.defaultHTML = this.innerHTML;
+      this.attributeChangedCallback("name", null, this.getAttribute("name"));
+    });
+  }
+
   attributeChangedCallback(attr, oldVal, newVal) {
+    if (!this.isConnected || attr !== "name") {
+      return;
+    }
     this.innerHTML = "";
     if (this.hasAttribute("size")) {
       this.style.setProperty("--size", this.getAttribute("size") + "px");
