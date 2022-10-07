@@ -1,0 +1,48 @@
+l-i[theme="multi-color"] {
+  // outer fill color
+  path[fill="#2F88FF"] {
+    fill: var(--color);
+  }
+  // inner fill color
+  path[fill="#43CCF8"] {
+    fill: var(--color-secondary);
+    stroke: var(--color-bg);
+  }
+  path[stroke="white"] {
+    stroke: white;
+  }
+  path[stroke="black"] {
+    stroke: #333;
+  }
+}
+l-i[theme="two-tone"] {
+  path[fill="#2F88FF"] {
+    fill: var(--color);
+  }
+  path[fill="#43CCF8"] {
+    fill: var(--color);
+  }
+  path[stroke="white"],
+  path[stroke="black"] {
+    stroke: #333;
+  }
+}
+l-i[theme="filled"] {
+  path[fill] {
+    fill: currentColor;
+  }
+  path[stroke="black"] {
+    stroke: white;
+  }
+}
+l-i[theme="outline"] {
+  path[fill] {
+    fill: none;
+  }
+  path[stroke="black"] {
+    stroke: currentColor;
+  }
+  path[fill="#43CCF8"] {
+    fill: currentColor;
+  }
+}

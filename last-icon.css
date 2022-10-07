@@ -8,6 +8,11 @@ l-i {
   justify-content: center;
   align-items: center;
 }
+l-i span,
+l-i svg,
+l-i i {
+  pointer-events: none;
+}
 l-i span {
   font-size: 0.8em;
 }
@@ -28,14 +33,112 @@ span l-i:not([size]) {
   vertical-align: -0.125em;
 }
 
-/* Material icon two tones for icon fonts */
 .material-icons-two-tone {
   background-color: currentColor;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Icon park theming */
+@-webkit-keyframes symbols-pulse {
+  0% {
+    font-variation-settings: "wght" 100;
+  }
+  50% {
+    font-variation-settings: "wght" 700;
+  }
+  100% {
+    font-variation-settings: "wght" 100;
+  }
+}
+
+@keyframes symbols-pulse {
+  0% {
+    font-variation-settings: "wght" 100;
+  }
+  50% {
+    font-variation-settings: "wght" 700;
+  }
+  100% {
+    font-variation-settings: "wght" 100;
+  }
+}
+@-webkit-keyframes symbols-fill {
+  0% {
+    font-variation-settings: "FILL" 0;
+  }
+  100% {
+    font-variation-settings: "FILL" 1;
+  }
+}
+@keyframes symbols-fill {
+  0% {
+    font-variation-settings: "FILL" 0;
+  }
+  100% {
+    font-variation-settings: "FILL" 1;
+  }
+}
+@-webkit-keyframes symbols-empty {
+  0% {
+    font-variation-settings: "FILL" 1;
+  }
+  100% {
+    font-variation-settings: "FILL" 0;
+  }
+}
+@keyframes symbols-empty {
+  0% {
+    font-variation-settings: "FILL" 1;
+  }
+  100% {
+    font-variation-settings: "FILL" 0;
+  }
+}
+.symbols-pulse i {
+  -webkit-animation: symbols-pulse 3s infinite;
+          animation: symbols-pulse 3s infinite;
+}
+
+.symbols-pulse-hover:hover i {
+  -webkit-animation: symbols-pulse 3s infinite;
+          animation: symbols-pulse 3s infinite;
+}
+
+.symbols-fill i {
+  -webkit-animation: symbols-fill 1.5s ease forwards;
+          animation: symbols-fill 1.5s ease forwards;
+}
+
+.symbols-fill-hover:hover i {
+  -webkit-animation: symbols-fill 1.5s ease forwards;
+          animation: symbols-fill 1.5s ease forwards;
+}
+
+.symbols-empty i {
+  -webkit-animation: symbols-fill 1.5s ease forwards;
+          animation: symbols-fill 1.5s ease forwards;
+}
+
+.symbols-empty-hover:hover i {
+  -webkit-animation: symbols-empty 1.5s ease forwards;
+          animation: symbols-empty 1.5s ease forwards;
+}
+
+.material-symbols-rounded,
+.material-symbols-outlined,
+.material-symbols-sharp {
+  font-variation-settings: "FILL" var(--fill, 0), "wght" var(--weight, 400), "GRAD" var(--grad, 0), "OPSZ" var(--opsz, 24);
+}
+
+.dark {
+  --grad: -25;
+  background: black;
+  color: rgb(255, 255, 255);
+}
+.dark[disabled], .dark.disabled {
+  color: rgba(255, 255, 255, 0.3);
+}
+
 l-i[theme=multi-color] path[fill="#2F88FF"] {
   fill: var(--color);
 }
@@ -78,7 +181,6 @@ l-i[theme=outline] path[fill="#43CCF8"] {
   fill: currentColor;
 }
 
-/* Optional features */
 @-webkit-keyframes spin {
   0% {
     transform: rotate(0);
@@ -252,13 +354,13 @@ l-i[theme=outline] path[fill="#43CCF8"] {
   }
 }
 .spin {
-  -webkit-animation: spin 2s linear infinite;
-          animation: spin 2s linear infinite;
+  -webkit-animation: spin 1.5s linear infinite;
+          animation: spin 1.5s linear infinite;
 }
 
 .spin-hover:hover {
-  -webkit-animation: spin 2s linear infinite;
-          animation: spin 2s linear infinite;
+  -webkit-animation: spin 1.5s linear infinite;
+          animation: spin 1.5s linear infinite;
 }
 
 .tada {

@@ -1,3 +1,5 @@
+$default-duration: 1.5s !default;
+
 @-webkit-keyframes spin {
   0% {
     transform: rotate(0);
@@ -191,50 +193,50 @@
   }
 }
 .spin {
-  animation: spin 2s linear infinite;
+  animation: spin $default-duration linear infinite;
 }
 .spin-hover:hover {
-  animation: spin 2s linear infinite;
+  animation: spin $default-duration linear infinite;
 }
 .tada {
-  animation: tada 1.5s ease infinite;
+  animation: tada $default-duration ease infinite;
 }
 .tada-hover:hover {
-  animation: tada 1.5s ease infinite;
+  animation: tada $default-duration ease infinite;
 }
 .flashing {
-  animation: flashing 1.5s infinite linear;
+  animation: flashing $default-duration infinite linear;
 }
 .flashing-hover:hover {
-  animation: flashing 1.5s infinite linear;
+  animation: flashing $default-duration infinite linear;
 }
 .burst {
-  animation: burst 1.5s infinite linear;
+  animation: burst $default-duration infinite linear;
 }
 .burst-hover:hover {
-  animation: burst 1.5s infinite linear;
+  animation: burst $default-duration infinite linear;
 }
 .fade-up {
-  animation: fade-up 1.5s infinite linear;
+  animation: fade-up $default-duration infinite linear;
 }
 .fade-up-hover:hover {
-  animation: fade-up 1.5s infinite linear;
+  animation: fade-up $default-duration infinite linear;
 }
 .fade-down {
-  animation: fade-down 1.5s infinite linear;
+  animation: fade-down $default-duration infinite linear;
 }
 .fade-down-hover:hover {
-  animation: fade-down 1.5s infinite linear;
+  animation: fade-down $default-duration infinite linear;
 }
 .fade-left {
-  animation: fade-left 1.5s infinite linear;
+  animation: fade-left $default-duration infinite linear;
 }
 .fade-left-hover:hover {
-  animation: fade-left 1.5s infinite linear;
+  animation: fade-left $default-duration infinite linear;
 }
 .fade-right {
-  animation: fade-right 1.5s infinite linear;
+  animation: fade-right $default-duration infinite linear;
 }
 .fade-right-hover:hover {
-  animation: fade-right 1.5s infinite linear;
+  animation: fade-right $default-duration infinite linear;
 }
