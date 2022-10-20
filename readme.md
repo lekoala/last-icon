@@ -138,7 +138,8 @@ All available options:
 | Emoji             | emojicc     | em    |   1   |   x    | ?     | [emojicc](https://github.com/buildbreakdo/emoji-cc/)                     |
 | Iconoir           | iconoir     | in    |   1   |   x    | 914   | [iconoir](https://iconoir.com/)                                          |
 | Eos Icons         | eos         | eo    |   3   |   x    | 1000+ | [eos](https://eos-icons.com/)                                            |
-| Feather Icons     | feather     | ft    |   3   |   v    | 286   | [feather](https://feathericons.com/)                                     |
+| Feather           | feather     | ft    |   1   |   v    | 286   | [feather](https://feathericons.com/)                                     |
+| Lucide            | lucide      | lu    |   1   |   v    | 836   | [lucide](https://lucide.dev/)                                            |
 | IconPark          | iconpark    | ip    |   4   |   v    | 2400+ | [iconpark](https://iconpark.oceanengine.com/official)                    |
 | Phosphor          | phosphor    | ph    |   6   |   x    | 6282  | [phosphor](https://phosphoricons.com/)                                   |
 

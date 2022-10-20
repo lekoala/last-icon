@@ -38,6 +38,7 @@ const options = {
     ip: "iconpark",
     ph: "phosphor",
     ms: "symbols",
+    lu: "lucide",
   },
   fonts: [],
   viewboxes: {
@@ -78,7 +79,7 @@ const options = {
     // type: solid, regular, brands, light, duotone
     fontawesome: JSDELIVR + "npm/@fortawesome/fontawesome-free@5/svgs/{type}/{icon}.svg",
     bytesize: JSDELIVR + "npm/bytesize-icons@1/dist/icons/{icon}.svg",
-    supertiny: JSDELIVR + "npm/super-tiny-icons@0.4/images/svg/{icon}.svg",
+    supertiny: JSDELIVR + "npm/super-tiny-icons/images/svg/{icon}.svg",
     // type: baseline, outline, round, sharp, twotone
     material: JSDELIVR + "npm/@material-icons/svg@1/svg/{icon}/{type}.svg",
     // type : 4x3 or 1x1
@@ -94,6 +95,7 @@ const options = {
     phosphor: JSDELIVR + "gh/phosphor-icons/phosphor-icons@1/assets/{type}/{icon}-{type}.svg",
     // type: outlined, rounded, sharp
     symbols: JSDELIVR + "npm/@material-symbols/svg-400@0.2.13/{type}/{icon}.svg",
+    lucide: JSDELIVR + "npm/lucide-static/icons/{icon}.svg"
   },
   fixFill: ["material", "boxicons", "fontawesome", "eos", "phosphor", "symbols"],
   fixStroke: ["iconpark"],
@@ -380,7 +382,7 @@ class LastIcon extends HTMLElement {
     if (attr === "size") {
       this.setSize(newVal);
     } else if (newVal) {
-      this.log("attribute changed");
+      log("attribute changed");
       this.loadIcon();
     }
   }

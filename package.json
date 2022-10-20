@@ -8,7 +8,8 @@
     "build": "esbuild --bundle --minify --format=iife --sourcemap last-icon.js --outfile=last-icon.min.js",
     "start": "npm run build -- --servedir=.",
     "watch": "npm run build -- --watch",
-    "bump": "npm run build && npm version patch"
+    "bump": "npm run build && npm version patch",
+    "jsdoc": "npx jsdoc2md last-icon.js"
   },
   "repository": {
     "type": "git",
