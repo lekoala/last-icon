@@ -286,6 +286,20 @@ function refreshIcon(inst, iconName, iconSet, iconType) {
     });
 }
 
+/**
+ * @param {HTMLElement} element 
+ * @returns {Boolean}
+ */
+function isInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
 class LastIcon extends HTMLElement {
   /**
    * @param {object} opts
@@ -330,10 +344,9 @@ class LastIcon extends HTMLElement {
 
   connectedCallback() {
     // innerHTML is not available because not parsed yet
+    // setTimeout also allows whenDefined to kick in before init
     setTimeout(() => {
-      // Do this is setTimeout to allow whenDefined to kick in before
-      // otherwise it cannot be configured
-      if (options.lazy) {
+      if (options.lazy && !isInViewport(this)) {
         // observer will call init when element is visible
         observer.observe(this);
       } else {
