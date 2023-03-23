@@ -12,7 +12,7 @@ const JSDELIVR = "https://cdn.jsdelivr.net/";
  * @property {Object} defaultTypes Default types for each icon set
  * @property {String} defaultSet Default icon set
  * @property {Number} defaultStroke Default stroke used
- * @property {Object} paths Svg loading paths
+ * @property {Object} paths Svg loading paths as strings or functions
  * @property {Array} fixFill Fix fill for these sets
  * @property {Array} fixStroke Fix stroke for these sets
  * @property {Array} fixViewbox Fix viewbox for these sets
@@ -92,10 +92,15 @@ const options = {
     // type: 33 types ! see website
     iconpark: JSDELIVR + "gh/bytedance/IconPark/source/{type}/{icon}.svg",
     // type: bold, duotone, fill, light, regular, thin
-    phosphor: JSDELIVR + "gh/phosphor-icons/phosphor-icons@1/assets/{type}/{icon}-{type}.svg",
+    phosphor: function (icon, type) {
+      if (type === "regular") {
+        return JSDELIVR + "gh/phosphor-icons/phosphor-icons@1/assets/{type}/{icon}.svg";
+      }
+      return JSDELIVR + "gh/phosphor-icons/phosphor-icons@1/assets/{type}/{icon}-{type}.svg";
+    },
     // type: outlined, rounded, sharp
     symbols: JSDELIVR + "npm/@material-symbols/svg-400@0.2.13/{type}/{icon}.svg",
-    lucide: JSDELIVR + "npm/lucide-static/icons/{icon}.svg"
+    lucide: JSDELIVR + "npm/lucide-static/icons/{icon}.svg",
   },
   fixFill: ["material", "boxicons", "fontawesome", "eos", "phosphor", "symbols"],
   fixStroke: ["iconpark"],
@@ -193,6 +198,9 @@ function log(message) {
  */
 function getIconSvg(iconName, iconSet, iconType) {
   let iconUrl = options.paths[iconSet];
+  if (typeof iconUrl === "function") {
+    iconUrl = iconUrl(iconName, iconType);
+  }
   let cacheKey = iconSet + "-" + iconName;
   if (iconType) {
     cacheKey += "-" + iconType;
@@ -287,16 +295,16 @@ function refreshIcon(inst, iconName, iconSet, iconType) {
 }
 
 /**
- * @param {HTMLElement} element 
+ * @param {HTMLElement} element
  * @returns {Boolean}
  */
 function isInViewport(element) {
   const rect = element.getBoundingClientRect();
   return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 }
 
