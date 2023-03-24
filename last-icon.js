@@ -7,7 +7,6 @@ const JSDELIVR = "https://cdn.jsdelivr.net/";
  * @property {Object} replaceName Transparently replace icons with other values
  * @property {Object} aliases Icon sets aliases for ease of use
  * @property {Array} fonts Icon sets using font icons rather than svg
- * @property {Object} viewboxes View box values if not set in icon set
  * @property {Object} prefixes Types prefixes in each icon set
  * @property {Object} defaultTypes Default types for each icon set
  * @property {String} defaultSet Default icon set
@@ -15,7 +14,6 @@ const JSDELIVR = "https://cdn.jsdelivr.net/";
  * @property {Object} paths Svg loading paths as strings or functions
  * @property {Array} fixFill Fix fill for these sets
  * @property {Array} fixStroke Fix stroke for these sets
- * @property {Array} fixViewbox Fix viewbox for these sets
  */
 const options = {
   debug: false,
@@ -41,14 +39,10 @@ const options = {
     lu: "lucide",
   },
   fonts: [],
-  viewboxes: {
-    boxicons: 24,
-    symbols: 48,
-  },
   defaultTypes: {
     boxicons: "solid",
     fontawesome: "solid",
-    material: "baseline",
+    material: "filled",
     flags: "4x3",
     eos: "solid",
     phosphor: "regular",
@@ -81,7 +75,7 @@ const options = {
     bytesize: JSDELIVR + "npm/bytesize-icons@1/dist/icons/{icon}.svg",
     supertiny: JSDELIVR + "npm/super-tiny-icons/images/svg/{icon}.svg",
     // type: baseline, outline, round, sharp, twotone
-    material: JSDELIVR + "npm/@material-icons/svg@1/svg/{icon}/{type}.svg",
+    material: JSDELIVR + "npm/@material-design-icons/svg/{type}/{icon}.svg",
     // type : 4x3 or 1x1
     flags: JSDELIVR + "npm/flag-svg-collection@1/flags/{type}/{icon}.svg",
     emojicc: JSDELIVR + "npm/emoji-cc@1/svg/{icon}.svg",
@@ -94,17 +88,17 @@ const options = {
     // type: bold, duotone, fill, light, regular, thin
     phosphor: function (icon, type) {
       if (type === "regular") {
-        return JSDELIVR + "gh/phosphor-icons/phosphor-icons@1/assets/{type}/{icon}.svg";
+        return JSDELIVR + "npm/@phosphor-icons/core@2/assets/{type}/{icon}.svg";
       }
-      return JSDELIVR + "gh/phosphor-icons/phosphor-icons@1/assets/{type}/{icon}-{type}.svg";
+      return JSDELIVR + "npm/@phosphor-icons/core@2/assets/{type}/{icon}-{type}.svg";
     },
     // type: outlined, rounded, sharp
-    symbols: JSDELIVR + "npm/@material-symbols/svg-400@0.2.13/{type}/{icon}.svg",
+    // TODO: check why 0.5 is missing sharp folder
+    symbols: JSDELIVR + "npm/@material-symbols/svg-400@0.4/{type}/{icon}.svg",
     lucide: JSDELIVR + "npm/lucide-static/icons/{icon}.svg",
   },
-  fixFill: ["material", "boxicons", "fontawesome", "eos", "phosphor", "symbols"],
+  fixFill: ["material", "boxicons", "fontawesome", "eos", "symbols"],
   fixStroke: ["iconpark"],
-  fixViewbox: ["boxicons", "symbols"],
   strokeSet: ["tabler", "iconpark"],
   opticalFont: ["symbols"],
 };
@@ -114,9 +108,7 @@ const FONT_ICONS = {
   material: {
     class: "material-icons-{type}",
     types: {
-      baseline: "",
-      twotone: "two-tone",
-      outline: "outlined",
+      filled: "",
     },
   },
   symbols: {
@@ -140,11 +132,10 @@ const FONT_ICONS = {
       solid: "",
     },
   },
-  // Note: duotone not supported yet
   phosphor: {
-    class: "ph-{icon}-{type}",
+    class: "ph-{type} ph-{icon}",
     types: {
-      solid: "",
+      regular: "",
     },
   },
 };
@@ -276,11 +267,6 @@ function refreshIcon(inst, iconName, iconSet, iconType) {
       // Fix fill to currentColor
       if (options.fixFill.includes(inst.set)) {
         iconData = iconData.replace(/(<svg.*?)>/, '$1 fill="currentColor">');
-      }
-      // Fix viewbox if missing to allow easy sizing
-      if (options.fixViewbox.includes(inst.set) && !iconData.includes("viewBox")) {
-        const size = options.viewboxes[iconSet] || 24;
-        iconData = iconData.replace(/(<svg.*?)>/, '$1 viewBox="0 0 ' + size + " " + size + '">');
       }
       // If we have some html, pass it along (useful for svg anim)
       if (inst.defaultHTML) {

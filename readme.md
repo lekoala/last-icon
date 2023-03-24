@@ -112,7 +112,6 @@ All available options:
 | replaceName   | <code>Object</code>  | Transparently replace icons with other values |
 | aliases       | <code>Object</code>  | Icon sets aliases for ease of use             |
 | fonts         | <code>Array</code>   | Icon sets using font icons rather than svg    |
-| viewboxes     | <code>Object</code>  | View box values if not set in icon set        |
 | prefixes      | <code>Object</code>  | Types prefixes in each icon set               |
 | defaultTypes  | <code>Object</code>  | Default types for each icon set               |
 | defaultSet    | <code>String</code>  | Default icon set                              |
@@ -120,28 +119,27 @@ All available options:
 | paths         | <code>Object</code>  | Svg loading paths                             |
 | fixFill       | <code>Array</code>   | Fix fill for these sets                       |
 | fixStroke     | <code>Array</code>   | Fix stroke for these sets                     |
-| fixViewbox    | <code>Array</code>   | Fix viewbox for these sets                    |
 
 ## Supported icon sets
 
 | Icon Set          | Name        | Alias | Types | Stroke | Count | Website                                                                  |
 | ----------------- | ----------- | ----- | :---: | :----: | :---- | ------------------------------------------------------------------------ |
-| Bootstrap Icons   | bootstrap   | bs    |   1   |   x    | 1600+ | [bootstrap](https://icons.getbootstrap.com/)                             |
-| Boxicons          | boxicons    | bx    |   3   |   x    | 1500+ | [boxicons](https://boxicons.com/)                                        |
-| Tabler Icons      | tabler      | tb    |   1   |   v    | 1424  | [tabler](https://tablericons.com/)                                       |
+| Bootstrap Icons   | bootstrap   | bs    |   1   |   x    | 1800+ | [bootstrap](https://icons.getbootstrap.com/)                             |
+| Boxicons          | boxicons    | bx    |   3   |   x    | 1600+ | [boxicons](https://boxicons.com/)                                        |
+| Tabler Icons      | tabler      | tb    |   1   |   v    | 1400+ | [tabler](https://tablericons.com/)                                       |
 | Materials Icons   | material    | mi    |   5   |   x    | 1100+ | [material icons](https://fonts.google.com/icons?selected=Material+Icons) |
 | Materials Symbols | symbols     | ms    |   3   |   v    | 2500+ | [material symbols](https://fonts.google.com/icons)                       |
 | Css.gg            | cssgg       | gg    |   1   |   x    | 700+  | [cssgg](https://css.gg/)                                                 |
-| Fontawesome       | fontawesome | fa    |   5   |   x    | 1609  | [fontawesome](https://fontawesome.com/cheatsheet)                        |
+| Fontawesome       | fontawesome | fa    |   5   |   x    | 1600+ | [fontawesome](https://fontawesome.com/cheatsheet)                        |
 | Super Tiny Icons  | supertiny   | st    |   1   |   x    | ?     | [supertiny](https://github.com/edent/SuperTinyIcons)                     |
 | Flags             | flags       | fl    |   1   |   x    | ?     | [flags](https://github.com/ducin/flag-svg-collection/)                   |
 | Emoji             | emojicc     | em    |   1   |   x    | ?     | [emojicc](https://github.com/buildbreakdo/emoji-cc/)                     |
-| Iconoir           | iconoir     | in    |   1   |   x    | 914   | [iconoir](https://iconoir.com/)                                          |
+| Iconoir           | iconoir     | in    |   1   |   x    | 1300+ | [iconoir](https://iconoir.com/)                                          |
 | Eos Icons         | eos         | eo    |   3   |   x    | 1000+ | [eos](https://eos-icons.com/)                                            |
-| Feather           | feather     | ft    |   1   |   v    | 286   | [feather](https://feathericons.com/)                                     |
-| Lucide            | lucide      | lu    |   1   |   v    | 836   | [lucide](https://lucide.dev/)                                            |
+| Feather           | feather     | ft    |   1   |   v    | 280+  | [feather](https://feathericons.com/)                                     |
+| Lucide            | lucide      | lu    |   1   |   v    | 900+  | [lucide](https://lucide.dev/)                                            |
 | IconPark          | iconpark    | ip    |   4   |   v    | 2400+ | [iconpark](https://iconpark.oceanengine.com/official)                    |
-| Phosphor          | phosphor    | ph    |   6   |   x    | 6282  | [phosphor](https://phosphoricons.com/)                                   |
+| Phosphor          | phosphor    | ph    |   6   |   x    | 6200+ | [phosphor](https://phosphoricons.com/)                                   |
 
 ---
 
@@ -152,7 +150,7 @@ feel free to submit a PR. Otherwise, it's easy enough to add your own libraries 
 
 Some icon sets include a default fill="currentColor" and some don't. In order
 to have all icon sets behave consistently, we apply a fill="currentColor" to all
-icon sets. This fix apply to: 'material', 'boxicons', 'fontawesome'.
+icon sets. This fix apply to: 'material', 'fontawesome'.
 
 ## Why a custom element
 

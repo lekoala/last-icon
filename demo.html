@@ -1,446 +1,437 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Last Icon Demo</title>
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22256%22 height=%22256%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%220%22 fill=%22%234a90e2%22%3E%3C/rect%3E%3Cpath fill=%22%23fff%22 d=%22M57.70 79.52L24.40 79.52L24.40 20.48L31.87 20.48L31.87 73.13L57.70 73.13L57.70 79.52ZM75.60 79.52L68.13 79.52L68.13 20.48L75.60 20.48L75.60 79.52Z%22%3E%3C/path%3E%3C/svg%3E"
-    />
 
-    <script src="last-icon.min.js"></script>
-    <script>
-      console.log("Config script loaded");
-      customElements.whenDefined("l-i").then(() => {
-        console.log("Last Icon is defined!");
-        // Access through registry
-        customElements.get("l-i").configure({
-          debug: true,
-          // Disable lazy loading
-          // lazy: false,
-          // Specify our own loading path
-          // paths: {
-          //   bootstrap: "./vendor/bootstrap",
-          // },
-          // Transform stars to trash
-          // replaceName: {
-          //   star: "trash"
-          // },
-          // Change default types (solid by default for boxicons)
-          defaultTypes: {
-            boxicons: "regular",
-          },
-          // Use font icon
-          // fonts: [
-          //   "material",
-          //   "phosphor",
-          // ],
-          // Change default set
-          defaultSet: "tabler",
-          // Change default stroke
-          // defaultStroke: 1,
-        });
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Last Icon Demo</title>
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22256%22 height=%22256%22 viewBox=%220 0 100 100%22%3E%3Crect width=%22100%22 height=%22100%22 rx=%220%22 fill=%22%234a90e2%22%3E%3C/rect%3E%3Cpath fill=%22%23fff%22 d=%22M57.70 79.52L24.40 79.52L24.40 20.48L31.87 20.48L31.87 73.13L57.70 73.13L57.70 79.52ZM75.60 79.52L68.13 79.52L68.13 20.48L75.60 20.48L75.60 79.52Z%22%3E%3C/path%3E%3C/svg%3E" />
+
+  <script src="last-icon.min.js"></script>
+  <script>
+    console.log("Config script loaded");
+    customElements.whenDefined("l-i").then(() => {
+      console.log("Last Icon is defined!");
+      // Access through registry
+      customElements.get("l-i").configure({
+        debug: true,
+        // Disable lazy loading
+        // lazy: false,
+        // Specify our own loading path
+        // paths: {
+        //   bootstrap: "./vendor/bootstrap",
+        // },
+        // Transform stars to trash
+        // replaceName: {
+        //   star: "trash"
+        // },
+        // Change default types (solid by default for boxicons)
+        defaultTypes: {
+          boxicons: "regular",
+        },
+        // Use font icon
+        // fonts: [
+        //   "material",
+        //   "phosphor",
+        // ],
+        // Change default set
+        defaultSet: "tabler",
+        // Change default stroke
+        // defaultStroke: 1,
       });
-    </script>
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/css/icons.css"> -->
-    <link rel="stylesheet" href="last-icon.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mvp.css@1.7.4/mvp.css" />
+    });
+  </script>
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/css/icons.css"> -->
+  <link rel="stylesheet" href="last-icon.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mvp.css@1.7.4/mvp.css" />
 
-    <!-- material font -->
-    <script>
-      customElements.whenDefined("l-i").then(() => {
-        customElements.get("l-i").configure({
-          defaultTypes: {
-            material: "twotone",
-          },
-          fonts: ["material"],
-        });
+  <script>
+    customElements.whenDefined("l-i").then(() => {
+      customElements.get("l-i").configure({
+        defaultTypes: {
+          material: "two-tone",
+        },
+        fonts: [
+          "material",
+          "symbols",
+          // "phosphor",
+        ],
       });
-    </script>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
-    <!-- /material font -->
+    });
+  </script>
 
-    <!-- material symbols -->
-    <script>
-      customElements.whenDefined("l-i").then(() => {
-        customElements.get("l-i").configure({
-          fonts: ["symbols"],
-        });
-      });
-    </script>
-    <style>
-      l-i[set="ms"].fill i {
-        font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 200;
-      }
-    </style>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <!-- /material symbols -->
+  <!-- phosphor -->
+  <!-- <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2/src/thin/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2/src/light/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2/src/bold/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2/src/fill/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2/src/duotone/style.css"> -->
 
-    <style>
-      /* does not affect our icon because we strip the class attribute from svg */
-      .icon {
-        color: red;
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <h1>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 100 100">
-          <rect width="100" height="100" rx="0" fill="#4a90e2"></rect>
-          <path
-            fill="#fff"
-            d="M57.70 79.52L24.40 79.52L24.40 20.48L31.87 20.48L31.87 73.13L57.70 73.13L57.70 79.52ZM75.60 79.52L68.13 79.52L68.13 20.48L75.60 20.48L75.60 79.52Z"
-          ></path>
-        </svg>
-        Last Icon
-      </h1>
-      <p><em>One custom icon element to rule them all</em></p>
-    </header>
-    <main>
-      <h2>Basic usage</h2>
-      <p>Simply use <code>&lt;l-i&gt;&lt;/l-i&gt;</code></p>
-      <h2>Default icons</h2>
-      <p>
-        Set the name with <code>name="your-icon"</code> and, optionnaly, set a custom size with <code>size="xx"</code> (which is just a
-        shortcut for setting style="--size:{xx}px")
-      </p>
-      <l-i name="star"></l-i>
-      <l-i name="star" size="32"></l-i>
-      <button><l-i name="star"></l-i> My button</button>
-      <p>
-        Icons are using <code>vertical-align:middle</code> by default and a <code>vertical-align:0.125em</code> offset when contained in a
-        <code>p</code>, <code>button</code>, <code>a</code> or <code>span</code>
-      </p>
+  <!-- material font -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Two+Tone" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
+  <!-- /material font -->
 
-      <h2>
-        Bootstrap Icons
-        <a href="https://icons.getbootstrap.com/" target="_blank">
-          <l-i name="external-link"></l-i>
-        </a>
-      </h2>
-      <p>Use <code>set="bootstrap"</code> or <code>set="bs"</code></p>
-      <l-i name="star" set="bootstrap"></l-i>
-      <l-i name="github" set="bs" style="--size: 24px"></l-i>
-      <l-i name="alarm-fill" set="bs" style="--size: 36px; color: red"></l-i>
-      <button><l-i name="github" set="bs"></l-i> Github</button>
+  <!-- material symbols -->
+  <style>
+    l-i[set="ms"].fill i {
+      --fill: 1;
+      /* font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 200; */
+    }
+  </style>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!-- /material symbols -->
 
-      <h2>
-        Box Icons
-        <a href="https://boxicons.com/" target="_blank">
-          <l-i name="external-link"></l-i>
-        </a>
-      </h2>
-      <p>Use <code>set="boxicons"</code> or <code>set="bx"</code></p>
-      <l-i name="star" set="bx"></l-i>
-      <p>You can specify the following types: <code>solid</code>, <code>regular</code>, <code>logos</code></p>
-      <l-i name="star" set="bx" type="solid"></l-i>
-      <l-i name="star" set="bx" type="regular"></l-i>
-      <l-i name="github" set="bx" type="logos"></l-i>
-      <l-i name="color" set="bx" type="solid" size="24"></l-i>
-      <l-i name="cheese" set="bx" type="solid" size="36"></l-i>
-      <button><l-i name="github" set="bx" type="logos"></l-i> Github</button>
+  <style>
+    /* does not affect our icon because we strip the class attribute from svg */
+    .icon {
+      color: red;
+    }
+  </style>
+</head>
 
-      <h2>
-        Tabler Icons
-        <a href="https://tablericons.com/" target="_blank">
-          <l-i name="external-link"></l-i>
-        </a>
-      </h2>
-      <p>Use <code>set="tabler"</code> or <code>set="tb"</code></p>
-      <p><strong>This is the default set!</strong></p>
-      <l-i name="star" set="tb"></l-i>
-      <l-i name="rotate" set="tb"></l-i>
-      <l-i name="zodiac-pisces" set="tb"></l-i>
-      <button><l-i name="star" set="tb"></l-i> Github</button>
-      <p>
-        You can also set various widths using <code>stroke</code> attribute ! It can also be set globally with <code>defaultStroke</code>.
-      </p>
-      <l-i name="star" set="tb" stroke="1"></l-i>
-      <l-i name="star" set="tb" stroke="2"></l-i>
-      <l-i name="star" set="tb" stroke="3"></l-i>
+<body>
+  <header>
+    <h1>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 100 100">
+        <rect width="100" height="100" rx="0" fill="#4a90e2"></rect>
+        <path fill="#fff"
+          d="M57.70 79.52L24.40 79.52L24.40 20.48L31.87 20.48L31.87 73.13L57.70 73.13L57.70 79.52ZM75.60 79.52L68.13 79.52L68.13 20.48L75.60 20.48L75.60 79.52Z">
+        </path>
+      </svg>
+      Last Icon
+    </h1>
+    <p><em>One custom icon element to rule them all</em></p>
+  </header>
+  <main>
+    <h2>Basic usage</h2>
+    <p>Simply use <code>&lt;l-i&gt;&lt;/l-i&gt;</code></p>
+    <h2>Default icons</h2>
+    <p>
+      Set the name with <code>name="your-icon"</code> and, optionnaly, set a custom size with <code>size="xx"</code> (which is just a
+      shortcut for setting style="--size:{xx}px")
+    </p>
+    <l-i name="star"></l-i>
+    <l-i name="star" size="32"></l-i>
+    <button><l-i name="star"></l-i> My button</button>
+    <p>
+      Icons are using <code>vertical-align:middle</code> by default and a <code>vertical-align:0.125em</code> offset when contained in a
+      <code>p</code>, <code>button</code>, <code>a</code> or <code>span</code>
+    </p>
 
-      <h2>
-        Materials Icons
-        <a href="https://fonts.google.com/icons?selected=Material+Icons" target="_blank">
-          <l-i name="external-link"></l-i>
-        </a>
-      </h2>
-      <p>Use <code>set="material"</code> or <code>set="mi"</code></p>
-      <l-i name="star" set="mi"></l-i>
-      <l-i name="home" set="mi"></l-i>
-      <button><l-i name="star" set="mi"></l-i> Github</button>
-      <button><l-i name="star" set="mi" type="twotone"></l-i> Github</button>
-      <p>
-        You can specify the following types: <code>baseline</code>, <code>outline</code>, <code>round</code>, <code>sharp</code>,
-        <code>twotone</code>
-      </p>
-      <l-i name="home" set="mi" type="baseline"></l-i>
-      <l-i name="home" set="mi" type="outline"></l-i>
-      <l-i name="home" set="mi" type="round"></l-i>
-      <l-i name="home" set="mi" type="sharp"></l-i>
-      <l-i name="home" set="mi" type="twotone"></l-i>
+    <h2>
+      Bootstrap Icons
+      <a href="https://icons.getbootstrap.com/" target="_blank">
+        <l-i name="external-link"></l-i>
+      </a>
+    </h2>
+    <p>Use <code>set="bootstrap"</code> or <code>set="bs"</code></p>
+    <l-i name="star" set="bootstrap"></l-i>
+    <l-i name="github" set="bs" style="--size: 24px"></l-i>
+    <l-i name="alarm-fill" set="bs" style="--size: 36px; color: red"></l-i>
+    <button><l-i name="github" set="bs"></l-i> Github</button>
 
-      <p>You can also use the font as an icon if needed!</p>
+    <h2>
+      Box Icons
+      <a href="https://boxicons.com/" target="_blank">
+        <l-i name="external-link"></l-i>
+      </a>
+    </h2>
+    <p>Use <code>set="boxicons"</code> or <code>set="bx"</code></p>
+    <l-i name="star" set="bx"></l-i>
+    <p>You can specify the following types: <code>solid</code>, <code>regular</code>, <code>logos</code></p>
+    <l-i name="star" set="bx" type="solid"></l-i>
+    <l-i name="star" set="bx" type="regular"></l-i>
+    <l-i name="coffee-bean" set="bx" type="solid"></l-i>
+    <l-i name="github" set="bx" type="logos"></l-i>
+    <l-i name="color" set="bx" type="solid" size="24"></l-i>
+    <l-i name="cheese" set="bx" type="solid" size="36"></l-i>
+    <button><l-i name="github" set="bx" type="logos"></l-i> Github</button>
 
-      <h2>
-        Materials symbols
-        <a href="https://fonts.google.com/icons" target="_blank">
-          <l-i name="external-link"></l-i>
-        </a>
-      </h2>
-      <p>Use <code>set="symbols"</code> or <code>set="ms"</code>. Works best with font icons if you intend to use options.</p>
-      <l-i name="star" set="ms"></l-i>
-      <l-i name="home" set="ms"></l-i>
-      <button><l-i name="star" set="ms"></l-i> Github</button>
-      <p>You can specify the following types: <code>outlined</code>, <code>rounded</code>, <code>sharp</code></p>
-      <l-i name="home" set="ms" type="outlined" size="64" onclick="this.classList.toggle('fill')"></l-i>
-      <l-i name="home" set="ms" type="rounded" size="64" onclick="this.classList.toggle('fill')"></l-i>
-      <l-i name="home" set="ms" type="sharp" size="64" onclick="this.classList.toggle('fill')"></l-i>
-      <p><em>Click to toggle fill. Note that we don't see much difference between outlined and sharp ;-)</em></p>
+    <h2>
+      Tabler Icons
+      <a href="https://tablericons.com/" target="_blank">
+        <l-i name="external-link"></l-i>
+      </a>
+    </h2>
+    <p>Use <code>set="tabler"</code> or <code>set="tb"</code></p>
+    <p><strong>This is the default set!</strong></p>
+    <l-i name="star" set="tb"></l-i>
+    <l-i name="rotate" set="tb"></l-i>
+    <l-i name="zodiac-pisces" set="tb"></l-i>
+    <button><l-i name="star" set="tb"></l-i> Github</button>
+    <p>
+      You can also set various widths using <code>stroke</code> attribute ! It can also be set globally with <code>defaultStroke</code>.
+    </p>
+    <l-i name="star" set="tb" stroke="1"></l-i>
+    <l-i name="star" set="tb" stroke="2"></l-i>
+    <l-i name="star" set="tb" stroke="3"></l-i>
+
+    <h2>
+      Materials Icons
+      <a href="https://fonts.google.com/icons?selected=Material+Icons" target="_blank">
+        <l-i name="external-link"></l-i>
+      </a>
+    </h2>
+    <p>Use <code>set="material"</code> or <code>set="mi"</code></p>
+    <l-i name="star" set="mi"></l-i>
+    <l-i name="home" set="mi"></l-i>
+    <button><l-i name="star" set="mi"></l-i> Github</button>
+    <button><l-i name="star" set="mi" type="two-tone"></l-i> Github</button>
+    <p>
+      You can specify the following types: <code>filled</code>, <code>outlined</code>, <code>round</code>, <code>sharp</code>,
+      <code>two-tone</code>
+    </p>
+    <l-i name="home" set="mi" type="filled"></l-i>
+    <l-i name="home" set="mi" type="outlined"></l-i>
+    <l-i name="home" set="mi" type="round"></l-i>
+    <l-i name="home" set="mi" type="sharp"></l-i>
+    <l-i name="home" set="mi" type="two-tone"></l-i>
+
+    <p>You can also use the font as an icon if needed!</p>
+
+    <h2>
+      Materials symbols
+      <a href="https://fonts.google.com/icons" target="_blank">
+        <l-i name="external-link"></l-i>
+      </a>
+    </h2>
+    <p>Use <code>set="symbols"</code> or <code>set="ms"</code>. Works best with font icons if you intend to use options.</p>
+    <l-i name="star" set="ms"></l-i>
+    <l-i name="home" set="ms"></l-i>
+    <button><l-i name="star" set="ms"></l-i> Github</button>
+    <p>You can specify the following types: <code>outlined</code>, <code>rounded</code>, <code>sharp</code></p>
+    <l-i name="home" set="ms" type="outlined" size="64" onclick="this.classList.toggle('fill')"></l-i>
+    <l-i name="home" set="ms" type="rounded" size="64" onclick="this.classList.toggle('fill')"></l-i>
+    <l-i name="home" set="ms" type="sharp" size="64" onclick="this.classList.toggle('fill')"></l-i>
+    <p><em>Click to toggle fill. Note that we don't see much difference between outlined and sharp ;-)</em></p>
 
 
-      <p>Animate them!</p>
-      <l-i name="home" set="ms" type="rounded" size="64" class="symbols-pulse"></l-i>
+    <p>Animate them! (only works with font icons)</p>
+    <l-i name="home" set="ms" type="rounded" size="64" class="symbols-pulse"></l-i>
 
-      <p>Animate on hover</p>
-      <l-i name="home" set="ms" type="rounded" size="64" class="symbols-fill-hover"></l-i>
-      <l-i name="home" set="ms" type="rounded" size="64" class="fill symbols-empty-hover"></l-i>
+    <p>Animate on hover</p>
+    <l-i name="home" set="ms" type="rounded" size="64" class="symbols-fill-hover" style="--duration:0.2s"></l-i>
+    <l-i name="home" set="ms" type="rounded" size="64" class="fill symbols-empty-hover" style="--duration:0.2s"></l-i>
 
-      <p><a href="https://developers.google.com/fonts/docs/material_symbols#styling_icons_in_material_design">Make sure size is perfect</a></p>
+    <p><a href="https://developers.google.com/fonts/docs/material_symbols#styling_icons_in_material_design">Make sure size is perfect</a>
+    </p>
 
-      <l-i name="star" set="ms" size="24"></l-i>
-      <l-i name="star" set="ms" size="48"></l-i>
-      <l-i name="star" set="ms" size="64" stroke="1"></l-i>
+    <l-i name="star" set="ms" size="24"></l-i>
+    <l-i name="star" set="ms" size="48"></l-i>
+    <l-i name="star" set="ms" size="64" stroke="1"></l-i>
 
-      <p>Dark background</p>
+    <p>Dark background</p>
 
-      <l-i name="star" set="ms" size="24" class="dark"></l-i>
-      <l-i name="star" set="ms" size="24" class="dark" disabled></l-i>
+    <l-i name="star" set="ms" size="24" class="dark"></l-i>
+    <l-i name="star" set="ms" size="24" class="dark" disabled></l-i>
 
-      <h2>
-        Css.gg Icons
-        <a href="https://css.gg/" target="_blank">
-          <l-i name="external-link"></l-i>
-        </a>
-      </h2>
-      <p>Use <code>set="cssgg"</code> or <code>set="cs"</code>or <code>set="gg"</code></p>
-      <l-i name="add" set="gg"></l-i>
-      <l-i name="alarm" set="gg"></l-i>
-      <button><l-i name="alarm" set="gg"></l-i> Github</button>
+    <h2>
+      Css.gg Icons
+      <a href="https://css.gg/" target="_blank">
+        <l-i name="external-link"></l-i>
+      </a>
+    </h2>
+    <p>Use <code>set="cssgg"</code> or <code>set="cs"</code>or <code>set="gg"</code></p>
+    <l-i name="add" set="gg"></l-i>
+    <l-i name="alarm" set="gg"></l-i>
+    <button><l-i name="alarm" set="gg"></l-i> Github</button>
 
-      <h2>
-        Font Awesome Icons
-        <a href="https://fontawesome.com/cheatsheet" target="_blank">
-          <l-i name="external-link"></l-i>
-        </a>
-      </h2>
-      <p>Use <code>set="fontawesome"</code> or <code>set="fa"</code></p>
-      <l-i name="star" set="fa"></l-i>
-      <button><l-i name="star" set="fa"></l-i> Github</button>
+    <h2>
+      Font Awesome Icons
+      <a href="https://fontawesome.com/cheatsheet" target="_blank">
+        <l-i name="external-link"></l-i>
+      </a>
+    </h2>
+    <p>Use <code>set="fontawesome"</code> or <code>set="fa"</code></p>
+    <l-i name="star" set="fa"></l-i>
+    <button><l-i name="star" set="fa"></l-i> Github</button>
 
-      <h2>
-        Super Tiny Icons
-        <a href="https://github.com/edent/SuperTinyIcons" target="_blank">
-          <l-i name="external-link"></l-i>
-        </a>
-      </h2>
-      <p>Use <code>set="supertiny"</code> or <code>set="st"</code></p>
-      <p>Super useful if you need the social icons with proper colors 👌</p>
-      <l-i name="youtube" set="st"></l-i>
-      <l-i name="twitter" set="st"></l-i>
+    <h2>
+      Super Tiny Icons
+      <a href="https://github.com/edent/SuperTinyIcons" target="_blank">
+        <l-i name="external-link"></l-i>
+      </a>
+    </h2>
+    <p>Use <code>set="supertiny"</code> or <code>set="st"</code></p>
+    <p>Super useful if you need the social icons with proper colors 👌</p>
+    <l-i name="youtube" set="st"></l-i>
+    <l-i name="twitter" set="st"></l-i>
 
-      <h2>
-        Flags Icons
-        <a href="https://github.com/ducin/flag-svg-collection/" target="_blank">
-          <l-i name="external-link"></l-i>
-        </a>
-      </h2>
-      <p>Use <code>set="flags"</code> or <code>set="fl"</code></p>
-      <l-i name="be" set="fl"></l-i>
-      <l-i name="fr" set="fl"></l-i>
+    <h2>
+      Flags Icons
+      <a href="https://github.com/ducin/flag-svg-collection/" target="_blank">
+        <l-i name="external-link"></l-i>
+      </a>
+    </h2>
+    <p>Use <code>set="flags"</code> or <code>set="fl"</code></p>
+    <l-i name="be" set="fl"></l-i>
+    <l-i name="fr" set="fl"></l-i>
 
-      <h2>
-        Emoji Icons
-        <a href="https://github.com/buildbreakdo/emoji-cc/" target="_blank">
-          <l-i name="external-link"></l-i>
-        </a>
-      </h2>
-      <p>Use <code>set="emojicc"</code> or <code>set="em"</code></p>
-      <l-i name="smile" set="em"></l-i>
+    <h2>
+      Emoji Icons
+      <a href="https://github.com/buildbreakdo/emoji-cc/" target="_blank">
+        <l-i name="external-link"></l-i>
+      </a>
+    </h2>
+    <p>Use <code>set="emojicc"</code> or <code>set="em"</code></p>
+    <l-i name="smile" set="em"></l-i>
 
-      <h2>
-        Iconoir
-        <a href="https://iconoir.com/" target="_blank">
-          <l-i name="external-link"></l-i>
-        </a>
-      </h2>
-      <p>Use <code>set="iconoir"</code> or <code>set="in"</code></p>
-      <l-i name="creative-commons" set="in"></l-i>
-      <l-i name="server" set="in"></l-i>
-      <button><l-i name="doc-star" set="in"></l-i> Star this document</button>
+    <h2>
+      Iconoir
+      <a href="https://iconoir.com/" target="_blank">
+        <l-i name="external-link"></l-i>
+      </a>
+    </h2>
+    <p>Use <code>set="iconoir"</code> or <code>set="in"</code></p>
+    <l-i name="creative-commons" set="in"></l-i>
+    <l-i name="server" set="in"></l-i>
+    <button><l-i name="doc-star" set="in"></l-i> Star this document</button>
 
-      <h2>
-        EOS
-        <a href="https://eos-icons.com/" target="_blank">
-          <l-i name="external-link"></l-i>
-        </a>
-      </h2>
-      <p>Use <code>set="eos"</code> or <code>set="eo"</code></p>
-      <p>You can specify the following types: <code>solid</code>, <code>outlined</code>, <code>animated</code></p>
-      <p><em>Note: we use an alternative provider as the original repository structure is not very consistent</em></p>
-      <l-i name="abstract" set="eo"></l-i>
-      <l-i name="abstract" set="eo" type="outlined"></l-i>
-      <l-i name="three_dots_loading" set="eo" type="animated"></l-i>
-      <l-i name="typing" set="eo" type="animated"></l-i>
-      <button><l-i name="add_task" set="eo"></l-i> Add task</button>
+    <h2>
+      EOS
+      <a href="https://eos-icons.com/" target="_blank">
+        <l-i name="external-link"></l-i>
+      </a>
+    </h2>
+    <p>Use <code>set="eos"</code> or <code>set="eo"</code></p>
+    <p>You can specify the following types: <code>solid</code>, <code>outlined</code>, <code>animated</code></p>
+    <p><em>Note: we use an alternative provider as the original repository structure is not very consistent</em></p>
+    <l-i name="abstract" set="eo"></l-i>
+    <l-i name="abstract" set="eo" type="outlined"></l-i>
+    <l-i name="three_dots_loading" set="eo" type="animated"></l-i>
+    <l-i name="typing" set="eo" type="animated"></l-i>
+    <button><l-i name="add_task" set="eo"></l-i> Add task</button>
 
-      <h2>
-        Feather
-        <a href="https://feathericons.com/" target="_blank">
-          <l-i name="external-link"></l-i>
-        </a>
-      </h2>
-      <p>Use <code>set="feather"</code> or <code>set="ft"</code></p>
-      <p>You can also set various widths using <code>stroke</code> attribute !</p>
-      <l-i name="activity" set="ft"></l-i>
-      <l-i name="activity" set="ft" stroke="3"></l-i>
-      <l-i name="activity" set="ft" stroke="1"></l-i>
-      <button><l-i name="activity" set="ft"></l-i> Add activity</button>
+    <h2>
+      Feather
+      <a href="https://feathericons.com/" target="_blank">
+        <l-i name="external-link"></l-i>
+      </a>
+    </h2>
+    <p>Use <code>set="feather"</code> or <code>set="ft"</code></p>
+    <p>You can also set various widths using <code>stroke</code> attribute !</p>
+    <l-i name="activity" set="ft"></l-i>
+    <l-i name="activity" set="ft" stroke="3"></l-i>
+    <l-i name="activity" set="ft" stroke="1"></l-i>
+    <button><l-i name="activity" set="ft"></l-i> Add activity</button>
 
-      <h2>
-        Lucide
-        <a href="https://lucide.dev/" target="_blank">
-          <l-i name="external-link"></l-i>
-        </a>
-      </h2>
-      <p>Use <code>set="lucide"</code> or <code>set="lu"</code></p>
-      <p>You can also set various widths using <code>stroke</code> attribute !</p>
-      <l-i name="activity" set="lu"></l-i>
-      <l-i name="activity" set="lu" stroke="3"></l-i>
-      <l-i name="activity" set="lu" stroke="1"></l-i>
-      <button><l-i name="activity" set="lu"></l-i> Add activity</button>
+    <h2>
+      Lucide
+      <a href="https://lucide.dev/" target="_blank">
+        <l-i name="external-link"></l-i>
+      </a>
+    </h2>
+    <p>Use <code>set="lucide"</code> or <code>set="lu"</code></p>
+    <p>You can also set various widths using <code>stroke</code> attribute !</p>
+    <l-i name="activity" set="lu"></l-i>
+    <l-i name="activity" set="lu" stroke="3"></l-i>
+    <l-i name="activity" set="lu" stroke="1"></l-i>
+    <button><l-i name="activity" set="lu"></l-i> Add activity</button>
 
-      <h2>
-        IconPark
-        <a href="https://iconpark.oceanengine.com/official" target="_blank">
-          <l-i name="external-link"></l-i>
-        </a>
-      </h2>
-      <p>Use <code>set="iconpark"</code> or <code>set="ip"</code></p>
-      <p>You can also set various widths using <code>stroke</code> attribute !</p>
-      <p>You can set 4 themes (outline, filled, two-tone, multi-color): these need to be set in CSS.</p>
-      <p><em>TODO: consider merging all the icons in one folder to avoid setting the type like what I did for eos icons</em></p>
-      <l-i name="bookmark" set="ip" size="32" type="Base" stroke="4" theme="multi-color"></l-i>
-      <l-i name="bookmark" set="ip" size="32" type="Base" theme="multi-color"></l-i>
-      <l-i name="email-security" set="ip" size="32" type="Base" theme="multi-color"></l-i>
-      <l-i name="camera" set="ip" size="32" type="Base" theme="multi-color"></l-i>
-      <l-i name="bookmark" set="ip" size="32" type="Base" stroke="4" theme="two-tone"></l-i>
-      <l-i name="bookmark" set="ip" size="32" type="Base" theme="two-tone"></l-i>
-      <l-i name="email-security" set="ip" size="32" type="Base" theme="two-tone"></l-i>
-      <l-i name="camera" set="ip" size="32" type="Base" theme="two-tone"></l-i>
-      <button style="background: none; color: var(--color-text)">
-        <l-i name="bookmark" set="ip" size="32" type="Base" theme="filled"></l-i> Add bookmark
-      </button>
-      <button><l-i name="bookmark" set="ip" size="32" type="Base" theme="outline"></l-i> Add bookmark</button>
+    <h2>
+      IconPark
+      <a href="https://iconpark.oceanengine.com/official" target="_blank">
+        <l-i name="external-link"></l-i>
+      </a>
+    </h2>
+    <p>Use <code>set="iconpark"</code> or <code>set="ip"</code></p>
+    <p>You can also set various widths using <code>stroke</code> attribute !</p>
+    <p>You can set 4 themes (outline, filled, two-tone, multi-color): these need to be set in CSS.</p>
+    <p><em>TODO: consider merging all the icons in one folder to avoid setting the type like what I did for eos icons</em></p>
+    <l-i name="bookmark" set="ip" size="32" type="Base" stroke="4" theme="multi-color"></l-i>
+    <l-i name="bookmark" set="ip" size="32" type="Base" theme="multi-color"></l-i>
+    <l-i name="email-security" set="ip" size="32" type="Base" theme="multi-color"></l-i>
+    <l-i name="camera" set="ip" size="32" type="Base" theme="multi-color"></l-i>
+    <l-i name="bookmark" set="ip" size="32" type="Base" stroke="4" theme="two-tone"></l-i>
+    <l-i name="bookmark" set="ip" size="32" type="Base" theme="two-tone"></l-i>
+    <l-i name="email-security" set="ip" size="32" type="Base" theme="two-tone"></l-i>
+    <l-i name="camera" set="ip" size="32" type="Base" theme="two-tone"></l-i>
+    <button style="background: none; color: var(--color-text)">
+      <l-i name="bookmark" set="ip" size="32" type="Base" theme="filled"></l-i> Add bookmark
+    </button>
+    <button><l-i name="bookmark" set="ip" size="32" type="Base" theme="outline"></l-i> Add bookmark</button>
 
-      <h2>
-        Phosphor
-        <a href="https://phosphoricons.com/" target="_blank">
-          <l-i name="external-link"></l-i>
-        </a>
-      </h2>
-      <p>Use <code>set="phosphor"</code> or <code>set="ph"</code></p>
-      <p>You can set 6 types (bold, duotone, fill, light, regular, thin)</p>
-      <l-i name="calendar-x" set="ph" size="32" type=""></l-i>
-      <l-i name="calendar-x" set="ph" size="32" type="duotone"></l-i>
-      <l-i name="calendar-x" set="ph" size="32" type="light"></l-i>
-      <button style="background: none; color: var(--color-text)">
-        <l-i name="star" set="ph" size="32" type="duotone"></l-i> Add bookmark
-      </button>
-      <button><l-i name="star" set="ph" size="32" type="fill"></l-i> Add bookmark</button>
+    <h2>
+      Phosphor
+      <a href="https://phosphoricons.com/" target="_blank">
+        <l-i name="external-link"></l-i>
+      </a>
+    </h2>
+    <p>Use <code>set="phosphor"</code> or <code>set="ph"</code></p>
+    <p>You can set 6 types (bold, duotone, fill, light, regular, thin)</p>
 
-      <h2>Invalid icons</h2>
-      <p>Invalid icons are logged to the console and display a warning emoji</p>
-      <l-i name="does-not-exist" set="em"></l-i>
+    <l-i name="toolbox" set="ph" size="32" type=""></l-i>
+    <l-i name="calendar-x" set="ph" size="32" type=""></l-i>
+    <span style="color:red"><l-i name="calendar-x" set="ph" size="32" type="duotone"></l-i></span>
+    <l-i name="calendar-x" set="ph" size="32" type="light"></l-i>
+    <button style="background: none; color: var(--color-text)">
+      <l-i name="star" set="ph" size="32" type="duotone"></l-i> Add bookmark
+    </button>
+    <button><l-i name="star" set="ph" size="32" type="fill"></l-i> Add bookmark</button>
 
-      <h2>Animations and transformations</h2>
+    <h2>Invalid icons</h2>
+    <p>Invalid icons are logged to the console and display a warning emoji</p>
+    <l-i name="does-not-exist" set="em"></l-i>
 
-      <p>Use the same icon and rotate</p>
+    <h2>Animations and transformations</h2>
 
-      <l-i name="chevron-left" size="32"></l-i>
-      <l-i name="chevron-left" size="32" class="rotate-90"></l-i>
-      <l-i name="chevron-left" size="32" class="rotate-180"></l-i>
-      <l-i name="chevron-left" size="32" class="rotate-270"></l-i>
-      <l-i name="chevron-left" size="32" class="flip-horizontal"></l-i>
-      <l-i name="chevron-left" size="32" class="flip-vertical"></l-i>
+    <p>Use the same icon and rotate</p>
 
-      <p>Use the animation classes or they -hover variant</p>
+    <l-i name="chevron-left" size="32"></l-i>
+    <l-i name="chevron-left" size="32" class="rotate-90"></l-i>
+    <l-i name="chevron-left" size="32" class="rotate-180"></l-i>
+    <l-i name="chevron-left" size="32" class="rotate-270"></l-i>
+    <l-i name="chevron-left" size="32" class="flip-horizontal"></l-i>
+    <l-i name="chevron-left" size="32" class="flip-vertical"></l-i>
 
-      <l-i name="tank" size="32" class="spin"></l-i>
-      <l-i name="tank" size="32" class="spin-hover"></l-i>
-      <l-i name="tank" size="32" class="tada"></l-i>
-      <l-i name="tank" size="32" class="tada-hover"></l-i>
-      <l-i name="tank" size="32" class="flashing"></l-i>
-      <l-i name="tank" size="32" class="flashing-hover"></l-i>
-      <l-i name="tank" size="32" class="burst"></l-i>
-      <l-i name="tank" size="32" class="burst-hover"></l-i>
-      <l-i name="tank" size="32" class="fade-up"></l-i>
-      <l-i name="tank" size="32" class="fade-up-hover"></l-i>
-      <l-i name="tank" size="32" class="fade-down"></l-i>
-      <l-i name="tank" size="32" class="fade-down-hover"></l-i>
-      <l-i name="tank" size="32" class="fade-left"></l-i>
-      <l-i name="tank" size="32" class="fade-left-hover"></l-i>
-      <l-i name="tank" size="32" class="fade-right"></l-i>
-      <l-i name="tank" size="32" class="fade-right-hover"></l-i>
+    <p>Use the animation classes or they -hover variant</p>
 
-      <p>Or use <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/attributeName">svg animation</a></p>
+    <l-i name="tank" size="32" class="spin"></l-i>
+    <l-i name="tank" size="32" class="spin-hover"></l-i>
+    <l-i name="tank" size="32" class="tada"></l-i>
+    <l-i name="tank" size="32" class="tada-hover"></l-i>
+    <l-i name="tank" size="32" class="flashing"></l-i>
+    <l-i name="tank" size="32" class="flashing-hover"></l-i>
+    <l-i name="tank" size="32" class="burst"></l-i>
+    <l-i name="tank" size="32" class="burst-hover"></l-i>
+    <l-i name="tank" size="32" class="fade-up"></l-i>
+    <l-i name="tank" size="32" class="fade-up-hover"></l-i>
+    <l-i name="tank" size="32" class="fade-down"></l-i>
+    <l-i name="tank" size="32" class="fade-down-hover"></l-i>
+    <l-i name="tank" size="32" class="fade-left"></l-i>
+    <l-i name="tank" size="32" class="fade-left-hover"></l-i>
+    <l-i name="tank" size="32" class="fade-right"></l-i>
+    <l-i name="tank" size="32" class="fade-right-hover"></l-i>
 
-      <l-i name="tank" size="32">
-        <animateTransform
-          attributeName="transform"
-          type="rotate"
-          from="0 0 0"
-          to="360 0 0"
-          begin="0s"
-          dur="2s"
-          repeatCount="indefinite"
-        ></animateTransform>
-      </l-i>
-      <l-i name="tank" size="32">
-        <animateTransform
-          attributeName="transform"
-          attributeType="XML"
-          type="rotate"
-          values="0 0 0;10 0 0;-10 0 0;10 0 0;-10 0 0;10 0 0;-10 0 0;0 0 0;0 0 0;0 0 0;0 0 0;"
-          dur="2s"
-          repeatCount="indefinite"
-        ></animateTransform>
-      </l-i>
-      <l-i name="tank" size="32">
-        <animate attributeName="opacity" values="1;0;1;1" dur="1s" repeatCount="indefinite"></animate>
-      </l-i>
+    <p>Or use <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/attributeName">svg animation</a></p>
 
-      <h2>Advanced usage</h2>
-      <h3>Host your own icons</h3>
-      <p>You can point any library to a local path or to another cdn using <code>paths</code>.</p>
-      <pre>
+    <l-i name="tank" size="32">
+      <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" begin="0s" dur="2s" repeatCount="indefinite">
+      </animateTransform>
+    </l-i>
+    <l-i name="tank" size="32">
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate"
+        values="0 0 0;10 0 0;-10 0 0;10 0 0;-10 0 0;10 0 0;-10 0 0;0 0 0;0 0 0;0 0 0;0 0 0;" dur="2s" repeatCount="indefinite">
+      </animateTransform>
+    </l-i>
+    <l-i name="tank" size="32">
+      <animate attributeName="opacity" values="1;0;1;1" dur="1s" repeatCount="indefinite"></animate>
+    </l-i>
+
+    <h2>Advanced usage</h2>
+    <h3>Host your own icons</h3>
+    <p>You can point any library to a local path or to another cdn using <code>paths</code>.</p>
+    <pre>
 customElements.whenDefined("l-i").then(() => {
   // Access through registry
   customElements.get("l-i").configure({
@@ -452,12 +443,12 @@ customElements.whenDefined("l-i").then(() => {
   });
 });
       </pre>
-      <h3>Change other settings</h3>
-      <p>
-        You can also configure the following settings: <code>aliases</code>, <code>defaultTypes</code>, <code>prefixes</code>,
-        <code>defaultSet</code>
-      </p>
-      <pre>
+    <h3>Change other settings</h3>
+    <p>
+      You can also configure the following settings: <code>aliases</code>, <code>defaultTypes</code>, <code>prefixes</code>,
+      <code>defaultSet</code>
+    </p>
+    <pre>
 customElements.whenDefined("l-i").then(() => {
   // Access through registry
   customElements.get("l-i").configure({
@@ -469,10 +460,11 @@ customElements.whenDefined("l-i").then(() => {
   });
 });
       </pre>
-    </main>
-    <footer>
-      <hr />
-      Made with <l-i name="heart" set="em"></l-i> in <l-i name="be" set="fl"></l-i> by <a href="https://www.lekoala.be">LeKoala</a>
-    </footer>
-  </body>
+  </main>
+  <footer>
+    <hr />
+    Made with <l-i name="heart" set="em"></l-i> in <l-i name="be" set="fl"></l-i> by <a href="https://www.lekoala.be">LeKoala</a>
+  </footer>
+</body>
+
 </html>

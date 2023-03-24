@@ -1,50 +1,66 @@
-$default-duration: 1.5s !default;
+$default-duration: 0.5s !default;
 
 @keyframes symbols-pulse {
   0% {
     font-variation-settings: "wght" 100;
   }
+
   50% {
     font-variation-settings: "wght" 700;
   }
+
   100% {
     font-variation-settings: "wght" 100;
   }
 }
+
 @keyframes symbols-fill {
   0% {
     font-variation-settings: "FILL" 0;
   }
+
   100% {
     font-variation-settings: "FILL" 1;
   }
 }
+
 @keyframes symbols-empty {
   0% {
     font-variation-settings: "FILL" 1;
   }
+
   100% {
     font-variation-settings: "FILL" 0;
   }
 }
 
-.symbols-pulse i {
-  animation: symbols-pulse $default-duration * 2 infinite;
-}
-.symbols-pulse-hover:hover i {
-  animation: symbols-pulse $default-duration * 2 infinite;
-}
-.symbols-fill i {
-  animation: symbols-fill $default-duration ease forwards;
-}
-.symbols-fill-hover:hover i {
-  animation: symbols-fill $default-duration ease forwards;
-}
-.symbols-empty i {
-  animation: symbols-fill $default-duration ease forwards;
-}
+.symbols-pulse i,
+.symbols-pulse-hover:hover i,
+.symbols-fill i,
+.symbols-fill-hover:hover i,
+.symbols-empty i,
 .symbols-empty-hover:hover i {
-  animation: symbols-empty $default-duration ease forwards;
+  animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+  animation-duration: var(--duration, $default-duration);
+}
+
+.symbols-pulse i,
+.symbols-pulse-hover:hover i {
+  --duration: #{$default-duration * 4};
+  animation-name: symbols-pulse;
+  animation-iteration-count: infinite;
+}
+
+.symbols-fill i,
+.symbols-fill-hover:hover i {
+  animation-name: symbols-fill;
+  animation-fill-mode: forwards;
+}
+
+.symbols-empty i,
+.symbols-empty-hover:hover i {
+  animation-name: symbols-empty;
+  animation-fill-mode: forwards;
 }
 
 .material-symbols-rounded,
