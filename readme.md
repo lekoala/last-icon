@@ -130,9 +130,6 @@ All available options:
 
 ---
 
-If you feel that any icon set should be added to the already expansive list,
-feel free to submit a PR. Otherwise, it's easy enough to add your own libraries by update the `paths` option.
-
 ## Adding or updating an icon set
 
 You can update any option for an icon set
