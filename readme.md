@@ -78,18 +78,10 @@ customElements.whenDefined("l-i").then(() => {
   // Access through registry
   customElements.get("l-i").configure({
     debug: true,
-    // Specify our own loading path
-    // paths: {
-    //   bootstrap: "./vendor/bootstrap",
-    // },
     // Transform stars to trash
     // replaceName: {
     //   star: "trash"
     // },
-    // Change default types (solid by default for boxicons)
-    defaultTypes: {
-      boxicons: "regular",
-    },
     // Use font icon
     // fonts: [
     //   "material",
@@ -105,20 +97,14 @@ customElements.whenDefined("l-i").then(() => {
 
 All available options:
 
-| Name          | Type                 | Description                                   |
-| ------------- | -------------------- | --------------------------------------------- |
-| debug         | <code>Boolean</code> | Should we output messages to console          |
-| lazy          | <code>Boolean</code> | Load icons lazily                             |
-| replaceName   | <code>Object</code>  | Transparently replace icons with other values |
-| aliases       | <code>Object</code>  | Icon sets aliases for ease of use             |
-| fonts         | <code>Array</code>   | Icon sets using font icons rather than svg    |
-| prefixes      | <code>Object</code>  | Types prefixes in each icon set               |
-| defaultTypes  | <code>Object</code>  | Default types for each icon set               |
-| defaultSet    | <code>String</code>  | Default icon set                              |
-| defaultStroke | <code>Number</code>  | Default stroke used                           |
-| paths         | <code>Object</code>  | Svg loading paths                             |
-| fixFill       | <code>Array</code>   | Fix fill for these sets                       |
-| fixStroke     | <code>Array</code>   | Fix stroke for these sets                     |
+| Name        | Type                                        | Description                                   |
+| ----------- | ------------------------------------------- | --------------------------------------------- |
+| debug       | <code>Boolean</code>                        | Should we output messages to console          |
+| lazy        | <code>Boolean</code>                        | Load icons lazily                             |
+| replaceName | <code>Object</code>                         | Transparently replace icons with other values |
+| fonts       | <code>Array</code>                          | Icon sets using font icons rather than svg    |
+| defaultSet  | <code>String</code>                         | Default icon set                              |
+| sets        | <code>Object.&lt;string, IconSet&gt;</code> | Available iconsets                            |
 
 ## Supported icon sets
 
@@ -126,25 +112,43 @@ All available options:
 | ----------------- | ----------- | ----- | :---: | :----: | :---- | ------------------------------------------------------------------------ |
 | Bootstrap Icons   | bootstrap   | bs    |   1   |   x    | 1800+ | [bootstrap](https://icons.getbootstrap.com/)                             |
 | Boxicons          | boxicons    | bx    |   3   |   x    | 1600+ | [boxicons](https://boxicons.com/)                                        |
-| Tabler Icons      | tabler      | tb    |   1   |   v    | 1400+ | [tabler](https://tablericons.com/)                                       |
-| Materials Icons   | material    | mi    |   5   |   x    | 1100+ | [material icons](https://fonts.google.com/icons?selected=Material+Icons) |
-| Materials Symbols | symbols     | ms    |   3   |   v    | 2500+ | [material symbols](https://fonts.google.com/icons)                       |
+| Bytesized Icons   | bytesize    | by    |   1   |   v    | 101   | [bytesize](https://github.com/danklammer/bytesize-icons)                 |
 | Css.gg            | cssgg       | gg    |   1   |   x    | 700+  | [cssgg](https://css.gg/)                                                 |
-| Fontawesome       | fontawesome | fa    |   5   |   x    | 1600+ | [fontawesome](https://fontawesome.com/cheatsheet)                        |
-| Super Tiny Icons  | supertiny   | st    |   1   |   x    | ?     | [supertiny](https://github.com/edent/SuperTinyIcons)                     |
-| Flags             | flags       | fl    |   1   |   x    | ?     | [flags](https://github.com/ducin/flag-svg-collection/)                   |
 | Emoji             | emojicc     | em    |   1   |   x    | ?     | [emojicc](https://github.com/buildbreakdo/emoji-cc/)                     |
-| Iconoir           | iconoir     | in    |   1   |   x    | 1300+ | [iconoir](https://iconoir.com/)                                          |
 | Eos Icons         | eos         | eo    |   3   |   x    | 1000+ | [eos](https://eos-icons.com/)                                            |
 | Feather           | feather     | ft    |   1   |   v    | 280+  | [feather](https://feathericons.com/)                                     |
-| Lucide            | lucide      | lu    |   1   |   v    | 900+  | [lucide](https://lucide.dev/)                                            |
+| Flags             | flags       | fl    |   1   |   x    | ?     | [flags](https://github.com/ducin/flag-svg-collection/)                   |
+| Fontawesome       | fontawesome | fa    |   5   |   x    | 1600+ | [fontawesome](https://fontawesome.com/cheatsheet)                        |
+| Iconoir           | iconoir     | in    |   1   |   x    | 1300+ | [iconoir](https://iconoir.com/)                                          |
 | IconPark          | iconpark    | ip    |   4   |   v    | 2400+ | [iconpark](https://iconpark.oceanengine.com/official)                    |
+| Lucide            | lucide      | lu    |   1   |   v    | 1800+ | [lucide](https://lucide.dev/)                                            |
+| Materials Icons   | material    | mi    |   5   |   x    | 1100+ | [material icons](https://fonts.google.com/icons?selected=Material+Icons) |
 | Phosphor          | phosphor    | ph    |   6   |   x    | 6200+ | [phosphor](https://phosphoricons.com/)                                   |
+| Super Tiny Icons  | supertiny   | st    |   1   |   x    | ?     | [supertiny](https://github.com/edent/SuperTinyIcons)                     |
+| Materials Symbols | symbols     | ms    |   3   |   v    | 2500+ | [material symbols](https://fonts.google.com/icons)                       |
+| Tabler Icons      | tabler      | tb    |   1   |   v    | 4000+ | [tabler](https://tabler-icons.io/)                                       |
 
 ---
 
 If you feel that any icon set should be added to the already expansive list,
 feel free to submit a PR. Otherwise, it's easy enough to add your own libraries by update the `paths` option.
+
+## Adding or updating an icon set
+
+You can update any option for an icon set
+
+| Name            | Type                                       | Description                                         |
+| --------------- | ------------------------------------------ | --------------------------------------------------- |
+| alias           | <code>String</code>                        | Short two letters alias                             |
+| svgPath         | <code>function</code>                      | The svg path                                        |
+| [fixFill]       | <code>Boolean</code>                       | Does this set needs fixing fill:currentColor ?      |
+| [useStroke]     | <code>String</code>                        | Add stroke to svg                                   |
+| [defaultStroke] | <code>String</code>                        | Default stroke to use (if supports stroke)          |
+| [defaultType]   | <code>String</code>                        | Default type to use (when there are multiple types) |
+| [prefixes]      | <code>Object.&lt;string, string&gt;</code> | Types to prefixes                                   |
+| [fontClass]     | <code>function</code>                      | Font class                                          |
+| [opticalFont]   | <code>Boolean</code>                       | Is an optical font?                                 |
+| [name]          | <code>String</code>                        | Full name (injected automatically)                  |
 
 ## Fill
 
@@ -165,12 +169,13 @@ can lead to FOUC and things moving around as the icon appear.
 The solution I've found so far is to apply some global css rules than are known
 before the component is loaded.
 
+You can check any extra scss that might be useful for you as well.
+
 ## Using fonts
 
-If you find yourself preloading a lot of stuff... it might actually be easier to use the icon font instead. Indeed, it
-is fully cached by the browser and will not have any display glitch. Obviously, the downside is that you have
-to load the whole font, but it's cached after the first load. The advantage of using LastIcon over regular icons
-is that is allows you to switch easily between one way or the other.
+Sometimes it is easier to use an icon font. Indeed, it is fully cached by the browser and will not have any display glitch.
+Obviously, the downside is that you have to load the whole font, but it's cached after the first load.
+The advantage of using LastIcon over regular icons is that is allows you to switch easily between one way or the other.
 
 First of all, load any relevant fonts style
 
@@ -189,10 +194,10 @@ customElements.whenDefined("l-i").then(() => {
   // Access through registry
   customElements.get("l-i").configure({
     debug: true,
-    defaultTypes: {
-      material: "twotone",
-    },
     fonts: ["material"],
+    material: {
+      defaultType: "two-tone",
+    },
   });
 });
 ```

@@ -1,141 +1,161 @@
 const JSDELIVR = "https://cdn.jsdelivr.net/";
+const CACHE = {};
+
+/**
+ * @typedef IconSet
+ * @property {String} alias Short two letters alias
+ * @property {Function} svgPath The svg path
+ * @property {Boolean} [fixFill] Does this set needs fixing fill:currentColor ?
+ * @property {String} [useStroke] Add stroke to svg
+ * @property {String} [defaultStroke] Default stroke to use (if supports stroke)
+ * @property {String} [defaultType] Default type to use (when there are multiple types)
+ * @property {Object.<string, string>} [prefixes] Types to prefixes
+ * @property {Function} [fontClass] Font class
+ * @property {Boolean} [opticalFont] Is an optical font?
+ * @property {String} [name] Full name (injected automatically)
+ */
 
 /**
  * @typedef Options
  * @property {Boolean} debug Should we output messages to console
  * @property {Boolean} lazy Load icons lazily
  * @property {Object} replaceName Transparently replace icons with other values
- * @property {Object} aliases Icon sets aliases for ease of use
  * @property {Array} fonts Icon sets using font icons rather than svg
- * @property {Object} prefixes Types prefixes in each icon set
- * @property {Object} defaultTypes Default types for each icon set
  * @property {String} defaultSet Default icon set
- * @property {Number} defaultStroke Default stroke used
- * @property {Object} paths Svg loading paths as strings or functions
- * @property {Array} fixFill Fix fill for these sets
- * @property {Array} fixStroke Fix stroke for these sets
+ * @property {Object.<string, IconSet>} sets Available iconsets
  */
 const options = {
   debug: false,
   lazy: true,
   replaceName: {},
-  aliases: {
-    bs: "bootstrap",
-    bx: "boxicons",
-    cs: "cssgg",
-    gg: "cssgg",
-    tb: "tabler",
-    fa: "fontawesome",
-    st: "supertiny",
-    mi: "material",
-    em: "emojicc",
-    fl: "flags",
-    in: "iconoir",
-    eo: "eos",
-    ft: "feather",
-    ip: "iconpark",
-    ph: "phosphor",
-    ms: "symbols",
-    lu: "lucide",
-  },
   fonts: [],
-  defaultTypes: {
-    boxicons: "solid",
-    fontawesome: "solid",
-    material: "filled",
-    flags: "4x3",
-    eos: "solid",
-    phosphor: "regular",
-    symbols: "outlined",
-  },
-  prefixes: {
-    boxicons: {
-      solid: "bxs",
-      regular: "bx",
-      logos: "bxl",
-    },
-    fontawesome: {
-      solid: "fas",
-      regular: "far",
-      light: "fal",
-      duotone: "fad",
-      brands: "fab",
-    },
-  },
   defaultSet: "tabler",
   defaultStroke: 2,
-  paths: {
-    bootstrap: JSDELIVR + "npm/bootstrap-icons@1/icons/{icon}.svg",
-    // type: solid, regular, logos
-    boxicons: JSDELIVR + "npm/boxicons@2/svg/{type}/{prefix}-{icon}.svg",
-    cssgg: JSDELIVR + "npm/css.gg@2/icons/svg/{icon}.svg",
-    tabler: JSDELIVR + "npm/@tabler/icons@1/icons/{icon}.svg",
-    // type: solid, regular, brands, light, duotone
-    fontawesome: JSDELIVR + "npm/@fortawesome/fontawesome-free@5/svgs/{type}/{icon}.svg",
-    bytesize: JSDELIVR + "npm/bytesize-icons@1/dist/icons/{icon}.svg",
-    supertiny: JSDELIVR + "npm/super-tiny-icons/images/svg/{icon}.svg",
-    // type: baseline, outline, round, sharp, twotone
-    material: JSDELIVR + "npm/@material-design-icons/svg/{type}/{icon}.svg",
-    // type : 4x3 or 1x1
-    flags: JSDELIVR + "npm/flag-svg-collection@1/flags/{type}/{icon}.svg",
-    emojicc: JSDELIVR + "npm/emoji-cc@1/svg/{icon}.svg",
-    iconoir: JSDELIVR + "gh/lucaburgio/iconoir/icons/{icon}.svg",
-    // type: solid, outlined, animated
-    eos: JSDELIVR + "gh/lekoala/eos-icons-mirror/{type}/{icon}.svg",
-    feather: JSDELIVR + "npm/feather-icons@4/dist/icons/{icon}.svg",
-    // type: 33 types ! see website
-    iconpark: JSDELIVR + "gh/bytedance/IconPark/source/{type}/{icon}.svg",
-    // type: bold, duotone, fill, light, regular, thin
-    phosphor: function (icon, type) {
-      if (type === "regular") {
-        return JSDELIVR + "npm/@phosphor-icons/core@2/assets/{type}/{icon}.svg";
-      }
-      return JSDELIVR + "npm/@phosphor-icons/core@2/assets/{type}/{icon}-{type}.svg";
+  sets: {
+    bootstrap: {
+      alias: "bs",
+      svgPath: () => JSDELIVR + "npm/bootstrap-icons@1/icons/{icon}.svg",
     },
-    // type: outlined, rounded, sharp
-    // TODO: check why 0.5 is missing sharp folder
-    symbols: JSDELIVR + "npm/@material-symbols/svg-400@0.4/{type}/{icon}.svg",
-    lucide: JSDELIVR + "npm/lucide-static/icons/{icon}.svg",
-  },
-  fixFill: ["material", "boxicons", "fontawesome", "eos", "symbols"],
-  fixStroke: ["iconpark"],
-  strokeSet: ["tabler", "iconpark"],
-  opticalFont: ["symbols"],
-};
-
-const CACHE = {};
-const FONT_ICONS = {
-  material: {
-    class: "material-icons-{type}",
-    types: {
-      filled: "",
+    boxicons: {
+      alias: "bx",
+      // types: ["solid", "regular", "logos"],
+      defaultType: "solid",
+      svgPath: () => JSDELIVR + "npm/boxicons@2/svg/{type}/{prefix}-{icon}.svg",
+      fixFill: true,
+      fontClass: () => "bx {prefix}-{icon}",
+      prefixes: {
+        solid: "bxs",
+        regular: "bx",
+        logos: "bxl",
+      },
     },
-  },
-  symbols: {
-    class: "material-symbols-{type}",
-  },
-  boxicons: {
-    class: "bx {prefix}-{icon}",
-  },
-  bootstrap: {
-    class: "bi-{icon}",
-  },
-  fontawesome: {
-    class: "{prefix} fa-{icon}",
-  },
-  iconoir: {
-    class: "iconoir-{icon}",
-  },
-  eos: {
-    class: "eos-icons-{type}",
-    types: {
-      solid: "",
+    bytesize: {
+      alias: "by",
+      svgPath: () => JSDELIVR + "npm/bytesize-icons@1/dist/icons/{icon}.svg",
+      useStroke: true,
     },
-  },
-  phosphor: {
-    class: "ph-{type} ph-{icon}",
-    types: {
-      regular: "",
+    cssgg: {
+      alias: "gg",
+      svgPath: () => JSDELIVR + "npm/css.gg@2/icons/svg/{icon}.svg",
+    },
+    emojicc: {
+      alias: "em",
+      svgPath: () => JSDELIVR + "npm/emoji-cc@1/svg/{icon}.svg",
+    },
+    eos: {
+      alias: "eo",
+      // types: ["solid", "outlined", "animated"],
+      defaultType: "solid",
+      svgPath: () => JSDELIVR + "gh/lekoala/eos-icons-mirror/{type}/{icon}.svg",
+      fixFill: true,
+    },
+    feather: {
+      alias: "ft",
+      svgPath: () => JSDELIVR + "npm/feather-icons@4/dist/icons/{icon}.svg",
+    },
+    flags: {
+      alias: "fl",
+      // types: ["4x3", "1x1"],
+      defaultType: "4x3",
+      svgPath: () => JSDELIVR + "npm/flag-svg-collection@1/flags/{type}/{icon}.svg",
+    },
+    fontawesome: {
+      alias: "fa",
+      // types: ["solid", "regular", "brands", "light", "duotone"],
+      defaultType: "solid",
+      svgPath: () => JSDELIVR + "npm/@fortawesome/fontawesome-free@5/svgs/{type}/{icon}.svg",
+      fixFill: true,
+      fontClass: () => "{prefix} fa-{icon}",
+      prefixes: {
+        solid: "fas",
+        regular: "far",
+        light: "fal",
+        duotone: "fad",
+        brands: "fab",
+      },
+    },
+    iconoir: {
+      alias: "in",
+      svgPath: () => JSDELIVR + "gh/lucaburgio/iconoir/icons/{icon}.svg",
+      fontClass: () => "iconoir-{icon}",
+      useStroke: true,
+    },
+    iconpark: {
+      alias: "ip",
+      types: [], // see full list here https://github.com/bytedance/IconPark/tree/master/source
+      svgPath: () => JSDELIVR + "gh/bytedance/IconPark/source/{type}/{icon}.svg",
+      useStroke: true,
+    },
+    lucide: {
+      alias: "lu",
+      svgPath: () => JSDELIVR + "npm/lucide-static/icons/{icon}.svg",
+    },
+    material: {
+      alias: "mi",
+      // types: ["filled", "outlined", "round", "sharp", "two-tone"],
+      defaultType: "filled",
+      svgPath: () => JSDELIVR + "npm/@material-design-icons/svg/{type}/{icon}.svg",
+      fontClass: (type) => {
+        if (type === "filled") {
+          return "material-icons";
+        }
+        return "material-icons-{type}";
+      },
+    },
+    phosphor: {
+      alias: "ph",
+      // types: ["regular", "bold", "duotone", "fill", "light", "thin"],
+      defaultType: "regular",
+      svgPath: (type) => {
+        if (type === "regular") {
+          return JSDELIVR + "npm/@phosphor-icons/core@2/assets/{type}/{icon}.svg";
+        }
+        return JSDELIVR + "npm/@phosphor-icons/core@2/assets/{type}/{icon}-{type}.svg";
+      },
+      fontClass: (type) => {
+        if (type === "regular") {
+          return "ph ph-{icon}";
+        }
+        return "ph-{type} ph-{icon}";
+      },
+    },
+    supertiny: {
+      alias: "st",
+      svgPath: () => JSDELIVR + "npm/super-tiny-icons/images/svg/{icon}.svg",
+    },
+    symbols: {
+      alias: "ms",
+      // types: ["outlined", "rounded", "sharp"],
+      defaultType: "outlined",
+      svgPath: () => JSDELIVR + "npm/@material-symbols/svg-400@0.5/{type}/{icon}.svg",
+      fixFill: true,
+      fontClass: () => "material-symbols-{type}",
+      opticalFont: true,
+    },
+    tabler: {
+      alias: "tb",
+      svgPath: () => JSDELIVR + "npm/@tabler/icons@2/icons/{icon}.svg",
+      useStroke: true,
     },
   },
 };
@@ -155,12 +175,11 @@ const observer = new window.IntersectionObserver((entries, observerRef) => {
 /**
  * @param {string} value
  * @param {string} iconName
- * @param {string} iconSet
+ * @param {IconSet} iconSet
  * @param {string} iconType
  * @return {string}
  */
 function replacePlaceholders(value, iconName, iconSet, iconType) {
-  let iconPrefix = (options.prefixes[iconSet] && options.prefixes[iconSet][iconType]) || null;
   value = value.replace("{icon}", iconName);
   if (iconType) {
     value = value.replaceAll("{type}", iconType);
@@ -168,34 +187,27 @@ function replacePlaceholders(value, iconName, iconSet, iconType) {
     // Maybe we want to remove the type like in material icons
     value = value.replace("-{type}", "");
   }
-  if (iconPrefix) {
-    value = value.replace("{prefix}", iconPrefix);
+  if (iconSet.prefixes && iconSet.prefixes[iconType]) {
+    value = value.replace("{prefix}", iconSet.prefixes[iconType]);
   }
   return value;
 }
 
 function log(message) {
-  if (!options.debug) {
-    return;
+  if (options.debug) {
+    console.log(`[l-i] ${message}`);
   }
-  console.log("[l-i] " + message);
 }
 
 /**
  * @param {string} iconName
- * @param {string} iconSet
+ * @param {IconSet} iconSet
  * @param {string} iconType
  * @return {Promise<String, Error>}
  */
 function getIconSvg(iconName, iconSet, iconType) {
-  let iconUrl = options.paths[iconSet];
-  if (typeof iconUrl === "function") {
-    iconUrl = iconUrl(iconName, iconType);
-  }
-  let cacheKey = iconSet + "-" + iconName;
-  if (iconType) {
-    cacheKey += "-" + iconType;
-  }
+  let iconUrl = iconSet.svgPath(iconType);
+  let cacheKey = `${iconSet.name}-${iconName}-${iconType || "base"}`;
   if (!iconUrl) {
     return new Promise(() => {
       console.error(`Icon set ${iconSet} does not exists`);
@@ -206,12 +218,12 @@ function getIconSvg(iconName, iconSet, iconType) {
 
   // If we have it in cache
   if (iconUrl && CACHE[cacheKey]) {
-    log("Fetching " + cacheKey + " from cache");
+    log(`Fetching ${cacheKey} from cache`);
     return CACHE[cacheKey];
   }
 
   // Or resolve
-  log("Fetching " + cacheKey + " from url " + iconUrl);
+  log(`Fetching ${cacheKey} from url ${iconUrl}`);
   CACHE[cacheKey] = fetch(iconUrl).then(function (response) {
     if (response.ok) {
       return response.text();
@@ -224,7 +236,7 @@ function getIconSvg(iconName, iconSet, iconType) {
 /**
  * @param {LastIcon} inst
  * @param {string} iconName
- * @param {string} iconSet
+ * @param {IconSet} iconSet
  * @param {string} iconType
  */
 function refreshIcon(inst, iconName, iconSet, iconType) {
@@ -232,23 +244,23 @@ function refreshIcon(inst, iconName, iconSet, iconType) {
   if (options.replaceName[iconName]) {
     iconName = options.replaceName[iconName];
   }
+  // Set default type if any
+  if (!iconType && iconSet.defaultType) {
+    iconType = iconSet.defaultType;
+  }
 
   // Use font
-  if (options.fonts.includes(iconSet)) {
-    log("Using font for " + iconName);
-    let iconClass = FONT_ICONS[iconSet]["class"];
+  if (options.fonts.includes(iconSet.name)) {
+    log(`Using font for ${iconName}`);
+    let iconClass = iconSet.fontClass(iconType);
     let nameAsClass = iconClass.includes("{icon}");
-    let fontType = iconType;
-    if (FONT_ICONS[iconSet]["types"] && iconType in FONT_ICONS[iconSet]["types"]) {
-      fontType = FONT_ICONS[iconSet]["types"][iconType];
-    }
-    iconClass = replacePlaceholders(iconClass, iconName, iconSet, fontType);
+    iconClass = replacePlaceholders(iconClass, iconName, iconSet, iconType);
     if (nameAsClass) {
-      inst.innerHTML = '<i class="' + iconClass + '"></i>';
+      inst.innerHTML = `<i class="${iconClass}"></i>`;
     } else {
-      inst.innerHTML = '<i class="' + iconClass + '">' + iconName + "</i>";
+      inst.innerHTML = `<i class="${iconClass}">${iconName}</i>`;
     }
-    if (inst.stroke && options.opticalFont.includes(inst.set)) {
+    if (inst.stroke && iconSet.opticalFont) {
       inst.style.setProperty("--weight", inst.stroke * 100);
     }
     return; // Return early
@@ -261,16 +273,16 @@ function refreshIcon(inst, iconName, iconSet, iconType) {
         iconData = iconData.replace(/ class="([a-z- ]*)"/g, "");
       }
       // Add and/or fix stroke
-      if (inst.stroke || options.fixStroke.includes(inst.set)) {
-        iconData = iconData.replace(/stroke-width="([0-9]*)"/g, 'stroke-width="' + inst.stroke + '"');
+      if (inst.stroke || iconSet.useStroke) {
+        iconData = iconData.replace(/stroke-width="([0-9\.]*)"/g, `stroke-width="${inst.stroke}"`);
       }
       // Fix fill to currentColor
-      if (options.fixFill.includes(inst.set)) {
+      if (iconSet.fixFill) {
         iconData = iconData.replace(/(<svg.*?)>/, '$1 fill="currentColor">');
       }
       // If we have some html, pass it along (useful for svg anim)
       if (inst.defaultHTML) {
-        iconData = iconData.replace("</svg>", inst.defaultHTML + "</svg>");
+        iconData = iconData.replace("</svg>", `${inst.defaultHTML}</svg>`);
       }
       inst.innerHTML = iconData;
     })
@@ -294,6 +306,45 @@ function isInViewport(element) {
   );
 }
 
+/**
+ * Performs a deep merge of objects and returns new object. Does not modify
+ * objects (immutable) and merges arrays via concatenation.
+ *
+ * @param {...object} objects - Objects to merge
+ * @returns {object} New object with merged key/values
+ */
+function mergeDeep(...objects) {
+  const isObject = (obj) => obj && typeof obj === "object";
+
+  return objects.reduce((prev, obj) => {
+    Object.keys(obj).forEach((key) => {
+      const pVal = prev[key];
+      const oVal = obj[key];
+
+      if (Array.isArray(pVal) && Array.isArray(oVal)) {
+        prev[key] = pVal.concat(...oVal);
+      } else if (isObject(pVal) && isObject(oVal)) {
+        prev[key] = mergeDeep(pVal, oVal);
+      } else {
+        prev[key] = oVal;
+      }
+    });
+
+    return prev;
+  }, {});
+}
+
+let aliases = {};
+function processIconSets() {
+  for (const [key, set] of Object.entries(options.sets)) {
+    // List aliases for easy retrieval
+    aliases[set.alias] = key;
+    // Include full name in iconset definition
+    set.name = key;
+  }
+}
+processIconSets();
+
 class LastIcon extends HTMLElement {
   /**
    * @param {object} opts
@@ -301,35 +352,51 @@ class LastIcon extends HTMLElement {
    */
   static configure(opts = {}) {
     for (const k in opts) {
-      // Check first for isArray because typeof array is also object
+      if (typeof options[k] === "undefined") {
+        console.error(`Invalid option key ${k}`);
+        return;
+      }
       if (Array.isArray(opts[k])) {
         options[k] = options[k].concat(opts[k]);
       } else if (typeof opts[k] === "object") {
-        options[k] = Object.assign(options[k], opts[k]);
+        options[k] = mergeDeep(options[k], opts[k]);
       } else {
         options[k] = opts[k];
       }
     }
+    processIconSets();
     // Log after we had the opportunity to change debug flag
     log("configuring options");
     return options;
   }
 
+  /**
+   * @return {String|null}
+   */
   get type() {
-    return this.getAttribute("type") || options.defaultTypes[this.set];
+    return this.getAttribute("type") || null;
   }
 
+  /**
+   * @return {String}
+   */
   get set() {
     let v = this.getAttribute("set") || options.defaultSet;
-    return options.aliases[v] ?? v;
+    return aliases[v] || v;
   }
 
+  /**
+   * @return {IconSet|null}
+   */
+  get iconSet() {
+    return options.sets[this.set] || null;
+  }
+
+  /**
+   * @return {Number}
+   */
   get stroke() {
-    let v = this.getAttribute("stroke");
-    if (!v && options.strokeSet.includes(this.set)) {
-      v = options.defaultStroke;
-    }
-    return v;
+    return this.getAttribute("stroke") || options.defaultStroke;
   }
 
   static get observedAttributes() {
@@ -358,7 +425,8 @@ class LastIcon extends HTMLElement {
 
   loadIcon() {
     const name = this.getAttribute("name");
-    if (!name) {
+    const iconSet = this.iconSet;
+    if (!name || !iconSet) {
       return;
     }
 
@@ -368,14 +436,12 @@ class LastIcon extends HTMLElement {
     if (this.hasAttribute("size")) {
       this.setSize(this.getAttribute("size"));
     }
-    if (name) {
-      refreshIcon(this, name, this.set, this.type);
-    }
+    refreshIcon(this, name, iconSet, this.type);
   }
 
   setSize(size) {
-    this.style.setProperty("--size", size + "px");
-    if (options.opticalFont.includes(this.set)) {
+    this.style.setProperty("--size", `${size}px`);
+    if (this.iconSet.opticalFont) {
       this.style.setProperty("--opsz", size);
     }
   }
@@ -385,7 +451,7 @@ class LastIcon extends HTMLElement {
     if (typeof this.defaultHTML !== "string") {
       return;
     }
-    log("Attr " + attr + " changed from " + oldVal + " to " + newVal);
+    log(`Attr ${attr} changed from ${oldVal} to ${newVal}`);
     if (attr === "size") {
       this.setSize(newVal);
     } else if (newVal) {

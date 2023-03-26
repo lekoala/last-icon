@@ -1,4 +1,4 @@
-$default-duration: 0.5s !default;
+$default-symbols-duration: 0.5s !default;
 
 @keyframes symbols-pulse {
   0% {
@@ -41,12 +41,12 @@ $default-duration: 0.5s !default;
 .symbols-empty i,
 .symbols-empty-hover:hover i {
   animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
-  animation-duration: var(--duration, $default-duration);
+  animation-duration: var(--duration, $default-symbols-duration);
 }
 
 .symbols-pulse i,
 .symbols-pulse-hover:hover i {
-  --duration: #{$default-duration * 4};
+  --duration: #{$default-symbols-duration * 3};
   animation-name: symbols-pulse;
   animation-iteration-count: infinite;
 }

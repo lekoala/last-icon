@@ -17,17 +17,15 @@
         debug: true,
         // Disable lazy loading
         // lazy: false,
-        // Specify our own loading path
-        // paths: {
-        //   bootstrap: "./vendor/bootstrap",
-        // },
         // Transform stars to trash
         // replaceName: {
         //   star: "trash"
         // },
         // Change default types (solid by default for boxicons)
-        defaultTypes: {
-          boxicons: "regular",
+        sets: {
+          boxicons: {
+            defaultType: "regular",
+          }
         },
         // Use font icon
         // fonts: [
@@ -35,38 +33,57 @@
         //   "phosphor",
         // ],
         // Change default set
-        defaultSet: "tabler",
+        // defaultSet: "tabler",
         // Change default stroke
         // defaultStroke: 1,
       });
     });
   </script>
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/phosphor-icons@1.4.2/src/css/icons.css"> -->
   <link rel="stylesheet" href="last-icon.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mvp.css@1.7.4/mvp.css" />
 
   <script>
     customElements.whenDefined("l-i").then(() => {
       customElements.get("l-i").configure({
-        defaultTypes: {
-          material: "two-tone",
+        sets: {
+          material: {
+            defaultType: "two-tone",
+          }
         },
         fonts: [
           "material",
           "symbols",
-          // "phosphor",
+          "phosphor",
+          // "iconoir",
+          "boxicons",
+          "fontawesome",
         ],
       });
     });
   </script>
 
+  <script type="module">
+    let slider = document.getElementById('weight-slider');
+    slider.oninput = function () {
+      document.querySelectorAll('l-i[set="ms"]').forEach((el) => {
+        let attr = el.getAttribute('style');
+        if (attr && attr.indexOf("--weight") !== -1) {
+          attr = attr.replace(/--weight:[0-9]*/, '');
+        }
+        attr += `--weight:${this.value * 100}`
+        el.setAttribute('style', attr);
+      })
+    }
+  </script>
+
   <!-- phosphor -->
-  <!-- <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2/src/regular/style.css">
+  <!-- <script src="https://unpkg.com/@phosphor-icons/web"></script> -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2/src/regular/style.css">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2/src/thin/style.css">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2/src/light/style.css">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2/src/bold/style.css">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2/src/fill/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2/src/duotone/style.css"> -->
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2/src/duotone/style.css">
 
   <!-- material font -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -90,6 +107,18 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <!-- /material symbols -->
+
+  <!-- iconoir -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"> -->
+  <!-- /iconoir -->
+
+  <!-- boxicons -->
+  <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+  <!-- /boxicons -->
+
+  <!-- fontawesome -->
+  <link rel="stylesheet" href='https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.css'>
+  <!-- /fontawesome -->
 
   <style>
     /* does not affect our icon because we strip the class attribute from svg */
@@ -131,7 +160,7 @@
     <h2>
       Bootstrap Icons
       <a href="https://icons.getbootstrap.com/" target="_blank">
-        <l-i name="external-link"></l-i>
+        <l-i name="external-link" set="tb"></l-i>
       </a>
     </h2>
     <p>Use <code>set="bootstrap"</code> or <code>set="bs"</code></p>
@@ -143,7 +172,7 @@
     <h2>
       Box Icons
       <a href="https://boxicons.com/" target="_blank">
-        <l-i name="external-link"></l-i>
+        <l-i name="external-link" set="tb"></l-i>
       </a>
     </h2>
     <p>Use <code>set="boxicons"</code> or <code>set="bx"</code></p>
@@ -160,11 +189,11 @@
     <h2>
       Tabler Icons
       <a href="https://tablericons.com/" target="_blank">
-        <l-i name="external-link"></l-i>
+        <l-i name="external-link" set="tb"></l-i>
       </a>
     </h2>
+    <p><strong>This is the default set</strong></p>
     <p>Use <code>set="tabler"</code> or <code>set="tb"</code></p>
-    <p><strong>This is the default set!</strong></p>
     <l-i name="star" set="tb"></l-i>
     <l-i name="rotate" set="tb"></l-i>
     <l-i name="zodiac-pisces" set="tb"></l-i>
@@ -177,9 +206,9 @@
     <l-i name="star" set="tb" stroke="3"></l-i>
 
     <h2>
-      Materials Icons
+      Material Icons
       <a href="https://fonts.google.com/icons?selected=Material+Icons" target="_blank">
-        <l-i name="external-link"></l-i>
+        <l-i name="external-link" set="tb"></l-i>
       </a>
     </h2>
     <p>Use <code>set="material"</code> or <code>set="mi"</code></p>
@@ -200,13 +229,21 @@
     <p>You can also use the font as an icon if needed!</p>
 
     <h2>
-      Materials symbols
+      Material Symbols
       <a href="https://fonts.google.com/icons" target="_blank">
-        <l-i name="external-link"></l-i>
+        <l-i name="external-link" set="tb"></l-i>
       </a>
     </h2>
     <p>Use <code>set="symbols"</code> or <code>set="ms"</code>. Works best with font icons if you intend to use options.</p>
-    <l-i name="star" set="ms"></l-i>
+    <!-- <span class="material-symbols-outlined" style="--weight:200">
+      star
+    </span> -->
+
+    <p>Weight (note how search and star behave differently, the star becomes much smaller with lower weights)</p>
+    <input type="range" min="1" max="7" value="2" class="slider" id="weight-slider">
+
+    <l-i name="search" set="ms" size="48"></l-i>
+    <l-i name="star" set="ms" size="48"></l-i>
     <l-i name="home" set="ms"></l-i>
     <button><l-i name="star" set="ms"></l-i> Github</button>
     <p>You can specify the following types: <code>outlined</code>, <code>rounded</code>, <code>sharp</code></p>
@@ -219,7 +256,7 @@
     <p>Animate them! (only works with font icons)</p>
     <l-i name="home" set="ms" type="rounded" size="64" class="symbols-pulse"></l-i>
 
-    <p>Animate on hover</p>
+    <p>Animate on hover (only works with font icons)</p>
     <l-i name="home" set="ms" type="rounded" size="64" class="symbols-fill-hover" style="--duration:0.2s"></l-i>
     <l-i name="home" set="ms" type="rounded" size="64" class="fill symbols-empty-hover" style="--duration:0.2s"></l-i>
 
@@ -238,10 +275,10 @@
     <h2>
       Css.gg Icons
       <a href="https://css.gg/" target="_blank">
-        <l-i name="external-link"></l-i>
+        <l-i name="external-link" set="tb"></l-i>
       </a>
     </h2>
-    <p>Use <code>set="cssgg"</code> or <code>set="cs"</code>or <code>set="gg"</code></p>
+    <p>Use <code>set="cssgg"</code> or <code>set="gg"</code></p>
     <l-i name="add" set="gg"></l-i>
     <l-i name="alarm" set="gg"></l-i>
     <button><l-i name="alarm" set="gg"></l-i> Github</button>
@@ -249,7 +286,7 @@
     <h2>
       Font Awesome Icons
       <a href="https://fontawesome.com/cheatsheet" target="_blank">
-        <l-i name="external-link"></l-i>
+        <l-i name="external-link" set="tb"></l-i>
       </a>
     </h2>
     <p>Use <code>set="fontawesome"</code> or <code>set="fa"</code></p>
@@ -257,9 +294,18 @@
     <button><l-i name="star" set="fa"></l-i> Github</button>
 
     <h2>
+      Bytesized
+      <a href="https://github.com/danklammer/bytesize-icons" target="_blank">
+        <l-i name="external-link" set="tb"></l-i>
+      </a>
+    </h2>
+    <p>Use <code>set="bytesized"</code> or <code>set="by"</code></p>
+    <l-i name="alert" set="by"></l-i>
+    <l-i name="camera" set="by"></l-i>
+    <h2>
       Super Tiny Icons
       <a href="https://github.com/edent/SuperTinyIcons" target="_blank">
-        <l-i name="external-link"></l-i>
+        <l-i name="external-link" set="tb"></l-i>
       </a>
     </h2>
     <p>Use <code>set="supertiny"</code> or <code>set="st"</code></p>
@@ -270,7 +316,7 @@
     <h2>
       Flags Icons
       <a href="https://github.com/ducin/flag-svg-collection/" target="_blank">
-        <l-i name="external-link"></l-i>
+        <l-i name="external-link" set="tb"></l-i>
       </a>
     </h2>
     <p>Use <code>set="flags"</code> or <code>set="fl"</code></p>
@@ -280,7 +326,7 @@
     <h2>
       Emoji Icons
       <a href="https://github.com/buildbreakdo/emoji-cc/" target="_blank">
-        <l-i name="external-link"></l-i>
+        <l-i name="external-link" set="tb"></l-i>
       </a>
     </h2>
     <p>Use <code>set="emojicc"</code> or <code>set="em"</code></p>
@@ -289,18 +335,23 @@
     <h2>
       Iconoir
       <a href="https://iconoir.com/" target="_blank">
-        <l-i name="external-link"></l-i>
+        <l-i name="external-link" set="tb"></l-i>
       </a>
     </h2>
     <p>Use <code>set="iconoir"</code> or <code>set="in"</code></p>
+    <p>Stroke only works with svg</p>
     <l-i name="creative-commons" set="in"></l-i>
+    <l-i name="creative-commons" set="in" stroke="1"></l-i>
+    <l-i name="creative-commons" set="in" stroke="2"></l-i>
+    <l-i name="creative-commons" set="in" stroke="1" size="32"></l-i>
+    <l-i name="creative-commons" set="in" stroke="2" size="32"></l-i>
     <l-i name="server" set="in"></l-i>
     <button><l-i name="doc-star" set="in"></l-i> Star this document</button>
 
     <h2>
       EOS
       <a href="https://eos-icons.com/" target="_blank">
-        <l-i name="external-link"></l-i>
+        <l-i name="external-link" set="tb"></l-i>
       </a>
     </h2>
     <p>Use <code>set="eos"</code> or <code>set="eo"</code></p>
@@ -315,7 +366,7 @@
     <h2>
       Feather
       <a href="https://feathericons.com/" target="_blank">
-        <l-i name="external-link"></l-i>
+        <l-i name="external-link" set="tb"></l-i>
       </a>
     </h2>
     <p>Use <code>set="feather"</code> or <code>set="ft"</code></p>
@@ -328,7 +379,7 @@
     <h2>
       Lucide
       <a href="https://lucide.dev/" target="_blank">
-        <l-i name="external-link"></l-i>
+        <l-i name="external-link" set="tb"></l-i>
       </a>
     </h2>
     <p>Use <code>set="lucide"</code> or <code>set="lu"</code></p>
@@ -341,7 +392,7 @@
     <h2>
       IconPark
       <a href="https://iconpark.oceanengine.com/official" target="_blank">
-        <l-i name="external-link"></l-i>
+        <l-i name="external-link" set="tb"></l-i>
       </a>
     </h2>
     <p>Use <code>set="iconpark"</code> or <code>set="ip"</code></p>
@@ -364,7 +415,7 @@
     <h2>
       Phosphor
       <a href="https://phosphoricons.com/" target="_blank">
-        <l-i name="external-link"></l-i>
+        <l-i name="external-link" set="tb"></l-i>
       </a>
     </h2>
     <p>Use <code>set="phosphor"</code> or <code>set="ph"</code></p>
@@ -430,33 +481,18 @@
 
     <h2>Advanced usage</h2>
     <h3>Host your own icons</h3>
-    <p>You can point any library to a local path or to another cdn using <code>paths</code>.</p>
+    <p>You can customize or add your own iconSets.</p>
     <pre>
 customElements.whenDefined("l-i").then(() => {
   // Access through registry
   customElements.get("l-i").configure({
     debug: true,
     // Specify our own loading path
-    paths: {
-      bootstrap: "./vendor/bootstrap",
+    sets: {
+      bootstrap: {
+        svgPath: () => "./vendor/bootstrap",
+      }
     },
-  });
-});
-      </pre>
-    <h3>Change other settings</h3>
-    <p>
-      You can also configure the following settings: <code>aliases</code>, <code>defaultTypes</code>, <code>prefixes</code>,
-      <code>defaultSet</code>
-    </p>
-    <pre>
-customElements.whenDefined("l-i").then(() => {
-  // Access through registry
-  customElements.get("l-i").configure({
-    debug: true,
-    defaultTypes: {
-      material: "twotone",
-    },
-    fonts: ["material"],
   });
 });
       </pre>
