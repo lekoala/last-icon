@@ -154,7 +154,7 @@ const options = {
     },
     tabler: {
       alias: "tb",
-      svgPath: () => JSDELIVR + "npm/@tabler/icons@2/icons/{icon}.svg",
+      svgPath: () => JSDELIVR + "npm/@tabler/icons@2.17.0/icons/{icon}.svg",
       useStroke: true,
     },
   },
