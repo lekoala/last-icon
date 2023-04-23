@@ -21,12 +21,12 @@ Simply include the library
 <script src="last-icon.js"></script>
 ```
 
-NOTE: it is recommended to define this as early as possible so that all icons are resolved as soon
+**NOTE:** It is recommended to define this as early as possible so that all icons are resolved as soon
 as possible. Otherwise, you might see a delay before your icons are being displayed.
-Even when doing this, you might still see a very small delay as opposed as a font icon or an embedded svg.
+Even when doing this, you might still see a very small delay as opposed as a font icon or an embedded SVG.
 
-If you are fine with a little more delay, you can use this instead which will be ignored on browsers
-not supporting modules
+If you are fine with a little more delay, you can use this instead (which will be ignored on browsers
+that don’t support modules):
 
 ```html
 <!-- preload helps displaying things as early as possible, doesn't work in firefox and safari -->
@@ -46,7 +46,7 @@ And call your icons!
 <l-i name="github" set="bx" type="logos"></l-i>
 ```
 
-The following css is recommended:
+The following CSS is recommended:
 
 ```css
 l-i {
@@ -71,7 +71,7 @@ span l-i {
 
 ## Configuring
 
-You can set any options using LastIcon.configure. The recommended way to call it is this way:
+You can set any options using `LastIcon.configure`. The recommended way to call it is this way:
 
 ```js
 customElements.whenDefined("l-i").then(() => {
@@ -102,7 +102,7 @@ All available options:
 | debug       | <code>Boolean</code>                        | Should we output messages to console          |
 | lazy        | <code>Boolean</code>                        | Load icons lazily                             |
 | replaceName | <code>Object</code>                         | Transparently replace icons with other values |
-| fonts       | <code>Array</code>                          | Icon sets using font icons rather than svg    |
+| fonts       | <code>Array</code>                          | Icon sets using font icons rather than SVG    |
 | defaultSet  | <code>String</code>                         | Default icon set                              |
 | sets        | <code>Object.&lt;string, IconSet&gt;</code> | Available iconsets                            |
 
@@ -137,8 +137,8 @@ You can update any option for an icon set
 | Name            | Type                                       | Description                                         |
 | --------------- | ------------------------------------------ | --------------------------------------------------- |
 | alias           | <code>String</code>                        | Short two letters alias                             |
-| svgPath         | <code>function</code>                      | The svg path                                        |
-| [fixFill]       | <code>Boolean</code>                       | Does this set needs fixing fill:currentColor ?      |
+| svgPath         | <code>function</code>                      | The SVG path                                        |
+| [fixFill]       | <code>Boolean</code>                       | Does this set needs fixing `fill:currentColor`?      |
 | [useStroke]     | <code>String</code>                        | Add stroke to svg                                   |
 | [defaultStroke] | <code>String</code>                        | Default stroke to use (if supports stroke)          |
 | [defaultType]   | <code>String</code>                        | Default type to use (when there are multiple types) |
@@ -149,24 +149,24 @@ You can update any option for an icon set
 
 ## Fill
 
-Some icon sets include a default fill="currentColor" and some don't. In order
-to have all icon sets behave consistently, we apply a fill="currentColor" to all
+Some icon sets include a default `fill="currentColor"` and some don't. In order
+to have all icon sets behave consistently, we apply a `fill="currentColor"` to all
 icon sets. This fix apply to: 'material', 'fontawesome'.
 
 ## Why a custom element
 
 - External sprite or font is loading all the icons which lead to extra load time
-- Including svg is leading to really super long html and not very developer friendly
-- No need for custom js inliner, it feels cleaner overall
+- Including SVG is leading to really super long HTML and not very developer friendly
+- No need for custom JS inliner, it feels cleaner overall
 
-## Why external css
+## Why external CSS
 
-A custom element css is not loaded until the component itself is loaded, which
+A custom element CSS is not loaded until the component itself is loaded, which
 can lead to FOUC and things moving around as the icon appear.
-The solution I've found so far is to apply some global css rules than are known
+The solution I've found so far is to apply some global CSS rules than are known
 before the component is loaded.
 
-You can check any extra scss that might be useful for you as well.
+You can check any extra SCSS that might be useful for you as well.
 
 ## Using fonts
 
@@ -184,7 +184,7 @@ First of all, load any relevant fonts style
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
 ```
 
-And after that, use the font config to tell Last Icon to use the font over the svg icons
+And after that, use the font config to tell Last Icon to use the font over the SVG icons
 
 ```js
 customElements.whenDefined("l-i").then(() => {
@@ -237,7 +237,7 @@ span {
 
 ## Demo
 
-See demo.html or the following pen https://codepen.io/lekoalabe/pen/eYvdjqY
+See `demo.html` or the following pen https://codepen.io/lekoalabe/pen/eYvdjqY
 
 ## Worth looking at
 
