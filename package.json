@@ -1,6 +1,6 @@
 {
   "name": "last-icon",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "One custom icon element to rule them all",
   "main": "last-icon.js",
   "scripts": {
