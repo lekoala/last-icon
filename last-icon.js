@@ -153,9 +153,10 @@ const options = {
       opticalFont: true,
     },
     tabler: {
-      alias: "tb",
-      svgPath: () => JSDELIVR + "npm/@tabler/icons@2.17.0/icons/{icon}.svg",
+      alias: "tb", // maybe we should rename this to ti at some point
+      svgPath: () => JSDELIVR + "npm/@tabler/icons@2/icons/{icon}.svg",
       useStroke: true,
+      fontClass: () => "ti ti-{icon}",
     },
   },
 };

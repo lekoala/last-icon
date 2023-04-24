@@ -28,10 +28,11 @@
           }
         },
         // Use font icon
-        // fonts: [
-        //   "material",
-        //   "phosphor",
-        // ],
+        fonts: [
+          // "material",
+          // "phosphor",
+          // "tabler",
+        ],
         // Change default set
         // defaultSet: "tabler",
         // Change default stroke
@@ -92,6 +93,9 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
   <!-- /material font -->
+
+  <!-- tabler font -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2/tabler-icons.min.css">
 
   <!-- material symbols -->
   <style>
@@ -194,12 +198,14 @@
     </h2>
     <p><strong>This is the default set</strong></p>
     <p>Use <code>set="tabler"</code> or <code>set="tb"</code></p>
+    <l-i name="edit" set="tb"></l-i>
     <l-i name="star" set="tb"></l-i>
     <l-i name="rotate" set="tb"></l-i>
     <l-i name="zodiac-pisces" set="tb"></l-i>
     <button><l-i name="star" set="tb"></l-i> Github</button>
     <p>
-      You can also set various widths using <code>stroke</code> attribute ! It can also be set globally with <code>defaultStroke</code>.
+      You can also set various widths using <code>stroke</code> attribute (NOT when using fonts) ! It can also be set globally with
+      <code>defaultStroke</code>.
     </p>
     <l-i name="star" set="tb" stroke="1"></l-i>
     <l-i name="star" set="tb" stroke="2"></l-i>
