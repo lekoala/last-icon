@@ -153,7 +153,7 @@ const options = {
       opticalFont: true,
     },
     tabler: {
-      alias: "tb", // maybe we should rename this to ti at some point
+      alias: "ti",
       svgPath: () => JSDELIVR + "npm/@tabler/icons@2/icons/{icon}.svg",
       useStroke: true,
       fontClass: () => "ti ti-{icon}",
@@ -208,13 +208,10 @@ function log(message) {
  */
 function getIconSvg(iconName, iconSet, iconType) {
   let iconUrl = iconSet.svgPath(iconType);
-  let cacheKey = `${iconSet.name}-${iconName}-${iconType || "base"}`;
   if (!iconUrl) {
-    return new Promise(() => {
-      console.error(`Icon set ${iconSet} does not exists`);
-    });
+    throw Error(`Icon set ${iconSet} does not exists`);
   }
-
+  const cacheKey = `${iconSet.name}-${iconName}-${iconType || "base"}`;
   iconUrl = replacePlaceholders(iconUrl, iconName, iconSet, iconType);
 
   // If we have it in cache
@@ -250,8 +247,8 @@ function refreshIcon(inst, iconName, iconSet, iconType) {
     iconType = iconSet.defaultType;
   }
 
-  // Use font
-  if (options.fonts.includes(iconSet.name)) {
+  // Use font (if not using a specific stroke)
+  if (options.fonts.includes(iconSet.name) && !inst.hasAttribute("stroke")) {
     log(`Using font for ${iconName}`);
     let iconClass = iconSet.fontClass(iconType);
     let nameAsClass = iconClass.includes("{icon}");
@@ -316,13 +313,14 @@ function isInViewport(element) {
  */
 function mergeDeep(...objects) {
   const isObject = (obj) => obj && typeof obj === "object";
+  const isArray = Array.isArray;
 
   return objects.reduce((prev, obj) => {
     Object.keys(obj).forEach((key) => {
       const pVal = prev[key];
       const oVal = obj[key];
 
-      if (Array.isArray(pVal) && Array.isArray(oVal)) {
+      if (isArray(pVal) && isArray(oVal)) {
         prev[key] = pVal.concat(...oVal);
       } else if (isObject(pVal) && isObject(oVal)) {
         prev[key] = mergeDeep(pVal, oVal);
@@ -382,15 +380,15 @@ class LastIcon extends HTMLElement {
    * @return {String}
    */
   get set() {
-    let v = this.getAttribute("set") || options.defaultSet;
-    return aliases[v] || v;
+    let v = this.getAttribute("set");
+    return aliases[v] || options.defaultSet;
   }
 
   /**
-   * @return {IconSet|null}
+   * @return {IconSet}
    */
   get iconSet() {
-    return options.sets[this.set] || null;
+    return options.sets[this.set];
   }
 
   /**
@@ -426,16 +424,16 @@ class LastIcon extends HTMLElement {
 
   loadIcon() {
     const name = this.getAttribute("name");
-    const iconSet = this.iconSet;
-    if (!name || !iconSet) {
+    if (!name) {
       return;
     }
-
+    const iconSet = this.iconSet;
     // Clear icon
     this.innerHTML = "";
     // Useful for customizing size in css
-    if (this.hasAttribute("size")) {
-      this.setSize(this.getAttribute("size"));
+    const size = this.getAttribute("size");
+    if (size) {
+      this.setSize(size);
     }
     refreshIcon(this, name, iconSet, this.type);
   }

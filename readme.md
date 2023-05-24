@@ -126,7 +126,7 @@ All available options:
 | Phosphor          | phosphor    | ph    |   6   |   x    | 6200+ | [phosphor](https://phosphoricons.com/)                                   |
 | Super Tiny Icons  | supertiny   | st    |   1   |   x    | ?     | [supertiny](https://github.com/edent/SuperTinyIcons)                     |
 | Materials Symbols | symbols     | ms    |   3   |   v    | 2500+ | [material symbols](https://fonts.google.com/icons)                       |
-| Tabler Icons      | tabler      | tb    |   1   |   v    | 4000+ | [tabler](https://tabler-icons.io/)                                       |
+| Tabler Icons      | tabler      | ti    |   1   |   v    | 4000+ | [tabler](https://tabler-icons.io/)                                       |
 
 ---
 
@@ -138,7 +138,7 @@ You can update any option for an icon set
 | --------------- | ------------------------------------------ | --------------------------------------------------- |
 | alias           | <code>String</code>                        | Short two letters alias                             |
 | svgPath         | <code>function</code>                      | The SVG path                                        |
-| [fixFill]       | <code>Boolean</code>                       | Does this set needs fixing `fill:currentColor`?      |
+| [fixFill]       | <code>Boolean</code>                       | Does this set needs fixing `fill:currentColor`?     |
 | [useStroke]     | <code>String</code>                        | Add stroke to svg                                   |
 | [defaultStroke] | <code>String</code>                        | Default stroke to use (if supports stroke)          |
 | [defaultType]   | <code>String</code>                        | Default type to use (when there are multiple types) |
