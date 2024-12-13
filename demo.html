@@ -174,23 +174,6 @@
     <button><l-i name="github" set="bs"></l-i> Github</button>
 
     <h2>
-      Box Icons
-      <a href="https://boxicons.com/" target="_blank">
-        <l-i name="external-link" set="tb"></l-i>
-      </a>
-    </h2>
-    <p>Use <code>set="boxicons"</code> or <code>set="bx"</code></p>
-    <l-i name="star" set="bx"></l-i>
-    <p>You can specify the following types: <code>solid</code>, <code>regular</code>, <code>logos</code></p>
-    <l-i name="star" set="bx" type="solid"></l-i>
-    <l-i name="star" set="bx" type="regular"></l-i>
-    <l-i name="coffee-bean" set="bx" type="solid"></l-i>
-    <l-i name="github" set="bx" type="logos"></l-i>
-    <l-i name="color" set="bx" type="solid" size="24"></l-i>
-    <l-i name="cheese" set="bx" type="solid" size="36"></l-i>
-    <button><l-i name="github" set="bx" type="logos"></l-i> Github</button>
-
-    <h2>
       Tabler Icons
       <a href="https://tablericons.com/" target="_blank">
         <l-i name="external-link" set="tb"></l-i>
@@ -279,36 +262,6 @@
     <l-i name="star" set="ms" size="24" class="dark" disabled></l-i>
 
     <h2>
-      Css.gg Icons
-      <a href="https://css.gg/" target="_blank">
-        <l-i name="external-link" set="tb"></l-i>
-      </a>
-    </h2>
-    <p>Use <code>set="cssgg"</code> or <code>set="gg"</code></p>
-    <l-i name="add" set="gg"></l-i>
-    <l-i name="alarm" set="gg"></l-i>
-    <button><l-i name="alarm" set="gg"></l-i> Github</button>
-
-    <h2>
-      Font Awesome Icons
-      <a href="https://fontawesome.com/cheatsheet" target="_blank">
-        <l-i name="external-link" set="tb"></l-i>
-      </a>
-    </h2>
-    <p>Use <code>set="fontawesome"</code> or <code>set="fa"</code></p>
-    <l-i name="star" set="fa"></l-i>
-    <button><l-i name="star" set="fa"></l-i> Github</button>
-
-    <h2>
-      Bytesized
-      <a href="https://github.com/danklammer/bytesize-icons" target="_blank">
-        <l-i name="external-link" set="tb"></l-i>
-      </a>
-    </h2>
-    <p>Use <code>set="bytesized"</code> or <code>set="by"</code></p>
-    <l-i name="alert" set="by"></l-i>
-    <l-i name="camera" set="by"></l-i>
-    <h2>
       Super Tiny Icons
       <a href="https://github.com/edent/SuperTinyIcons" target="_blank">
         <l-i name="external-link" set="tb"></l-i>
@@ -355,21 +308,6 @@
     <button><l-i name="doc-star" set="in"></l-i> Star this document</button>
 
     <h2>
-      EOS
-      <a href="https://eos-icons.com/" target="_blank">
-        <l-i name="external-link" set="tb"></l-i>
-      </a>
-    </h2>
-    <p>Use <code>set="eos"</code> or <code>set="eo"</code></p>
-    <p>You can specify the following types: <code>solid</code>, <code>outlined</code>, <code>animated</code></p>
-    <p><em>Note: we use an alternative provider as the original repository structure is not very consistent</em></p>
-    <l-i name="abstract" set="eo"></l-i>
-    <l-i name="abstract" set="eo" type="outlined"></l-i>
-    <l-i name="three_dots_loading" set="eo" type="animated"></l-i>
-    <l-i name="typing" set="eo" type="animated"></l-i>
-    <button><l-i name="add_task" set="eo"></l-i> Add task</button>
-
-    <h2>
       Feather
       <a href="https://feathericons.com/" target="_blank">
         <l-i name="external-link" set="tb"></l-i>
@@ -404,14 +342,13 @@
     <p>Use <code>set="iconpark"</code> or <code>set="ip"</code></p>
     <p>You can also set various widths using <code>stroke</code> attribute !</p>
     <p>You can set 4 themes (outline, filled, two-tone, multi-color): these need to be set in CSS.</p>
-    <p><em>TODO: consider merging all the icons in one folder to avoid setting the type like what I did for eos icons</em></p>
     <l-i name="bookmark" set="ip" size="32" type="Base" stroke="4" theme="multi-color"></l-i>
     <l-i name="bookmark" set="ip" size="32" type="Base" theme="multi-color"></l-i>
-    <l-i name="email-security" set="ip" size="32" type="Base" theme="multi-color"></l-i>
+    <l-i name="email-security" set="ip" size="32" type="Office" theme="multi-color"></l-i>
     <l-i name="camera" set="ip" size="32" type="Base" theme="multi-color"></l-i>
     <l-i name="bookmark" set="ip" size="32" type="Base" stroke="4" theme="two-tone"></l-i>
     <l-i name="bookmark" set="ip" size="32" type="Base" theme="two-tone"></l-i>
-    <l-i name="email-security" set="ip" size="32" type="Base" theme="two-tone"></l-i>
+    <l-i name="email-security" set="ip" size="32" type="Office" theme="two-tone"></l-i>
     <l-i name="camera" set="ip" size="32" type="Base" theme="two-tone"></l-i>
     <button style="background: none; color: var(--color-text)">
       <l-i name="bookmark" set="ip" size="32" type="Base" theme="filled"></l-i> Add bookmark
@@ -505,7 +442,7 @@ customElements.whenDefined("l-i").then(() => {
   </main>
   <footer>
     <hr />
-    Made with <l-i name="heart" set="em"></l-i> in <l-i name="be" set="fl"></l-i> by <a href="https://www.lekoala.be">LeKoala</a>
+    Made with <span style="color:#F31830">♥</span> in <l-i name="be" set="fl"></l-i> by <a href="https://www.lekoala.be">LeKoala</a>
   </footer>
 </body>
 

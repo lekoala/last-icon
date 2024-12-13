@@ -98,7 +98,7 @@ customElements.whenDefined("l-i").then(() => {
 All available options:
 
 | Name        | Type                                        | Description                                   |
-| ----------- | ------------------------------------------- | --------------------------------------------- |
+|-------------|---------------------------------------------|-----------------------------------------------|
 | debug       | <code>Boolean</code>                        | Should we output messages to console          |
 | lazy        | <code>Boolean</code>                        | Load icons lazily                             |
 | replaceName | <code>Object</code>                         | Transparently replace icons with other values |
@@ -109,24 +109,18 @@ All available options:
 ## Supported icon sets
 
 | Icon Set          | Name        | Alias | Types | Stroke | Count | Website                                                                  |
-| ----------------- | ----------- | ----- | :---: | :----: | :---- | ------------------------------------------------------------------------ |
+|-------------------|-------------|-------|:-----:|:------:|:------|--------------------------------------------------------------------------|
 | Bootstrap Icons   | bootstrap   | bs    |   1   |   x    | 1800+ | [bootstrap](https://icons.getbootstrap.com/)                             |
-| Boxicons          | boxicons    | bx    |   3   |   x    | 1600+ | [boxicons](https://boxicons.com/)                                        |
-| Bytesized Icons   | bytesize    | by    |   1   |   v    | 101   | [bytesize](https://github.com/danklammer/bytesize-icons)                 |
-| Css.gg            | cssgg       | gg    |   1   |   x    | 700+  | [cssgg](https://css.gg/)                                                 |
-| Emoji             | emojicc     | em    |   1   |   x    | ?     | [emojicc](https://github.com/buildbreakdo/emoji-cc/)                     |
-| Eos Icons         | eos         | eo    |   3   |   x    | 1000+ | [eos](https://eos-icons.com/)                                            |
-| Feather           | feather     | ft    |   1   |   v    | 280+  | [feather](https://feathericons.com/)                                     |
-| Flags             | flags       | fl    |   1   |   x    | ?     | [flags](https://github.com/ducin/flag-svg-collection/)                   |
+| Flags             | flags       | fl    |   1   |   x    | ?     | [flags](https://github.com/lipis/flag-icons/)                   |
 | Fontawesome       | fontawesome | fa    |   5   |   x    | 1600+ | [fontawesome](https://fontawesome.com/cheatsheet)                        |
-| Iconoir           | iconoir     | in    |   1   |   x    | 1300+ | [iconoir](https://iconoir.com/)                                          |
+| Iconoir           | iconoir     | in    |   1   |   x    | 1600+ | [iconoir](https://iconoir.com/)                                          |
 | IconPark          | iconpark    | ip    |   4   |   v    | 2400+ | [iconpark](https://iconpark.oceanengine.com/official)                    |
 | Lucide            | lucide      | lu    |   1   |   v    | 1800+ | [lucide](https://lucide.dev/)                                            |
 | Materials Icons   | material    | mi    |   5   |   x    | 1100+ | [material icons](https://fonts.google.com/icons?selected=Material+Icons) |
-| Phosphor          | phosphor    | ph    |   6   |   x    | 6200+ | [phosphor](https://phosphoricons.com/)                                   |
-| Super Tiny Icons  | supertiny   | st    |   1   |   x    | ?     | [supertiny](https://github.com/edent/SuperTinyIcons)                     |
+| Phosphor          | phosphor    | ph    |   6   |   x    | 9000+ | [phosphor](https://phosphoricons.com/)                                   |
+| Super Tiny Icons  | supertiny   | st    |   1   |   x    | 386   | [supertiny](https://github.com/edent/SuperTinyIcons)                     |
 | Materials Symbols | symbols     | ms    |   3   |   v    | 2500+ | [material symbols](https://fonts.google.com/icons)                       |
-| Tabler Icons      | tabler      | ti    |   1   |   v    | 4000+ | [tabler](https://tabler-icons.io/)                                       |
+| Tabler Icons      | tabler      | ti    |   1   |   v    | 5700+ | [tabler](https://tabler-icons.io/)                                       |
 
 ---
 
@@ -135,7 +129,7 @@ All available options:
 You can update any option for an icon set
 
 | Name            | Type                                       | Description                                         |
-| --------------- | ------------------------------------------ | --------------------------------------------------- |
+|-----------------|--------------------------------------------|-----------------------------------------------------|
 | alias           | <code>String</code>                        | Short two letters alias                             |
 | svgPath         | <code>function</code>                      | The SVG path                                        |
 | [fixFill]       | <code>Boolean</code>                       | Does this set needs fixing `fill:currentColor`?     |

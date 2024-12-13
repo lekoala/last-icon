@@ -5,7 +5,7 @@
   "main": "last-icon.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "esbuild --bundle --minify --format=iife --sourcemap last-icon.js --outfile=last-icon.min.js",
+    "build": "esbuild --bundle --minify --format=iife last-icon.js --outfile=last-icon.min.js",
     "build-min": "npm run build && git add -A && git commit -m \"build files\"",
     "start": "npm run build -- --servedir=.",
     "watch": "npm run build -- --watch",
